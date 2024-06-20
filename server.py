@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from audio import play_audio
 import logging
+import threading
 
 # Configure logging
 logging.basicConfig(
@@ -10,28 +11,70 @@ logging.basicConfig(
 app = Flask(__name__)
 
 
+def play_sound(
+    file_path, gain_db, trim_start, trim_end, fade_duration, crossfade_duration
+):
+    try:
+        play_audio(
+            file_path, gain_db, trim_start, trim_end, fade_duration, crossfade_duration
+        )
+    except RuntimeError as e:
+        logging.error(f"Error playing {file_path}: {e}")
+
+
 @app.route("/play", methods=["POST"])
 def play():
     config = request.json
-    file_path = config.get("file_path")
-    gain_db = config.get("gain_db", 0)  # Default gain to 0 if not provided
-    trim_start = config.get("trim_start", 0)  # Default trim_start to 0 if not provided
-    trim_end = config.get("trim_end", 0)  # Default trim_end to 0 if not provided
-    if not file_path:
-        return jsonify(status="error", message="file_path is required"), 400
+    sounds = config.get("sounds")
+    global_fade_duration = config.get(
+        "fade_duration", 5
+    )  # Global default fade duration
+    global_crossfade_duration = config.get(
+        "crossfade_duration", 10
+    )  # Global default crossfade duration
 
-    try:
-        play_audio(file_path, gain_db, trim_start, trim_end)
-        return jsonify(
-            status="success",
-            message="Playing",
-            file_path=file_path,
-            gain_db=gain_db,
-            trim_start=trim_start,
-            trim_end=trim_end,
+    if not sounds or not isinstance(sounds, list):
+        return jsonify(status="error", message="sounds array is required"), 400
+
+    threads = []
+    for sound in sounds:
+        file_path = sound.get("file_path")
+        gain_db = sound.get("gain_db", 0)  # Default gain to 0 if not provided
+        trim_start = sound.get(
+            "trim_start", 0
+        )  # Default trim_start to 0 if not provided
+        trim_end = sound.get("trim_end", 0)  # Default trim_end to 0 if not provided
+        fade_duration = sound.get(
+            "fade_duration", global_fade_duration
+        )  # Use individual or global fade_duration
+        crossfade_duration = sound.get(
+            "crossfade_duration", global_crossfade_duration
+        )  # Use individual or global crossfade_duration
+
+        if not file_path:
+            return (
+                jsonify(status="error", message="file_path is required for each sound"),
+                400,
+            )
+
+        thread = threading.Thread(
+            target=play_sound,
+            args=(
+                file_path,
+                gain_db,
+                trim_start,
+                trim_end,
+                fade_duration,
+                crossfade_duration,
+            ),
         )
-    except RuntimeError as e:
-        return jsonify(status="error", message=str(e)), 500
+        threads.append(thread)
+        thread.start()
+
+    for thread in threads:
+        thread.join()
+
+    return jsonify(status="success", message="All sounds are playing")
 
 
 @app.route("/stop", methods=["POST"])

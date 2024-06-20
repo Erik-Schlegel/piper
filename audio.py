@@ -9,7 +9,25 @@ logging.basicConfig(
 )
 
 
-def play_audio(file, gain_db, trim_start=0, trim_end=0, crossfade_duration=10):
+def apply_fades_and_crossfade(audio_segment, fade_duration, crossfade_duration):
+    # Apply fade-in
+    audio_segment = audio_segment.fade_in(fade_duration)
+
+    # Apply crossfade to create a seamless loop
+    if crossfade_duration > 0:
+        crossfade_segment = (
+            audio_segment[-crossfade_duration:]
+            .fade_out(crossfade_duration)
+            .overlay(audio_segment[:crossfade_duration].fade_in(crossfade_duration))
+        )
+        audio_segment = audio_segment[:-crossfade_duration] + crossfade_segment
+
+    return audio_segment
+
+
+def play_audio(
+    file, gain_db, trim_start=0, trim_end=0, fade_duration=10, crossfade_duration=10
+):
     try:
         logging.info(f"Loading audio file: {file}")
         audio_segment = AudioSegment.from_file(file)
@@ -26,15 +44,11 @@ def play_audio(file, gain_db, trim_start=0, trim_end=0, crossfade_duration=10):
             f"Trimmed audio segment: trim_start={trim_start}ms, trim_end={trim_end}ms"
         )
 
-        # Apply crossfade to make loop seamless
-        if crossfade_duration > 0:
-            audio_segment = audio_segment.append(
-                audio_segment, crossfade=crossfade_duration
-            )
-            audio_segment = audio_segment[
-                : duration - trim_start - trim_end
-            ]  # Ensure correct length
-            logging.debug(f"Applied crossfade of {crossfade_duration}ms")
+        # Apply fades and crossfade
+        audio_segment = apply_fades_and_crossfade(
+            audio_segment, fade_duration, crossfade_duration
+        )
+        logging.debug(f"Applied fade-in and crossfade of {crossfade_duration}ms")
 
         # Convert audio segment to numpy array
         audio_data = np.array(audio_segment.get_array_of_samples()).reshape(
@@ -97,6 +111,9 @@ if __name__ == "__main__":
         help="Milliseconds to trim from the end of the audio",
     )
     parser.add_argument(
+        "--fade_duration", type=int, default=10, help="Milliseconds to apply fade-in"
+    )
+    parser.add_argument(
         "--crossfade_duration",
         type=int,
         default=10,
@@ -105,5 +122,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     play_audio(
-        args.file, args.gain_db, args.trim_start, args.trim_end, args.crossfade_duration
+        args.file,
+        args.gain_db,
+        args.trim_start,
+        args.trim_end,
+        args.fade_duration,
+        args.crossfade_duration,
     )
