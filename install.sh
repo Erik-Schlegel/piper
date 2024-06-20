@@ -11,7 +11,7 @@ source ./venv/bin/activate
 pip install -r ./requirements.txt
 
 # Install node and npm by way of nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-source ~/.bashrc
-nvm install node
-cd server && npm i && cd ..
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+# source ~/.bashrc
+# nvm install node
+# cd server && npm i && cd ..
