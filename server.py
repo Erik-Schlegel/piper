@@ -10,13 +10,24 @@ logging.basicConfig(
 
 app = Flask(__name__)
 
+# Global dictionary to keep track of threads and stop events
+audio_threads = {}
+stop_events = {}
+
 
 def play_sound(
     file_path, gain_db, trim_start, trim_end, fade_duration, crossfade_duration
 ):
+    stop_event = stop_events[file_path]
     try:
         play_audio(
-            file_path, gain_db, trim_start, trim_end, fade_duration, crossfade_duration
+            file_path,
+            gain_db,
+            trim_start,
+            trim_end,
+            fade_duration,
+            crossfade_duration,
+            stop_event,
         )
     except RuntimeError as e:
         logging.error(f"Error playing {file_path}: {e}")
@@ -36,7 +47,6 @@ def play():
     if not sounds or not isinstance(sounds, list):
         return jsonify(status="error", message="sounds array is required"), 400
 
-    threads = []
     for sound in sounds:
         file_path = sound.get("file_path")
         gain_db = sound.get("gain_db", 0)  # Default gain to 0 if not provided
@@ -57,6 +67,8 @@ def play():
                 400,
             )
 
+        stop_event = threading.Event()
+        stop_events[file_path] = stop_event
         thread = threading.Thread(
             target=play_sound,
             args=(
@@ -68,19 +80,38 @@ def play():
                 crossfade_duration,
             ),
         )
-        threads.append(thread)
+        audio_threads[file_path] = thread
         thread.start()
-
-    for thread in threads:
-        thread.join()
 
     return jsonify(status="success", message="All sounds are playing")
 
 
 @app.route("/stop", methods=["POST"])
 def stop():
-    # Placeholder for stop functionality
-    return jsonify(status="success", message="Stop command received")
+    sound_paths = request.json.get("sound_paths")
+
+    if sound_paths:
+        if not isinstance(sound_paths, list):
+            return jsonify(status="error", message="sound_paths must be a list"), 400
+
+        for file_path in sound_paths:
+            if file_path in stop_events:
+                stop_events[file_path].set()
+                audio_threads[file_path].join()
+                del stop_events[file_path]
+                del audio_threads[file_path]
+
+        return jsonify(status="success", message="Specified sounds stopped")
+
+    else:
+        # Stop all sounds
+        for file_path in list(stop_events.keys()):
+            stop_events[file_path].set()
+            audio_threads[file_path].join()
+            del stop_events[file_path]
+            del audio_threads[file_path]
+
+        return jsonify(status="success", message="All sounds stopped")
 
 
 @app.route("/ping", methods=["GET"])

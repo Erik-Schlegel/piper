@@ -3,6 +3,13 @@ content-type: application/json
 
 ###
 
+POST http://192.168.1.21:3000/stop HTTP/1.1
+content-type: application/json
+
+{}
+
+###
+
 POST http://192.168.1.21:3000/play HTTP/1.1
 content-type: application/json
 

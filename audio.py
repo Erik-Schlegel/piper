@@ -2,6 +2,7 @@ import sounddevice as sd
 from pydub import AudioSegment
 import logging
 import numpy as np
+import threading
 
 # Configure logging
 logging.basicConfig(
@@ -26,7 +27,13 @@ def apply_fades_and_crossfade(audio_segment, fade_duration, crossfade_duration):
 
 
 def play_audio(
-    file, gain_db, trim_start=0, trim_end=0, fade_duration=10, crossfade_duration=10
+    file,
+    gain_db,
+    trim_start=0,
+    trim_end=0,
+    fade_duration=10,
+    crossfade_duration=10,
+    stop_event=None,
 ):
     try:
         logging.info(f"Loading audio file: {file}")
@@ -74,6 +81,9 @@ def play_audio(
                 outdata[:] = audio_data[start:end]
                 callback.counter += frames
 
+            if stop_event is not None and stop_event.is_set():
+                raise sd.CallbackStop
+
         callback.counter = 0
 
         with sd.OutputStream(
@@ -83,7 +93,7 @@ def play_audio(
             blocksize=4096,
         ) as stream:
             logging.info("Audio playback started")
-            while callback.counter < len(audio_data):
+            while not (stop_event and stop_event.is_set()):
                 sd.sleep(100)
             logging.info("Playback finished")
     except Exception as e:
@@ -113,7 +123,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--fade_duration", type=int, default=10, help="Milliseconds to apply fade-in"
     )
-    parser.add_argument(
+    parser.add.argument(
         "--crossfade_duration",
         type=int,
         default=10,
@@ -121,6 +131,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
+    stop_event = threading.Event()
     play_audio(
         args.file,
         args.gain_db,
@@ -128,4 +139,5 @@ if __name__ == "__main__":
         args.trim_end,
         args.fade_duration,
         args.crossfade_duration,
+        stop_event,
     )
