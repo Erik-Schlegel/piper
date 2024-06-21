@@ -1,15 +1,10 @@
-GET http://192.168.1.21:3000/ping HTTP/1.1
-content-type: application/json
-
 ###
-
 POST http://192.168.1.21:3000/stop HTTP/1.1
 content-type: application/json
 
 {}
 
 ###
-
 POST http://192.168.1.21:3000/play HTTP/1.1
 content-type: application/json
 
@@ -19,10 +14,25 @@ content-type: application/json
     "sounds": [
         {
             "file_path": "./stages/calibration/res/5b.ogg",
-            "gain_db": -90,
+            "gain_db": -80,
             "trim_start": 2500,
             "trim_end": 2500
         },
+        {
+            "file_path": "./stages/calibration/res/7b.ogg",
+            "gain_db": -80,
+            "trim_start": 2500,
+            "trim_end": 2500
+        }
+    ]
+}
+
+###
+POST http://192.168.1.21:3000/update HTTP/1.1
+content-type: application/json
+
+{
+    "sounds": [
         {
             "file_path": "./stages/calibration/res/7b.ogg",
             "gain_db": -90,
@@ -31,3 +41,8 @@ content-type: application/json
         }
     ]
 }
+
+
+###
+GET http://192.168.1.21:3000/ping HTTP/1.1
+content-type: application/json

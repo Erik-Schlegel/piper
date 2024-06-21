@@ -114,6 +114,34 @@ def stop():
         return jsonify(status="success", message="All sounds stopped")
 
 
+@app.route("/update", methods=["POST"])
+def update():
+    data = request.json
+    sounds = data.get("sounds")
+
+    if not sounds:
+        return jsonify(status="error", message="No sounds provided"), 400
+
+    for sound in sounds:
+        file_path = sound.get("file_path")
+        gain_db = sound.get("gain_db")
+
+        if not file_path or gain_db is None:
+            return (
+                jsonify(
+                    status="error",
+                    message="file_path and gain_db are required for each sound",
+                ),
+                400,
+            )
+
+        # Update the gain for the playing audio
+        # update_audio_gain(file_path, gain_db)
+        app.logger.info(f"Received update for {file_path} with gain_db={gain_db}")
+
+    return jsonify(status="success", message="Sounds update received")
+
+
 @app.route("/ping", methods=["GET"])
 def ping():
     return jsonify(status="success", message="pong")

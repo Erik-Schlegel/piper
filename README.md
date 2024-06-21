@@ -12,3 +12,10 @@ Pi based audio player geared towards providing uninterrupted audio ambience. Loo
   ```sh
   sudo ./install.sh
   ```
+
+  ## Controlling audio
+
+  ### Change volume settings
+  ```sh
+  alsamixer
+  ```
