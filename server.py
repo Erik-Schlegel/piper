@@ -10,7 +10,7 @@ logging.basicConfig(
 
 app = Flask(__name__)
 
-# Global dictionary to keep track of threads and stop events
+# Global dictionaries to keep track of threads, events, and active data
 audio_threads = {}
 stop_events = {}
 
@@ -18,7 +18,6 @@ stop_events = {}
 def play_sound(
     file_path, gain_db, trim_start, trim_end, fade_duration, crossfade_duration
 ):
-    stop_event = stop_events[file_path]
     try:
         play_audio(
             file_path,
@@ -27,7 +26,7 @@ def play_sound(
             trim_end,
             fade_duration,
             crossfade_duration,
-            stop_event,
+            stop_events[file_path],
         )
     except RuntimeError as e:
         logging.error(f"Error playing {file_path}: {e}")
@@ -37,29 +36,17 @@ def play_sound(
 def play():
     config = request.json
     sounds = config.get("sounds")
-    global_fade_duration = config.get(
-        "fade_duration", 5
-    )  # Global default fade duration
-    global_crossfade_duration = config.get(
-        "crossfade_duration", 10
-    )  # Global default crossfade duration
+    global_fade_duration = config.get("fade_duration", 5)
 
+    # Global default fade duration
+    global_crossfade_duration = config.get("crossfade_duration", 10)
+
+    # Global default crossfade duration
     if not sounds or not isinstance(sounds, list):
         return jsonify(status="error", message="sounds array is required"), 400
 
     for sound in sounds:
         file_path = sound.get("file_path")
-        gain_db = sound.get("gain_db", 0)  # Default gain to 0 if not provided
-        trim_start = sound.get(
-            "trim_start", 0
-        )  # Default trim_start to 0 if not provided
-        trim_end = sound.get("trim_end", 0)  # Default trim_end to 0 if not provided
-        fade_duration = sound.get(
-            "fade_duration", global_fade_duration
-        )  # Use individual or global fade_duration
-        crossfade_duration = sound.get(
-            "crossfade_duration", global_crossfade_duration
-        )  # Use individual or global crossfade_duration
 
         if not file_path:
             return (
@@ -67,8 +54,12 @@ def play():
                 400,
             )
 
-        stop_event = threading.Event()
-        stop_events[file_path] = stop_event
+        gain_db = sound.get("gain_db", 0)
+        trim_start = sound.get("trim_start", 0)
+        trim_end = sound.get("trim_end", 0)
+        fade_duration = sound.get("fade_duration", global_fade_duration)
+        crossfade_duration = sound.get("crossfade_duration", global_crossfade_duration)
+
         thread = threading.Thread(
             target=play_sound,
             args=(
@@ -81,6 +72,7 @@ def play():
             ),
         )
         audio_threads[file_path] = thread
+        stop_events[file_path] = threading.Event()
         thread.start()
 
     return jsonify(status="success", message="All sounds are playing")

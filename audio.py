@@ -2,7 +2,6 @@ import sounddevice as sd
 from pydub import AudioSegment
 import logging
 import numpy as np
-import threading
 
 # Configure logging
 logging.basicConfig(
@@ -36,31 +35,23 @@ def play_audio(
     stop_event=None,
 ):
     try:
-        logging.info(f"Loading audio file: {file}")
         audio_segment = AudioSegment.from_file(file)
         logging.debug("Audio file loaded successfully")
 
-        # Apply gain adjustment
         audio_segment += gain_db
-        logging.debug(f"Applied gain adjustment: {gain_db} dB")
 
-        # Trim audio segment
         duration = len(audio_segment)
         audio_segment = audio_segment[trim_start : duration - trim_end]
-        logging.debug(
-            f"Trimmed audio segment: trim_start={trim_start}ms, trim_end={trim_end}ms"
-        )
 
-        # Apply fades and crossfade
         audio_segment = apply_fades_and_crossfade(
             audio_segment, fade_duration, crossfade_duration
         )
-        logging.debug(f"Applied fade-in and crossfade of {crossfade_duration}ms")
 
         # Convert audio segment to numpy array
         audio_data = np.array(audio_segment.get_array_of_samples()).reshape(
             (-1, audio_segment.channels)
         ).astype(np.float32) / (1 << 15)
+
         frame_rate = audio_segment.frame_rate
         num_channels = audio_segment.channels
 
@@ -69,6 +60,7 @@ def play_audio(
         def callback(outdata, frames, time, status):
             if status:
                 logging.warning(status)
+
             start = callback.counter
             end = start + frames
             if end >= len(audio_data):
