@@ -1,0 +1,52 @@
+{
+	"scenes": [
+		{
+			"name": "WinterCabin",
+			"layers": [
+				{
+					"style": "simultaneous",
+					"loop": true,
+					"options": {
+						"volume": 1,
+						"fade": {
+							"inMilliseconds": 0,
+							"outMilliseconds": 0,
+							"fromVolume": 0,
+							"toVolume": 0
+						},
+						"reverb": {
+							"amount": 0.0
+						},
+						"equalizer": [
+							{
+								"frequency": 123,
+								"gain": 1,
+								"width": 100
+							}
+						]
+					},
+					"files": [
+						{
+							"path": "test.mp3",
+							"options": "override any or all of the options here"
+						}
+					]
+				},
+				{
+					"style": "order",
+					"loop": false,
+					"files": [
+					],
+					"maxIntermission": 0
+				},
+				{
+					"style": "shuffle",
+					"looped": false,
+					"files": [
+					],
+					"maxIntermission": 0
+				}
+			]
+		}
+	]
+}
