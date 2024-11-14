@@ -2,10 +2,9 @@ from config_helper import ConfigHelper
 import subprocess
 import signal
 import sys
-
+import time
 
 subprocesses = []
-
 
 def main():
     try:
@@ -13,24 +12,23 @@ def main():
         proc = subprocess.Popen(['play', path])
         subprocesses.append(proc)
 
-        # Wait for all subprocesses to finish
-        for proc in subprocesses:
-            proc.wait()
+        while True:
+            # Keep the main function running to handle signals
+            time.sleep(1)
 
     except Exception as e:
-        print(e)
         terminate_subprocesses()
 
 
 def terminate_subprocesses():
     for proc in subprocesses:
         proc.terminate()
-    sys.exit(0)
+        proc.wait() # w/o waiting the app doesn't fully close on quit
 
 
 def signal_handler(sig, frame):
-    print('Terminating...')
     terminate_subprocesses()
+    sys.exit(0)
 
 
 signal.signal(signal.SIGINT, signal_handler)
