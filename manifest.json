@@ -27,8 +27,10 @@
 					},
 					"files": [
 						{
-							"path": "test.mp3",
-							"options": "override any or all of the options here"
+							"path": "BlackRainfall.mp3",
+							"options": {
+								"volume": 0.5
+							}
 						}
 					]
 				},

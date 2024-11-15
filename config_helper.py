@@ -1,4 +1,5 @@
 import json
+from dictionary_utils import deep_merge
 
 class ConfigHelper:
 
@@ -28,6 +29,7 @@ class ConfigHelper:
                 return scene['layers']
         return None
 
+
     @classmethod
     def get_scene_files(cls, scene_name):
         config = cls.load_config()
@@ -35,3 +37,10 @@ class ConfigHelper:
             if scene['name'] == scene_name:
                 return scene['layers'][0]['files']
         return None
+
+
+    @classmethod
+    def get_merged_file_options(cls, scene_name):
+        layer = cls.get_scene_layers(scene_name)[0]
+        options = deep_merge(layer['options'], layer['files'][0]['options'])
+        return options

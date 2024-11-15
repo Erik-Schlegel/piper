@@ -7,16 +7,18 @@ import time
 subprocesses = []
 
 def main():
+
     try:
         path = ConfigHelper.get_scene_files('WinterCabin')[0]['path']
-        proc = subprocess.Popen(['play', path])
-        subprocesses.append(proc)
+        print(ConfigHelper.get_merged_file_options('WinterCabin'))
+        subprocesses.append(subprocess.Popen(['play', 'resources/BlackRainfall_final.wav', 'vol', '1', 'repeat', '2']))
 
         while True:
             # Keep the main function running to handle signals
             time.sleep(1)
 
     except Exception as e:
+        print(f"An error occurred: {e}")
         terminate_subprocesses()
 
 
