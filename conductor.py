@@ -37,8 +37,7 @@ class Conductor:
         def play_and_repeat():
             while True:
                 track_duration = Audio.get_duration(file_path)
-                proc = Audio.play_file(file_path, self.cross_fade_duration)
-                self.subprocesses.append(proc)
+                self.register_proc(Audio.play_file(file_path, self.cross_fade_duration))
                 if track_duration is not None:
                     time.sleep(track_duration - self.cross_fade_duration)
                 else:
@@ -46,7 +45,7 @@ class Conductor:
 
         try:
             if not should_loop_indefinitely:
-                self.subprocesses.append(Audio.play_file(file_path))
+                self.register_proc(Audio.play_file(file_path))
             else:
                 thread = threading.Thread(target=play_and_repeat)
                 thread.daemon = True  # This ensures the thread will exit when the main program exits
@@ -54,3 +53,13 @@ class Conductor:
         except Exception as e:
             print(f"An error occurred: {e}")
             return
+
+
+    def register_proc(self, proc):
+        self.cleanup_subprocesses()
+        self.subprocesses.append(proc)
+        print(len(self.subprocesses))
+
+
+    def cleanup_procs(self):
+        self.subprocesses = [proc for proc in self.subprocesses if proc.poll() is None]
