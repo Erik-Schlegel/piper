@@ -1,40 +1,38 @@
-from config_helper import ConfigHelper
-import subprocess
-import signal
-import sys
-import time
 
-subprocesses = []
+import sys
+import signal
+
+from conductor import Conductor
+
+
+audio_conductor = None
+
 
 def main():
-
+    global audio_conductor
     try:
-        path = ConfigHelper.get_scene_files('WinterCabin')[0]['path']
-        print(ConfigHelper.get_merged_file_options('WinterCabin'))
-        subprocesses.append(subprocess.Popen(['play', 'resources/BlackRainfall_final.wav', 'vol', '1', 'repeat', '2']))
-
-        while True:
-            # Keep the main function running to handle signals
-            time.sleep(1)
+        add_event_handlers()
+        audio_conductor = Conductor('WinterCabin')
+        audio_conductor.start()
 
     except Exception as e:
-        print(f"An error occurred: {e}")
-        terminate_subprocesses()
+        exit(f"An error occurred: {e}")
 
 
-def terminate_subprocesses():
-    for proc in subprocesses:
-        proc.terminate()
-        proc.wait() # w/o waiting the app doesn't fully close on quit
-
-
-def signal_handler(sig, frame):
-    terminate_subprocesses()
+def exit(message='Exiting...'):
+    if audio_conductor:
+        audio_conductor.stop()
+    print(message)
     sys.exit(0)
 
 
-signal.signal(signal.SIGINT, signal_handler)
-signal.signal(signal.SIGTERM, signal_handler)
+def signal_handler(sig, frame):
+    exit()
+
+
+def add_event_handlers():
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
 
 
 if __name__ == "__main__":

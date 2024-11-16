@@ -27,7 +27,7 @@
 					},
 					"files": [
 						{
-							"path": "BlackRainfall.mp3",
+							"path": "resources/BR_30.wav",
 							"options": {
 								"volume": 0.5
 							}
