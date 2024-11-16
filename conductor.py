@@ -6,10 +6,9 @@ from config_helper import ConfigHelper
 
 class Conductor:
 
-    subprocesses = []
-    scene_data = None
-    path = None
-    cross_fade_duration = .25
+    _subprocesses = []
+    _path = None
+    _CROSS_FADE_DURATION = .25
 
 
     def __init__(self, scene_name):
@@ -18,17 +17,17 @@ class Conductor:
 
     def load_scene(self, scene_name):
         # print(ConfigHelper.get_merged_file_options('WinterCabin'))
-        self.path = ConfigHelper.get_scene_files(scene_name)[0]['path']
+        self._path = ConfigHelper.get_scene_files(scene_name)[0]['path']
 
 
     def start(self):
-        self.add_track(self.path, True)
+        self.add_track(self._path, True)
         while True:
           time.sleep(1) # sleep for 1 second
 
 
     def stop(self):
-        for proc in self.subprocesses:
+        for proc in self._subprocesses:
             proc.terminate()
             proc.wait() # w/o waiting the app doesn't fully close on quit
 
@@ -37,9 +36,9 @@ class Conductor:
         def play_and_repeat():
             while True:
                 track_duration = Audio.get_duration(file_path)
-                self.register_proc(Audio.play_file(file_path, self.cross_fade_duration))
+                self.register_proc(Audio.play_file(file_path, self._CROSS_FADE_DURATION))
                 if track_duration is not None:
-                    time.sleep(track_duration - self.cross_fade_duration)
+                    time.sleep(track_duration - self._CROSS_FADE_DURATION)
                 else:
                     break
 
@@ -56,10 +55,10 @@ class Conductor:
 
 
     def register_proc(self, proc):
-        self.cleanup_subprocesses()
-        self.subprocesses.append(proc)
-        print(len(self.subprocesses))
+        self.cleanup_procs()
+        self._subprocesses.append(proc)
+        print(len(self._subprocesses))
 
 
     def cleanup_procs(self):
-        self.subprocesses = [proc for proc in self.subprocesses if proc.poll() is None]
+        self._subprocesses = [proc for proc in self._subprocesses if proc.poll() is None]
