@@ -31,12 +31,15 @@ class ConfigHelper:
 
 
     @classmethod
-    def get_scene_files(cls, scene_name):
-        config = cls.load_config()
-        for scene in config['scenes']:
-            if scene['name'] == scene_name:
-                return scene['layers'][0]['files']
-        return None
+    def get_scene_tracks_by_type(cls, scene_name, type):
+
+        simultaneous_layer = cls.get_scene_layers(scene_name)[type]
+
+        for track in simultaneous_layer['tracks']:
+            # make clone of track[options]
+            clone = dict(simultaneous_layer['options'])
+            track['options'] = deep_merge(clone, track['options'])
+        return simultaneous_layer['tracks']
 
 
     @classmethod

@@ -1,6 +1,7 @@
 
 import sys
 import signal
+import time
 
 from conductor import Conductor
 
@@ -14,6 +15,8 @@ def main():
         add_event_handlers()
         audio_conductor = Conductor('WinterCabin')
         audio_conductor.start()
+        while True:
+          time.sleep(1) # sleep for 1 second
 
     except Exception as e:
         exit(f"An error occurred: {e}")
