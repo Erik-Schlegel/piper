@@ -6,13 +6,15 @@
 				"simultaneous": {
 					"tracks": [
 						{
-							"path": "resources/BR_30.wav",
-							"options": {}
+							"path": "resources/BlackRainfall_30.wav",
+							"options": {
+								"volume": 0.65
+							}
 						},
 						{
 							"path": "resources/test.mp3",
 							"options": {
-								"volume": 0.5
+								"volume": 0.25
 							}
 						}
 

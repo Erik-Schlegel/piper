@@ -1,4 +1,5 @@
 import subprocess
+import time
 
 class Audio:
 
@@ -11,11 +12,16 @@ class Audio:
             play_command = ['play', track['path']]
             play_command.extend(Audio.get_prepared_command_options(track))
 
-            return subprocess.Popen(
+            # print the current time in hh:mm:ss format
+            print(f"Playing {track['path']} at {time.strftime('%H:%M:%S', time.localtime())}")
+
+            proc = subprocess.Popen(
                 play_command,
                 stdout=None if Audio._LOG_VERBOSE else subprocess.DEVNULL,
                 stderr=None if Audio._LOG_VERBOSE else subprocess.DEVNULL
             )
+
+            return proc
 
         except Exception as e:
             print(f"An error occurred: {e}")
