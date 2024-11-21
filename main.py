@@ -8,6 +8,7 @@ import sys
 from pydub import AudioSegment
 import sounddevice as sd
 
+
 processes = []
 
 
@@ -49,7 +50,6 @@ def load_as_numpy(file_path, queue):
         samples = samples.reshape(-1, 2)
     samples = samples / (2 ** (8 * audio_segment.sample_width - 1)) #normalize for sounddevice
     queue.put(samples)
-    print(audio_segment.frame_rate)
 
 
 def begin_playback(queue):
