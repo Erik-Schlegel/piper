@@ -13,12 +13,12 @@ processes = []
 
 
 def main():
+
     add_signal_handlers()
     file_queue = thread_load_files([
         'resources/clock_short.wav',
         'resources/fire_short.wav',
-        'resources/milky_noise_short.wav',
-        'resources/BlackRainfall_final.wav',
+        'resources/snow_short.wav'
     ])
     begin_playback(file_queue)
 
@@ -48,7 +48,8 @@ def load_as_numpy(file_path, queue):
     samples = np.array(audio_segment.get_array_of_samples())
     if audio_segment.channels == 2:
         samples = samples.reshape(-1, 2)
-    samples = samples / (2 ** (8 * audio_segment.sample_width - 1)) #normalize for sounddevice
+    samples = samples / (2 ** (8 * audio_segment.sample_width - 1))  # Normalize for sounddevice
+    samples = samples.astype(np.float32)  # Convert to float32
     queue.put(samples)
 
 
@@ -73,8 +74,12 @@ def play_audio(samples):
         signal.signal(signal.SIGINT, signal.SIG_DFL)
         signal.signal(signal.SIGTERM, signal.SIG_DFL)
 
-        sd.play(samples, blocking=True)
-    except KeyboardInterrupt:
+        # Use OutputStream to avoid issues with playback.
+        with sd.OutputStream(samplerate=41000, channels=samples.shape[1] if samples.ndim > 1 else 1) as stream:
+            stream.write(samples)
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+    finally:
         sd.stop()
 
 
@@ -94,6 +99,7 @@ def signal_handler(sig, frame):
 
 if __name__ == "__main__":
     try:
+        multiprocessing.set_start_method('spawn')
         main()
     except KeyboardInterrupt:
         signal_handler(signal.SIGINT, None)

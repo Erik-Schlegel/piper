@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Install System-Level Dependencies
-sudo apt install -y sox libsox-fmt-mp3
+sudo apt install -y sox libsox-fmt-mp3 alsa-utils
 
 #Create Virtual Environment and Install Req's
 python -m venv venv
