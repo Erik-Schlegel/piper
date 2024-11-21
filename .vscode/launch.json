@@ -7,9 +7,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/main.py",
             "console": "integratedTerminal",
-            "env": {
-                "PYTHONPATH": "${workspaceFolder}/venv/bin/python"
-            }
+            "pythonPath": "${workspaceFolder}/venv/bin/python"
         }
     ]
 }

@@ -1,42 +1,99 @@
-
-import sys
+import threading
+import multiprocessing
+from queue import Queue
+import numpy as np
 import signal
-import time
+import sys
 
-from conductor import Conductor
+from pydub import AudioSegment
+import sounddevice as sd
 
 
-audio_conductor = None
+processes = []
 
 
 def main():
-    global audio_conductor
+    add_signal_handlers()
+    file_queue = thread_load_files([
+        'resources/clock_short.wav',
+        'resources/fire_short.wav',
+        'resources/milky_noise_short.wav',
+        'resources/BlackRainfall_final.wav',
+    ])
+    begin_playback(file_queue)
+
+
+def thread_load_files(file_paths):
+    file_queue = Queue()
+    threads = []
+
     try:
-        add_event_handlers()
-        audio_conductor = Conductor('WinterCabin')
-        audio_conductor.start()
-        while True:
-          time.sleep(1) # sleep for 1 second
+        for file_path in file_paths:
+            # threads work well for disk io, and non-cpu bound tasks
+            thread = threading.Thread(target=load_as_numpy, args=(file_path, file_queue))
+            threads.append(thread)
+            thread.start()
+
+        for thread in threads:
+            thread.join()
+
+        return file_queue
 
     except Exception as e:
-        exit(f"An error occurred: {e}")
+        print(f'Error: {e}')
 
 
-def exit(message='Exiting...'):
-    if audio_conductor:
-        audio_conductor.stop()
-    print(message)
-    sys.exit(0)
+def load_as_numpy(file_path, queue):
+    audio_segment = AudioSegment.from_file(file_path)
+    samples = np.array(audio_segment.get_array_of_samples())
+    if audio_segment.channels == 2:
+        samples = samples.reshape(-1, 2)
+    samples = samples / (2 ** (8 * audio_segment.sample_width - 1)) #normalize for sounddevice
+    queue.put(samples)
 
 
-def signal_handler(sig, frame):
-    exit()
+def begin_playback(queue):
+    global processes
+
+    while not queue.empty():
+        audio_samples = queue.get()
+        # processes work well for cpu bound tasks, not for io bound tasks. Takes advantage of multiple cores
+        process = multiprocessing.Process(target=play_audio, args=(audio_samples,))
+        process.start()
+        processes.append(process)
+
+    for process in processes:
+        process.join()
 
 
-def add_event_handlers():
+def play_audio(samples):
+    try:
+        # overwrite the signal handlers for the child process.
+        # we want ONLY the parent process to handle signals
+        signal.signal(signal.SIGINT, signal.SIG_DFL)
+        signal.signal(signal.SIGTERM, signal.SIG_DFL)
+
+        sd.play(samples, blocking=True)
+    except KeyboardInterrupt:
+        sd.stop()
+
+
+def add_signal_handlers():
     signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
 
 
+def signal_handler(sig, frame):
+    for process in processes:
+        if process.is_alive():
+            process.terminate()
+            process.join()
+    sd.stop()
+    sys.exit(0)
+
+
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        signal_handler(signal.SIGINT, None)
