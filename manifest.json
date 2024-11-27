@@ -13,30 +13,31 @@
 							"amount": 0.0
 						}
 					},
-					"tracks": [
-						{
-							"path": "resources/snow_short.wav",
-							"options": {
-								"volume": 0.03
-							}
-						},
+					"backs": [
 						{
 							"path": "resources/wind_short.wav",
 							"options": {
 								"volume": 0.04
 							}
-						},
+						}
+					],
+					"tracks": [
 						{
-							"path": "resources/clock_short.wav",
+							"path": "resources/snow_short.wav",
 							"options": {
-								"volume": 0.1,
-								"vv": 0.09
+								"volume": 0.015
 							}
 						},
 						{
 							"path": "resources/fire_short.wav",
 							"options": {
-								"volume": 1.9
+								"volume": 1
+							}
+						},
+						{
+							"path": "resources/clock_short.wav",
+							"options": {
+								"volume": 0.025
 							}
 						}
 					]
