@@ -4,6 +4,7 @@ import multiprocessing
 
 from conductor import Conductor
 
+
 audio_conductor = None
 
 
@@ -18,7 +19,7 @@ def add_signal_handlers():
     signal.signal(signal.SIGTERM, signal_handler)
 
 
-def signal_handler(sig, frame):
+def signal_handler(_sig, _frame):
     audio_conductor.stop()
     sys.exit(0)
 
