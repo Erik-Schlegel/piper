@@ -20,12 +20,12 @@
 					],
 					"tracks": [
 						{
-							"path": "resources/fire_short.wav",
+							"path": "resources/fireplace_short.wav",
 							"options": {
-								"volume": 1,
+								"volume": 0.15,
 								"reverb": {
-									"reverberance": 90,
-									"hf_damping": 30,
+									"reverberance": 40,
+									"hf_damping": 50,
 									"room_scale": 6,
 									"stereo_depth": 75,
 									"pre_delay": 0,
@@ -37,10 +37,10 @@
 						{
 							"path": "resources/clock_short.wav",
 							"options": {
-								"volume": 0.012,
+								"volume": 0.015,
 								"reverb": {
 									"reverberance": 80,
-									"hf_damping": 20,
+									"hf_damping": 30,
 									"room_scale": 4,
 									"stereo_depth": 75,
 									"pre_delay": 0,
@@ -58,7 +58,7 @@
 						{
 							"path": "resources/wind_short.wav",
 							"options": {
-								"volume": 0.009
+								"volume": 0.006
 							}
 						}
 					]
