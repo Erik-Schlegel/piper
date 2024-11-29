@@ -6,37 +6,38 @@
 				"simultaneous": {
 
 					"options": {
-						"loop": true,
 						"crossFadeDuration": 0.25,
-						"options": {
-							"volume": 1
-						}
+						"volume": 1,
+						"loop": true
 					},
 					"backs": [
 						{
-							"path": "resources/wind_short.wav",
+							"path": "resources/milky_noise_shorter.wav",
 							"options": {
-								"volume": 0.014
+								"volume": 0.03
 							}
 						}
 					],
 					"tracks": [
 						{
-							"path": "resources/snow_short.wav",
-							"options": {
-								"volume": 0.0
-							}
-						},
-						{
 							"path": "resources/fire_short.wav",
 							"options": {
-								"volume": 0.5
+								"volume": 1,
+								"reverb": {
+									"reverberance": 90,
+									"hf_damping": 30,
+									"room_scale": 6,
+									"stereo_depth": 75,
+									"pre_delay": 0,
+									"wet_gain": 1,
+									"wet_only": false
+								}
 							}
 						},
 						{
 							"path": "resources/clock_short.wav",
 							"options": {
-								"volume": 0.025,
+								"volume": 0.012,
 								"reverb": {
 									"reverberance": 80,
 									"hf_damping": 20,
@@ -46,6 +47,18 @@
 									"wet_gain": 1,
 									"wet_only": false
 								}
+							}
+						},
+						{
+							"path": "resources/snow_short.wav",
+							"options": {
+								"volume": 0.006
+							}
+						},
+						{
+							"path": "resources/wind_short.wav",
+							"options": {
+								"volume": 0.009
 							}
 						}
 					]
