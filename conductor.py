@@ -16,10 +16,11 @@ class Conductor:
 
     def start(self):
         tracks = ConfigHelper.get_scene_tracks_by_type(self._scene_name, 'simultaneous')
+        folder_path = ConfigHelper.get_scene_folder_path_by_type(self._scene_name, 'simultaneous')
         if not isinstance(tracks, list):
             tracks = [tracks]
 
-        file_queue = load_tracks(tracks)
+        file_queue = load_tracks(folder_path, tracks)
         self.begin_playback(file_queue)
 
 

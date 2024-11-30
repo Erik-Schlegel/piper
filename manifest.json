@@ -4,23 +4,14 @@
 			"name": "WinterCabin",
 			"layers": {
 				"simultaneous": {
-
+					"folderPath": "resources/loopable/",
 					"options": {
 						"crossFadeDuration": 0.25,
-						"volume": 1,
-						"loop": true
+						"volume": 1
 					},
-					"backs": [
-						{
-							"path": "resources/milky_noise_shorter.wav",
-							"options": {
-								"volume": 0.03
-							}
-						}
-					],
 					"tracks": [
 						{
-							"path": "resources/fireplace_short.wav",
+							"path": "fireplace_short.wav",
 							"options": {
 								"volume": 0.15,
 								"reverb": {
@@ -35,7 +26,7 @@
 							}
 						},
 						{
-							"path": "resources/clock_short.wav",
+							"path": "clock_short.wav",
 							"options": {
 								"volume": 0.015,
 								"reverb": {
@@ -50,30 +41,205 @@
 							}
 						},
 						{
-							"path": "resources/snow_short.wav",
+							"path": "snow_short.wav",
 							"options": {
 								"volume": 0.006
 							}
 						},
 						{
-							"path": "resources/wind_short.wav",
+							"path": "wind_short.wav",
 							"options": {
 								"volume": 0.006
 							}
 						}
 					]
 				},
-
-				"ordered": {
-					"loop": false,
-					"tracks": [
-					],
-					"maxIntermission": 0
-				},
-
 				"shuffled": {
-					"loop": false,
+					"folderPath": "resources/songs/",
+					"options": {
+						"volume": 1
+					},
 					"tracks": [
+						{
+							"path": "AdesteFideles.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "AwayinaManger.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "CaroloftheBells.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "GodRestYeMerryGentlemen.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "HarkTheHeraldAngelsSing.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "HaveaHollyJollyChristmas.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "HaveYourselfAMerryLittleChristmas.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "IllBeHomeForChristmas.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "ItCameUponaMidnightClear.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "ItsBeginningToLookALotLikeChristmas.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "ItstheMostWonderfulTimeoftheYear.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "JingleBells.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "LetItSnow.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "March.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "OComeAllYeFaithfulNCC.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "OHolyNight.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "OLittleTownofBethlehem.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "RockingAroundtheChristmasTree.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "RudolphtheRedNosedReindeer.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "SilentNight.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "SleighRide.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "SugarPlumFairy.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "test.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "TheChristmasSong.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "TheFirstNoel.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "TheLittleDrummerBoy.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "WaltzoftheFlowers.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "WhatChildIsThis.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "WhiteChristmas.mp3",
+							"options": {
+								"volume": 1
+							}
+						},
+						{
+							"path": "WinterWonderland.mp3",
+							"options": {
+								"volume": 1
+							}
+						}
 					],
 					"maxIntermission": 0
 				}

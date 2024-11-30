@@ -4,14 +4,14 @@ import threading
 import numpy as np
 
 
-def load_tracks(tracks):
+def load_tracks(folder_path, tracks):
     file_queue = Queue()
     threads = []
 
     try:
         for track in tracks:
             # threads work well for disk io, and non-cpu bound tasks
-            thread = threading.Thread(target=load_as_numpy, args=(track, file_queue))
+            thread = threading.Thread(target=load_as_numpy, args=(folder_path, track, file_queue))
             threads.append(thread)
             thread.start()
 
@@ -24,8 +24,8 @@ def load_tracks(tracks):
         print(f'Error: {e}')
 
 
-def load_as_numpy(track, queue):
-    audio_segment = AudioSegment.from_file(track['path'])
+def load_as_numpy(folder_path, track, queue):
+    audio_segment = AudioSegment.from_file(folder_path + track['path'])
     samples = np.array(audio_segment.get_array_of_samples())
     if audio_segment.channels == 2:
         samples = samples.reshape(-1, 2)

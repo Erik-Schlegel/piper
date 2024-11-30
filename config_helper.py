@@ -43,7 +43,14 @@ class ConfigHelper:
 
 
     @classmethod
-    def get_merged_file_options(cls, scene_name):
-        layer = cls.get_scene_layers(scene_name)[0]
-        options = deep_merge(layer['options'], layer['files'][0]['options'])
+    def get_merged_file_options(cls, scene_name, type):
+        type_layer = cls.get_scene_layers(scene_name)[type]
+        options = deep_merge(type_layer['options'], type_layer['files'][type]['options'])
         return options
+
+
+    @classmethod
+    def get_scene_folder_path_by_type(cls, scene_name, type):
+        type_layer = cls.get_scene_layers(scene_name)[type]
+        return type_layer['folderPath']
+
