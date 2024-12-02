@@ -4,16 +4,22 @@
 			"name": "WinterCabin",
 			"layers": {
 				"simultaneous": {
-					"folderPath": "resources/loopable/",
 					"options": {
 						"crossFadeDuration": 0.25,
 						"volume": 1
 					},
+					"backs": [
+
+						{
+							"blah": "blah"
+						}
+					],
 					"tracks": [
 						{
-							"path": "fireplace_short.wav",
+							"path": "resources/loopable/fireplace_short.wav",
 							"options": {
-								"volume": 0.15,
+								"ume": 0.15,
+								"volume": 0.19,
 								"reverb": {
 									"reverberance": 40,
 									"hf_damping": 50,
@@ -26,9 +32,10 @@
 							}
 						},
 						{
-							"path": "clock_short.wav",
+							"path": "resources/loopable/clock_short.wav",
 							"options": {
-								"volume": 0.015,
+								"ume": 0.022,
+								"volume": 0.025,
 								"reverb": {
 									"reverberance": 80,
 									"hf_damping": 30,
@@ -41,13 +48,14 @@
 							}
 						},
 						{
-							"path": "snow_short.wav",
+							"path": "resources/loopable/snow_short.wav",
 							"options": {
-								"volume": 0.006
+								"ume": 0.006,
+								"volume": 0.009
 							}
 						},
 						{
-							"path": "wind_short.wav",
+							"path": "resources/loopable/wind_short.wav",
 							"options": {
 								"volume": 0.006
 							}
@@ -55,191 +63,203 @@
 					]
 				},
 				"shuffled": {
-					"folderPath": "resources/songs/",
 					"options": {
-						"volume": 1
+						"volume": 0.7,
+						"reverb": {
+							"reverberance": 60,
+							"hf_damping": 50,
+							"room_scale": 50,
+							"stereo_depth": 75,
+							"pre_delay": 0,
+							"wet_gain": 1,
+							"wet_only": true
+						}
+
 					},
-					"tracks": [
+					"backs": [
 						{
-							"path": "AdesteFideles.mp3",
+							"path": "resources/songs/AdesteFideles.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "AwayinaManger.mp3",
+							"path": "resources/songs/AwayinaManger.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "CaroloftheBells.mp3",
+							"path": "resources/songs/CaroloftheBells.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "GodRestYeMerryGentlemen.mp3",
+							"path": "resources/songs/GodRestYeMerryGentlemen.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "HarkTheHeraldAngelsSing.mp3",
+							"path": "resources/songs/HarkTheHeraldAngelsSing.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "HaveaHollyJollyChristmas.mp3",
+							"path": "resources/songs/HaveaHollyJollyChristmas.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "HaveYourselfAMerryLittleChristmas.mp3",
+							"path": "resources/songs/HaveYourselfAMerryLittleChristmas.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "IllBeHomeForChristmas.mp3",
+							"path": "resources/songs/IllBeHomeForChristmas.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "ItCameUponaMidnightClear.mp3",
+							"path": "resources/songs/ItCameUponaMidnightClear.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "ItsBeginningToLookALotLikeChristmas.mp3",
+							"path": "resources/songs/ItsBeginningToLookALotLikeChristmas.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "ItstheMostWonderfulTimeoftheYear.mp3",
+							"path": "resources/songs/ItstheMostWonderfulTimeoftheYear.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "JingleBells.mp3",
+							"path": "resources/songs/JingleBells.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "LetItSnow.mp3",
+							"path": "resources/songs/LetItSnow.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "March.mp3",
+							"path": "resources/songs/March.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "OComeAllYeFaithfulNCC.mp3",
+							"path": "resources/songs/OComeAllYeFaithful.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "OHolyNight.mp3",
+							"path": "resources/songs/OHolyNight.mp3",
+							"options": {
+								"volume": 0.06
+							}
+						},
+						{
+							"path": "resources/songs/OLittleTownofBethlehem.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "OLittleTownofBethlehem.mp3",
+							"path": "resources/songs/RockingAroundtheChristmasTree.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "RockingAroundtheChristmasTree.mp3",
+							"path": "resources/songs/RudolphtheRedNosedReindeer.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "RudolphtheRedNosedReindeer.mp3",
+							"path": "resources/songs/SilentNight.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "SilentNight.mp3",
+							"path": "resources/songs/SleighRide.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "SleighRide.mp3",
+							"path": "resources/songs/SugarPlumFairy.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "SugarPlumFairy.mp3",
+							"path": "resources/songs/TheChristmasSong.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "test.mp3",
+							"path": "resources/songs/TheFirstNoel.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "TheChristmasSong.mp3",
+							"path": "resources/songs/TheLittleDrummerBoy.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "TheFirstNoel.mp3",
+							"path": "resources/songs/WaltzoftheFlowers.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "TheLittleDrummerBoy.mp3",
+							"path": "resources/songs/WhatChildIsThis.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "WaltzoftheFlowers.mp3",
+							"path": "resources/songs/WhiteChristmas.mp3",
 							"options": {
 								"volume": 1
 							}
 						},
 						{
-							"path": "WhatChildIsThis.mp3",
-							"options": {
-								"volume": 1
-							}
-						},
-						{
-							"path": "WhiteChristmas.mp3",
-							"options": {
-								"volume": 1
-							}
-						},
-						{
-							"path": "WinterWonderland.mp3",
+							"path": "resources/songs/WinterWonderland.mp3",
 							"options": {
 								"volume": 1
 							}
 						}
+					],
+					"tracks": [
+						{
+							"path": "resources/songs/ItsBeginningToLookALotLikeChristmas.mp3",
+							"options": {
+								"volume": 0.06
+							}
+						}
+
 					],
 					"maxIntermission": 0
 				}
