@@ -79,15 +79,20 @@ def get_fx_processed_samples(track):
 
     fx = AudioEffectsChain()
 
-    reverb_conf = track_options.get('options', {}).get('reverb', {})
+    reverb_conf = track_options.get('options', {}).get('reverb', {}).copy()  # Make copy to avoid modifying original
+    mix = reverb_conf.pop('mix', 1)  # Remove mix and store it separately
 
-    if reverb_conf.get('reverberance', 0) > 0:
+    if reverb_conf.get('reverberance', 0) > 0 and mix > 0:
+        # Now reverb_conf only contains valid SoX parameters
         fx = fx.reverb(**reverb_conf)
+        wet_samples = fx(samples.T).T
+        if wet_samples.shape != samples.shape:
+            wet_samples = wet_samples.reshape(samples.shape)
 
-    processed_samples = fx((samples * volume).T).T
+        # blend wet and dry samples
+        dry_amount = 1 - mix
+        wet_amount = mix
+        samples = (samples * dry_amount) + (wet_samples * wet_amount)
+        # samples = wet_samples
 
-    # Ensure the processed_samples have the same shape as the original samples
-    if processed_samples.shape != samples.shape:
-        processed_samples = processed_samples.reshape(samples.shape)
-
-    return processed_samples
+    return samples * volume

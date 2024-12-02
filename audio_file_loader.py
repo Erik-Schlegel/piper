@@ -8,6 +8,9 @@ def load_tracks(tracks):
     file_queue = Queue()
     threads = []
 
+    if not isinstance(tracks, list):
+        tracks = [tracks]
+
     try:
         for track in tracks:
             # threads work well for disk io, and non-cpu bound tasks

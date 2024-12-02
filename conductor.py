@@ -1,5 +1,7 @@
 import multiprocessing
+import random
 
+from time import sleep
 from config_helper import ConfigHelper
 from audio_file_loader import load_tracks
 from player import play_audio, loop_audio
@@ -17,25 +19,45 @@ class Conductor:
 
 
     def start(self):
-        tracks = ConfigHelper.get_scene_tracks_by_type(self._scene_name, 'simultaneous')
-        self.play_tracks(tracks, loop_audio)
-
-        tracks = ConfigHelper.get_scene_tracks_by_type(self._scene_name, 'shuffled')
-        self.play_tracks(tracks, play_audio)
+        self.play_simultaneous(self._scene_name)
+        self.play_intermittent(self._scene_name)
 
         for subprocess in self._subprocesses:
             subprocess.join()
 
 
-    def play_tracks(self, tracks, operation):
+    def play_simultaneous(self, scene_name):
+        tracks = ConfigHelper.get_simultaneous_tracks(scene_name)
         if not isinstance(tracks, list):
             tracks = [tracks]
         tracks = load_tracks(tracks)
 
         while not tracks.empty():
-            proc = multiprocessing.Process(target=operation, args=(tracks.get(),))
+            proc = multiprocessing.Process(target=loop_audio, args=(tracks.get(),))
             proc.start()
             self._subprocesses.append(proc)
+
+
+    def play_intermittent(self, scene_name):
+        while True:
+            tracks = ConfigHelper.get_shuffled_tracks(scene_name)
+            if not isinstance(tracks, list):
+                tracks = [tracks]
+
+            for track in tracks:
+                #TODO: Read these from minIntermissionSeconds and maxIntermissionSeconds
+                # sleep_time = random.uniform(5, 10) //uniform?
+                # sleep(sleep_time)
+
+                loaded_track = load_tracks(track)
+                proc = multiprocessing.Process(target=play_audio, args=(loaded_track.get(),))
+                print(f"Playing {track['path']}")
+                proc.start()
+                self._subprocesses.append(proc)
+
+                # Wait for song end
+                proc.join()
+                self._subprocesses.remove(proc)
 
 
     def stop(self):
@@ -43,4 +65,3 @@ class Conductor:
             if process.is_alive():
                 process.terminate()
                 process.join()
-        # sd.stop()

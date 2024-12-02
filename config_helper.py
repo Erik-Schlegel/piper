@@ -1,4 +1,6 @@
 import json
+import random
+
 from dictionary_utils import deep_merge
 
 class ConfigHelper:
@@ -31,15 +33,22 @@ class ConfigHelper:
 
 
     @classmethod
-    def get_scene_tracks_by_type(cls, scene_name, type):
-
-        simultaneous_layer = cls.get_scene_layers(scene_name)[type]
-
+    def get_simultaneous_tracks(cls, scene_name):
+        simultaneous_layer = cls.get_scene_layers(scene_name)['simultaneous']
         for track in simultaneous_layer['tracks']:
-            # make clone of track[options]
             clone = dict(simultaneous_layer['options'])
             track['options'] = deep_merge(clone, track['options'])
         return simultaneous_layer['tracks']
+
+
+    @classmethod
+    def get_shuffled_tracks(cls, scene_name):
+        shuffled_layer = cls.get_scene_layers(scene_name)['shuffled']
+        for track in shuffled_layer['tracks']:
+            clone = dict(shuffled_layer['options'])
+            track['options'] = deep_merge(clone, track['options'])
+        random.shuffle(shuffled_layer['tracks'])
+        return shuffled_layer['tracks']
 
 
     @classmethod
