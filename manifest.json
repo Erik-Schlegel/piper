@@ -12,10 +12,10 @@
 						{
 							"path": "resources/loopable/fireplace_short.wav",
 							"options": {
-								"volume": 0.19,
+								"volume": 0.5,
 								"reverb": {
 									"mix": 0.95,
-									"reverberance": 40,
+									"reverberance": 50,
 									"hf_damping": 50,
 									"room_scale": 6,
 									"stereo_depth": 75,
@@ -27,10 +27,10 @@
 						{
 							"path": "resources/loopable/clock_short.wav",
 							"options": {
-								"volume": 0.022,
+								"volume": 0.125,
 								"reverb": {
-									"mix": 0.95,
-									"reverberance": 90,
+									"mix": 0.85,
+									"reverberance": 85,
 									"hf_damping": 30,
 									"room_scale": 20,
 									"stereo_depth": 75,
@@ -40,52 +40,52 @@
 							}
 						},
 						{
-							"path": "resources/loopable/snow_short.wav",
+							"path": "resources/loopable/wind_short.wav",
 							"options": {
-								"volume": 0.009
+								"volume": 0.05
 							}
 						},
 						{
-							"path": "resources/loopable/wind_short.wav",
+							"path": "resources/loopable/snow_short.wav",
 							"options": {
-								"volume": 0.008
+								"volume": 0.02
 							}
 						}
 					]
 				},
 				"shuffled": {
+					"intermissionSeconds": [ 3, 1800 ],
 					"options": {
-						"volume": 0.03,
-						"minIntermissionSeconds": 0,
-						"maxIntermissionSeconds": 5,
+						"volume": 0.07,
 						"reverb": {
 							"mix": 0.9,
-							"reverberance": 95,
+							"reverberance": 80,
 							"hf_damping": 50,
-							"room_scale": 50,
+							"room_scale": 40,
 							"stereo_depth": 85,
 							"pre_delay": 10,
 							"wet_gain": 1
 						}
 					},
-					"backs": [
+					"maxIntermission": 0,
+					"tracks": [
 						{
 							"path": "resources/songs/AdesteFideles.mp3",
-							"volume": 0.015,
-							"reverb": {
-								"mix": 0.8
+							"options": {
+								"reverb": {
+									"mix": 0.8
+								}
 							}
 						},
 						{
 							"path": "resources/songs/AwayinaManger.mp3",
 							"options": {
-								"volume": 0.02
+								"volume": 0.067
 							}
 						},
 						{
 							"path": "resources/songs/CaroloftheBells.mp3",
 							"options": {
-								"volume": 0.018,
 								"reverb": {
 									"mix": 0.95
 								}
@@ -94,16 +94,16 @@
 						{
 							"path": "resources/songs/GodRestYeMerryGentlemen.mp3",
 							"options": {
-								"volume": 0.016,
+								"volume": 0.075,
 								"reverb": {
-									"mix": 0.8
+									"mix": 0.9
 								}
 							}
 						},
 						{
 							"path": "resources/songs/HarkTheHeraldAngelsSing.mp3",
 							"options": {
-								"volume": 0.02,
+								"volume": 0.08,
 								"reverb": {
 									"mix": 0.75
 								}
@@ -112,18 +112,18 @@
 						{
 							"path": "resources/songs/HaveaHollyJollyChristmas.mp3",
 							"options": {
-								"volume": 0.023,
+								"volume": 0.078,
 								"reverb": {
-									"mix": 0.7,
-									"reverberance": 75,
-									"room_scale": 30
+									"mix": 0.8,
+									"reverberance": 65,
+									"room_scale": 20
 								}
 							}
 						},
 						{
 							"path": "resources/songs/HaveYourselfAMerryLittleChristmas.mp3",
 							"options": {
-								"volume": 0.015,
+								"volume": 0.06,
 								"reverb": {
 									"mix": 0.6,
 									"room_scale": 40
@@ -133,19 +133,19 @@
 						{
 							"path": "resources/songs/IllBeHomeForChristmas.mp3",
 							"options": {
-								"volume": 0.015
+								"volume": 0.055
 							}
 						},
 						{
 							"path": "resources/songs/ItCameUponaMidnightClear.mp3",
 							"options": {
-								"volume": 0.015
+								"volume": 0.058
 							}
 						},
 						{
 							"path": "resources/songs/ItsBeginningToLookALotLikeChristmas.mp3",
 							"options": {
-								"volume": 0.035,
+								"volume": 0.12,
 								"reverb": {
 									"mix": 0.9,
 									"reverberance": 75,
@@ -155,7 +155,14 @@
 						},
 						{
 							"path": "resources/songs/ItstheMostWonderfulTimeoftheYear.mp3",
-							"options": {}
+							"options": {
+								"volume": 0.065,
+								"reverb": {
+									"mix": 0.9,
+									"reverberance": 80,
+									"room_scale": 40
+								}
+							}
 						},
 						{
 							"path": "resources/songs/JingleBells.mp3",
@@ -167,20 +174,42 @@
 						},
 						{
 							"path": "resources/songs/March.mp3",
-							"options": {}
+							"options": {
+								"volume": 0.25
+							}
 						},
 						{
 							"path": "resources/songs/OComeAllYeFaithful.mp3",
-							"options": {}
+							"options": {
+								"volume": 0.14,
+								"reverb": {
+									"mix": 0.95,
+									"reverberance": 85,
+									"room_scale": 55
+								}
+							}
 						},
 						{
 							"path": "resources/songs/OHolyNight.mp3",
 							"options": {
+								"volume": 0.08,
+								"reverb": {
+									"mix": 0.95,
+									"reverberance": 95,
+									"room_scale": 55
+								}
 							}
 						},
 						{
 							"path": "resources/songs/OLittleTownofBethlehem.mp3",
-							"options": {}
+							"options": {
+								"volume": 0.042,
+								"reverb": {
+									"mix": 0.95,
+									"reverberance": 95,
+									"room_scale": 60
+								}
+							}
 						},
 						{
 							"path": "resources/songs/RockingAroundtheChristmasTree.mp3",
@@ -188,27 +217,44 @@
 						},
 						{
 							"path": "resources/songs/RudolphtheRedNosedReindeer.mp3",
-							"options": {}
+							"options": {
+								"volume": 0.083
+							}
 						},
 						{
 							"path": "resources/songs/SilentNight.mp3",
-							"options": {}
+							"options": {
+								"volume": 0.075
+							}
 						},
 						{
 							"path": "resources/songs/SleighRide.mp3",
-							"options": {}
+							"options": {
+								"volume": 0.055,
+								"reverb": {
+									"mix": 0.95,
+									"reverberance": 70,
+									"room_scale": 30
+								}
+							}
 						},
 						{
 							"path": "resources/songs/SugarPlumFairy.mp3",
-							"options": {}
+							"options": {
+								"volume": 0.4
+							}
 						},
 						{
 							"path": "resources/songs/TheChristmasSong.mp3",
-							"options": {}
+							"options": {
+								"volume": 0.074
+							}
 						},
 						{
 							"path": "resources/songs/TheFirstNoel.mp3",
-							"options": {}
+							"options": {
+								"volume": 0.11
+							}
 						},
 						{
 							"path": "resources/songs/TheLittleDrummerBoy.mp3",
@@ -216,35 +262,39 @@
 						},
 						{
 							"path": "resources/songs/WaltzoftheFlowers.mp3",
-							"options": {}
+							"options": {
+								"volume": 0.3,
+								"reverb": {
+									"mix": 0.95,
+									"reverberance": 90,
+									"room_scale": 60
+								}
+							}
 						},
 						{
 							"path": "resources/songs/WhatChildIsThis.mp3",
-							"options": {}
+							"options": {
+								"volume": 0.1,
+								"reverb": {
+									"mix": 0.95,
+									"reverberance": 95,
+									"room_scale": 60
+								}
+							}
 						},
 						{
 							"path": "resources/songs/WhiteChristmas.mp3",
-							"options": {}
+							"options": {
+								"volume": 0.087
+							}
 						},
 						{
 							"path": "resources/songs/WinterWonderland.mp3",
-							"options": {}
-						}
-					],
-					"tracks": [
-						{
-							"path": "resources/songs/ItsBeginningToLookALotLikeChristmas.mp3",
 							"options": {
-								"volume": 0.035,
-								"reverb": {
-									"mix": 0.9,
-									"reverberance": 75,
-									"room_scale": 40
-								}
+								"volume": 0.065
 							}
 						}
-					],
-					"maxIntermission": 0
+					]
 				}
 
 			}

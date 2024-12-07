@@ -63,3 +63,8 @@ class ConfigHelper:
         type_layer = cls.get_scene_layers(scene_name)[type]
         return type_layer['folderPath']
 
+    @classmethod
+    def get_intermission_seconds_minmax(cls, scene_name):
+        type_layer = cls.get_scene_layers(scene_name)['shuffled']
+        return type_layer['intermissionSeconds']
+

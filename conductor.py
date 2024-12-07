@@ -46,8 +46,10 @@ class Conductor:
 
             for track in tracks:
                 #TODO: Read these from minIntermissionSeconds and maxIntermissionSeconds
-                # sleep_time = random.uniform(5, 10) //uniform?
-                # sleep(sleep_time)
+                minIntermissionSeconds, maxIntermissionSeconds = ConfigHelper.get_intermission_seconds_minmax(scene_name)
+                sleep_time = random.randint(minIntermissionSeconds, maxIntermissionSeconds)
+                print(f"Sleeping for {sleep_time} seconds")
+                sleep(sleep_time)
 
                 loaded_track = load_tracks(track)
                 proc = multiprocessing.Process(target=play_audio, args=(loaded_track.get(),))
