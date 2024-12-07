@@ -45,7 +45,6 @@ class Conductor:
                 tracks = [tracks]
 
             for track in tracks:
-                #TODO: Read these from minIntermissionSeconds and maxIntermissionSeconds
                 minIntermissionSeconds, maxIntermissionSeconds = ConfigHelper.get_intermission_seconds_minmax(scene_name)
                 sleep_time = random.randint(minIntermissionSeconds, maxIntermissionSeconds)
                 print(f"Sleeping for {sleep_time} seconds")
