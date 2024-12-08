@@ -75,12 +75,21 @@ def get_crossfade_samples(samples, fade_samples):
 
 def get_fx_processed_samples(track):
     samples, _, track_options = track
-    volume = track_options['options'].get('volume', 1)
+    track_options = track_options.get('options', {})
 
     fx = AudioEffectsChain()
 
-    reverb_conf = track_options.get('options', {}).get('reverb', {}).copy()  # Make copy to avoid modifying original
-    mix = reverb_conf.pop('mix', 1)  # Remove mix and store it separately
+    eq_conf = track_options.get('equalizer', {})
+    for eq in eq_conf:
+        fx = fx.equalizer(
+            frequency=eq['frequency'],
+            q=eq['slope'],
+            db=eq['db']
+        )
+    samples = fx(samples.T).T
+
+    reverb_conf = track_options.get('reverb', {}).copy()
+    mix = reverb_conf.pop('mix', 1) # pop b/c "mix" isn't a valid arg
 
     if reverb_conf.get('reverberance', 0) > 0 and mix > 0:
         # Now reverb_conf only contains valid SoX parameters
@@ -93,6 +102,6 @@ def get_fx_processed_samples(track):
         dry_amount = 1 - mix
         wet_amount = mix
         samples = (samples * dry_amount) + (wet_samples * wet_amount)
-        # samples = wet_samples
 
+    volume = track_options.get('volume', 1)
     return samples * volume

@@ -54,9 +54,10 @@
 					]
 				},
 				"shuffled": {
-					"intermissionSeconds": [ 3, 1800 ],
+					"_intermissionSeconds": [ 3, 1800 ],
+					"intermissionSeconds": [ 1, 1 ],
 					"options": {
-						"volume": 0.07,
+						"volume": 0.7,
 						"reverb": {
 							"mix": 0.9,
 							"reverberance": 80,
@@ -65,9 +66,16 @@
 							"stereo_depth": 85,
 							"pre_delay": 10,
 							"wet_gain": 1
-						}
+						},
+						"equalizer" : [
+							{
+								"name": "high-shelf",
+								"frequency": 1962.2,
+								"db": -25,
+								"slope": 0.572
+							}
+						]
 					},
-					"maxIntermission": 0,
 					"tracks": [
 						{
 							"path": "resources/songs/AdesteFideles.mp3",
@@ -80,7 +88,7 @@
 						{
 							"path": "resources/songs/AwayinaManger.mp3",
 							"options": {
-								"volume": 0.067
+								"_volume": 0.067
 							}
 						},
 						{
@@ -94,7 +102,7 @@
 						{
 							"path": "resources/songs/GodRestYeMerryGentlemen.mp3",
 							"options": {
-								"volume": 0.075,
+								"_volume": 0.075,
 								"reverb": {
 									"mix": 0.9
 								}
@@ -103,7 +111,7 @@
 						{
 							"path": "resources/songs/HarkTheHeraldAngelsSing.mp3",
 							"options": {
-								"volume": 0.08,
+								"_volume": 0.08,
 								"reverb": {
 									"mix": 0.75
 								}
@@ -112,7 +120,7 @@
 						{
 							"path": "resources/songs/HaveaHollyJollyChristmas.mp3",
 							"options": {
-								"volume": 0.078,
+								"_volume": 0.078,
 								"reverb": {
 									"mix": 0.8,
 									"reverberance": 65,
@@ -123,7 +131,7 @@
 						{
 							"path": "resources/songs/HaveYourselfAMerryLittleChristmas.mp3",
 							"options": {
-								"volume": 0.06,
+								"_volume": 0.06,
 								"reverb": {
 									"mix": 0.6,
 									"room_scale": 40
@@ -133,19 +141,19 @@
 						{
 							"path": "resources/songs/IllBeHomeForChristmas.mp3",
 							"options": {
-								"volume": 0.055
+								"_volume": 0.055
 							}
 						},
 						{
 							"path": "resources/songs/ItCameUponaMidnightClear.mp3",
 							"options": {
-								"volume": 0.058
+								"_volume": 0.058
 							}
 						},
 						{
 							"path": "resources/songs/ItsBeginningToLookALotLikeChristmas.mp3",
 							"options": {
-								"volume": 0.12,
+								"_volume": 0.12,
 								"reverb": {
 									"mix": 0.9,
 									"reverberance": 75,
@@ -156,7 +164,7 @@
 						{
 							"path": "resources/songs/ItstheMostWonderfulTimeoftheYear.mp3",
 							"options": {
-								"volume": 0.065,
+								"_volume": 0.065,
 								"reverb": {
 									"mix": 0.9,
 									"reverberance": 80,
@@ -175,13 +183,13 @@
 						{
 							"path": "resources/songs/March.mp3",
 							"options": {
-								"volume": 0.25
+								"_volume": 0.25
 							}
 						},
 						{
 							"path": "resources/songs/OComeAllYeFaithful.mp3",
 							"options": {
-								"volume": 0.14,
+								"_volume": 0.14,
 								"reverb": {
 									"mix": 0.95,
 									"reverberance": 85,
@@ -192,7 +200,7 @@
 						{
 							"path": "resources/songs/OHolyNight.mp3",
 							"options": {
-								"volume": 0.08,
+								"_volume": 0.08,
 								"reverb": {
 									"mix": 0.95,
 									"reverberance": 95,
@@ -203,7 +211,7 @@
 						{
 							"path": "resources/songs/OLittleTownofBethlehem.mp3",
 							"options": {
-								"volume": 0.042,
+								"_volume": 0.042,
 								"reverb": {
 									"mix": 0.95,
 									"reverberance": 95,
@@ -218,19 +226,19 @@
 						{
 							"path": "resources/songs/RudolphtheRedNosedReindeer.mp3",
 							"options": {
-								"volume": 0.083
+								"_volume": 0.083
 							}
 						},
 						{
 							"path": "resources/songs/SilentNight.mp3",
 							"options": {
-								"volume": 0.075
+								"_volume": 0.075
 							}
 						},
 						{
 							"path": "resources/songs/SleighRide.mp3",
 							"options": {
-								"volume": 0.055,
+								"_volume": 0.055,
 								"reverb": {
 									"mix": 0.95,
 									"reverberance": 70,
@@ -241,19 +249,19 @@
 						{
 							"path": "resources/songs/SugarPlumFairy.mp3",
 							"options": {
-								"volume": 0.4
+								"_volume": 0.4
 							}
 						},
 						{
 							"path": "resources/songs/TheChristmasSong.mp3",
 							"options": {
-								"volume": 0.074
+								"_volume": 0.074
 							}
 						},
 						{
 							"path": "resources/songs/TheFirstNoel.mp3",
 							"options": {
-								"volume": 0.11
+								"_volume": 0.11
 							}
 						},
 						{
@@ -263,7 +271,7 @@
 						{
 							"path": "resources/songs/WaltzoftheFlowers.mp3",
 							"options": {
-								"volume": 0.3,
+								"_volume": 0.3,
 								"reverb": {
 									"mix": 0.95,
 									"reverberance": 90,
@@ -274,7 +282,7 @@
 						{
 							"path": "resources/songs/WhatChildIsThis.mp3",
 							"options": {
-								"volume": 0.1,
+								"_volume": 0.1,
 								"reverb": {
 									"mix": 0.95,
 									"reverberance": 95,
@@ -285,13 +293,21 @@
 						{
 							"path": "resources/songs/WhiteChristmas.mp3",
 							"options": {
-								"volume": 0.087
+								"_volume": 0.087
 							}
 						},
 						{
 							"path": "resources/songs/WinterWonderland.mp3",
 							"options": {
-								"volume": 0.065
+								"_volume": 0.065
+							}
+						}
+					],
+					"_tracks": [
+						{
+							"path": "resources/songs/ItCameUponaMidnightClear.mp3",
+							"options": {
+								"_volume": 0.7
 							}
 						}
 					]
