@@ -55,63 +55,56 @@
 				},
 				"shuffled": {
 					"_intermissionSeconds": [ 3, 1800 ],
-					"intermissionSeconds": [ 1, 1 ],
-					"options": {
-						"volume": 0.7,
-						"reverb": {
-							"mix": 0.9,
-							"reverberance": 80,
-							"hf_damping": 50,
-							"room_scale": 40,
-							"stereo_depth": 85,
-							"pre_delay": 10,
-							"wet_gain": 1
-						},
-						"equalizer" : [
-							{
-								"name": "high-shelf",
-								"frequency": 1962.2,
-								"db": -25,
-								"slope": 0.572
-							}
-						]
-					},
-					"tracks": [
+					"intermissionSeconds": [ 0, 0 ],
+					"_tracks": [
 						{
 							"path": "resources/songs/AdesteFideles.mp3",
-							"options": {
-								"reverb": {
-									"mix": 0.8
-								}
-							}
+							"options": {}
 						},
 						{
-							"path": "resources/songs/AwayinaManger.mp3",
+							"path": "resources/songs/AwayInAManger.mp3",
 							"options": {
-								"_volume": 0.067
+								"volume": 0.19,
+								"reverb": {
+									"mix": 0.8,
+									"reverberance": 90
+								},
+								"equalizer" : [
+								{
+									"name": "low-pass",
+									"frequency": 90,
+									"db": -4.5,
+									"slope": 0.7
+								},
+								{
+									"name": "high-shelf",
+									"frequency": 1962.2,
+									"db": -15,
+									"slope": 0.572
+								}
+							]
 							}
 						},
 						{
 							"path": "resources/songs/CaroloftheBells.mp3",
 							"options": {
-								"reverb": {
-									"mix": 0.95
-								}
-							}
-						},
-						{
-							"path": "resources/songs/GodRestYeMerryGentlemen.mp3",
-							"options": {
-								"_volume": 0.075,
+								"volume": 0.3,
 								"reverb": {
 									"mix": 0.9
 								}
 							}
 						},
 						{
+							"path": "resources/songs/GodRestYeMerryGentlemen.mp3",
+							"options": {
+								"reverb": {
+									"mix": 0.7
+								}
+							}
+						},
+						{
 							"path": "resources/songs/HarkTheHeraldAngelsSing.mp3",
 							"options": {
-								"_volume": 0.08,
 								"reverb": {
 									"mix": 0.75
 								}
@@ -120,34 +113,36 @@
 						{
 							"path": "resources/songs/HaveaHollyJollyChristmas.mp3",
 							"options": {
-								"_volume": 0.078,
 								"reverb": {
-									"mix": 0.8,
-									"reverberance": 65,
-									"room_scale": 20
+									"mix": 0.7,
+									"reverberance": 70,
+									"room_scale": 50
 								}
 							}
 						},
 						{
 							"path": "resources/songs/HaveYourselfAMerryLittleChristmas.mp3",
 							"options": {
-								"_volume": 0.06,
+								"volume": 0.2,
 								"reverb": {
-									"mix": 0.6,
-									"room_scale": 40
+									"mix": 0.75
 								}
 							}
 						},
 						{
 							"path": "resources/songs/IllBeHomeForChristmas.mp3",
 							"options": {
-								"_volume": 0.055
+								"volume": 0.2,
+								"reverb": {
+									"mix": 0.7,
+									"reverberance": 80
+								}
 							}
 						},
 						{
 							"path": "resources/songs/ItCameUponaMidnightClear.mp3",
 							"options": {
-								"_volume": 0.058
+								"volume": 0.18
 							}
 						},
 						{
@@ -303,14 +298,34 @@
 							}
 						}
 					],
-					"_tracks": [
-						{
-							"path": "resources/songs/ItCameUponaMidnightClear.mp3",
-							"options": {
-								"_volume": 0.7
+					"tracks": [
+					],
+					"options": {
+						"volume": 0.4,
+						"reverb": {
+							"mix": 0.8,
+							"reverberance": 100,
+							"room_scale": 80,
+							"stereo_depth": 100,
+							"pre_delay": 10,
+							"hf_damping": 0,
+							"wet_gain": 1
+						},
+						"equalizer" : [
+							{
+								"name": "low-pass",
+								"frequency": 82.7,
+								"db": -3.5,
+								"slope": 0.5
+							},
+							{
+								"name": "high-shelf",
+								"frequency": 1962.2,
+								"db": -20,
+								"slope": 0.572
 							}
-						}
-					]
+						]
+					}
 				}
 
 			}
