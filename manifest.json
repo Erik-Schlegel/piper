@@ -10,15 +10,29 @@
 					},
 					"tracks": [
 						{
+							"path": "resources/loopable/fireplace_crackles.mp3",
+							"options": {
+								"volume": 0.25,
+								"reverb": {
+									"mix": 0.5,
+									"reverberance": 40,
+									"room_scale": 50,
+									"stereo_depth": 80,
+									"pre_delay": 0,
+									"wet_gain": 1
+								}
+							}
+						},
+						{
 							"path": "resources/loopable/fireplace_short.wav",
 							"options": {
-								"volume": 0.5,
+								"volume": 0.25,
 								"reverb": {
-									"mix": 0.95,
+									"mix": 0.8,
 									"reverberance": 50,
-									"hf_damping": 50,
-									"room_scale": 6,
-									"stereo_depth": 75,
+									"hf_damping": 0,
+									"room_scale": 50,
+									"stereo_depth": 70,
 									"pre_delay": 0,
 									"wet_gain": 1
 								}
@@ -54,8 +68,82 @@
 					]
 				},
 				"shuffled": {
-					"_intermissionSeconds": [ 3, 1800 ],
+					"_intermissionSeconds": [ 30, 1800 ],
 					"intermissionSeconds": [ 0, 0 ],
+					"options": {
+						"volume": 0.4,
+						"reverb": {
+							"mix": 0.6,
+							"reverberance": 90,
+							"room_scale": 85,
+							"stereo_depth": 100,
+							"pre_delay": 10,
+							"hf_damping": 0,
+							"wet_gain": 1
+						},
+						"equalizers" : [
+							{
+								"name": "low-pass",
+								"frequency": 82.7,
+								"db": -3.5,
+								"slope": 0.5
+							},
+							{
+								"name": "high-shelf",
+								"frequency": 1962.2,
+								"db": -20,
+								"slope": 0.572
+							}
+						]
+					},
+					"tracks": [
+						{
+							"path": "resources/loopable/train1.mp3",
+							"options": {
+								"volume": 0.8,
+								"reverb": {
+									"mix": 0
+								},
+								"equalizers": [
+									{
+										"name": "low-pass",
+										"frequency": 82.7,
+										"db": 0,
+										"slope": 0.5
+									},
+									{
+										"name": "high-shelf",
+										"frequency": 1962.2,
+										"db": 0,
+										"slope": 0.572
+									}
+								]
+							}
+						},
+						{
+							"path": "resources/loopable/train2.mp3",
+							"options": {
+								"volume": 0.8,
+								"reverb": {
+									"mix": 0
+								},
+								"equalizers": [
+									{
+										"name": "low-pass",
+										"frequency": 82.7,
+										"db": 0,
+										"slope": 0.5
+									},
+									{
+										"name": "high-shelf",
+										"frequency": 1962.2,
+										"db": 0,
+										"slope": 0.572
+									}
+								]
+							}
+						}
+					],
 					"_tracks": [
 						{
 							"path": "resources/songs/AdesteFideles.mp3",
@@ -69,18 +157,18 @@
 									"mix": 0.8,
 									"reverberance": 90
 								},
-								"equalizer" : [
+								"equalizers" : [
 								{
 									"name": "low-pass",
-									"frequency": 90,
-									"db": -4.5,
-									"slope": 0.7
+									"frequency": 63.4,
+									"db": -18.5,
+									"slope": 0.546
 								},
 								{
 									"name": "high-shelf",
-									"frequency": 1962.2,
-									"db": -15,
-									"slope": 0.572
+									"frequency": 2000,
+									"db": -16.5,
+									"slope": 0.423
 								}
 							]
 							}
@@ -148,22 +236,21 @@
 						{
 							"path": "resources/songs/ItsBeginningToLookALotLikeChristmas.mp3",
 							"options": {
-								"_volume": 0.12,
+								"volume": 0.5,
 								"reverb": {
 									"mix": 0.9,
 									"reverberance": 75,
-									"room_scale": 40
+									"room_scale": 60
 								}
 							}
 						},
 						{
 							"path": "resources/songs/ItstheMostWonderfulTimeoftheYear.mp3",
 							"options": {
-								"_volume": 0.065,
 								"reverb": {
 									"mix": 0.9,
 									"reverberance": 80,
-									"room_scale": 40
+									"room_scale": 50
 								}
 							}
 						},
@@ -173,21 +260,30 @@
 						},
 						{
 							"path": "resources/songs/LetItSnow.mp3",
-							"options": {}
+							"options": {
+								"volume": 0.33,
+								"reverb": {
+									"mix": 0.95,
+									"room_scale": 60
+								}
+							}
 						},
 						{
 							"path": "resources/songs/March.mp3",
 							"options": {
-								"_volume": 0.25
+								"volume": 0.65,
+								"reverb": {
+									"room_scale": 60
+								}
 							}
 						},
 						{
 							"path": "resources/songs/OComeAllYeFaithful.mp3",
 							"options": {
-								"_volume": 0.14,
+								"volume": 0.45,
 								"reverb": {
-									"mix": 0.95,
-									"reverberance": 85,
+									"mix": 0.9,
+									"reverberance": 80,
 									"room_scale": 55
 								}
 							}
@@ -195,21 +291,19 @@
 						{
 							"path": "resources/songs/OHolyNight.mp3",
 							"options": {
-								"_volume": 0.08,
+								"volume": 0.3,
 								"reverb": {
-									"mix": 0.95,
-									"reverberance": 95,
-									"room_scale": 55
+									"mix": 0.9,
+									"room_scale": 48
 								}
 							}
 						},
 						{
-							"path": "resources/songs/OLittleTownofBethlehem.mp3",
+							"path": "resources/songs/OLittleTownOfBethlehem.mp3",
 							"options": {
-								"_volume": 0.042,
+								"volume": 0.185,
 								"reverb": {
 									"mix": 0.95,
-									"reverberance": 95,
 									"room_scale": 60
 								}
 							}
@@ -219,57 +313,75 @@
 							"options": {}
 						},
 						{
-							"path": "resources/songs/RudolphtheRedNosedReindeer.mp3",
+							"path": "resources/songs/RudolphTheRedNosedReindeer.mp3",
 							"options": {
-								"_volume": 0.083
+								"volume": 0.3,
+								"reverb": {
+									"mix": 0.8,
+									"reverberance": 80,
+									"room_scale": 60
+								}
 							}
 						},
 						{
 							"path": "resources/songs/SilentNight.mp3",
 							"options": {
-								"_volume": 0.075
-							}
-						},
-						{
-							"path": "resources/songs/SleighRide.mp3",
-							"options": {
-								"_volume": 0.055,
-								"reverb": {
-									"mix": 0.95,
-									"reverberance": 70,
-									"room_scale": 30
-								}
+								"volume": 0.42
 							}
 						},
 						{
 							"path": "resources/songs/SugarPlumFairy.mp3",
 							"options": {
-								"_volume": 0.4
+								"volume": 0.9,
+								"reverb": {
+									"mix": 0.9,
+									"reverberance": 70,
+									"room_scale": 80
+								},
+								"equalizers" : [
+									{
+										"name": "high-shelf",
+										"frequency": 1962.2,
+										"db": -10,
+										"slope": 0.572
+									}
+								]
 							}
 						},
 						{
 							"path": "resources/songs/TheChristmasSong.mp3",
 							"options": {
-								"_volume": 0.074
+								"volume": 0.4
 							}
 						},
 						{
 							"path": "resources/songs/TheFirstNoel.mp3",
 							"options": {
-								"_volume": 0.11
+								"volume": 0.5,
+								"reverb": {
+									"mix": 0.8,
+									"reverberance": 90,
+									"room_scale": 95
+								}
+
 							}
 						},
 						{
 							"path": "resources/songs/TheLittleDrummerBoy.mp3",
-							"options": {}
+							"options": {
+								"volume": 0.28,
+								"reverb": {
+									"mix": 0.85,
+									"room_scale": 95
+								}
+							}
 						},
 						{
-							"path": "resources/songs/WaltzoftheFlowers.mp3",
+							"path": "resources/songs/WaltzOfTheFlowers.mp3",
 							"options": {
-								"_volume": 0.3,
+								"volume": 1,
 								"reverb": {
-									"mix": 0.95,
-									"reverberance": 90,
+									"mix": 0.8,
 									"room_scale": 60
 								}
 							}
@@ -277,55 +389,23 @@
 						{
 							"path": "resources/songs/WhatChildIsThis.mp3",
 							"options": {
-								"_volume": 0.1,
+								"volume": 0.42,
 								"reverb": {
-									"mix": 0.95,
+									"mix": 0.8,
 									"reverberance": 95,
 									"room_scale": 60
 								}
 							}
 						},
 						{
-							"path": "resources/songs/WhiteChristmas.mp3",
-							"options": {
-								"_volume": 0.087
-							}
+							"path": "resources/songs/WhiteChristmas.mp3"
 						},
 						{
-							"path": "resources/songs/WinterWonderland.mp3",
-							"options": {
-								"_volume": 0.065
-							}
+							"path": "resources/songs/WinterWonderland.mp3"
 						}
-					],
-					"tracks": [
-					],
-					"options": {
-						"volume": 0.4,
-						"reverb": {
-							"mix": 0.8,
-							"reverberance": 100,
-							"room_scale": 80,
-							"stereo_depth": 100,
-							"pre_delay": 10,
-							"hf_damping": 0,
-							"wet_gain": 1
-						},
-						"equalizer" : [
-							{
-								"name": "low-pass",
-								"frequency": 82.7,
-								"db": -3.5,
-								"slope": 0.5
-							},
-							{
-								"name": "high-shelf",
-								"frequency": 1962.2,
-								"db": -20,
-								"slope": 0.572
-							}
-						]
-					}
+
+					]
+
 				}
 
 			}

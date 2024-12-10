@@ -2,7 +2,6 @@ import signal
 import sounddevice as sd
 from pysndfx import AudioEffectsChain
 import numpy as np
-import multiprocessing
 
 def ignore_signals():
         # Play calls are handled in a separate process. Ignore signal handlers
@@ -79,7 +78,7 @@ def get_fx_processed_samples(track):
 
     fx = AudioEffectsChain()
 
-    eq_conf = track_options.get('equalizer', {})
+    eq_conf = track_options.get('equalizers', {})
     for eq in eq_conf:
         fx = fx.equalizer(
             frequency=eq['frequency'],
