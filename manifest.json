@@ -41,7 +41,7 @@
 						{
 							"path": "resources/loopable/clock_short.wav",
 							"options": {
-								"volume": 0.125,
+								"volume": 0.09,
 								"reverb": {
 									"mix": 0.85,
 									"reverberance": 85,
@@ -69,7 +69,7 @@
 				},
 				"shuffled": {
 					"_intermissionSeconds": [ 30, 1800 ],
-					"intermissionSeconds": [ 0, 0 ],
+					"intermissionSeconds": [ 0, 45 ],
 					"options": {
 						"volume": 0.4,
 						"reverb": {
@@ -98,7 +98,115 @@
 					},
 					"tracks": [
 						{
-							"path": "resources/loopable/train1.mp3",
+							"path": "resources/occasional/hoot1.mp3",
+							"options": {
+								"volume": 0.4,
+								"reverb": {
+									"mix": 0.25
+								}
+							}
+						},
+						{
+							"path": "resources/occasional/hoot2.mp3",
+							"options": {
+								"volume": 0.45,
+								"reverb": {
+									"mix": 0.55
+								}
+							}
+						},
+						{
+							"path": "resources/occasional/hoot3.mp3",
+							"options": {
+								"volume": 0.47,
+								"reverb": {
+									"mix": 0.45
+								}
+							}
+						},
+						{
+							"path": "resources/occasional/hoot4.mp3",
+							"options": {
+								"volume": 0.57,
+								"reverb": {
+									"mix": 0.35
+								}
+							}
+						},
+						{
+							"path": "resources/occasional/tires1.mp3",
+							"options": {
+								"volume": 0.55,
+								"reverb": {
+									"mix": 0
+								}
+							}
+						},
+						{
+							"path": "resources/occasional/tires2.mp3",
+							"options": {
+								"volume": 0.55,
+								"reverb": {
+									"mix": 0
+								}
+							}
+						},
+						{
+							"path": "resources/occasional/tires3.mp3",
+							"options": {
+								"volume": 0.4,
+								"reverb": {
+									"mix": 0
+								}
+							}
+						},
+						{
+							"path": "resources/occasional/tires4.mp3",
+							"options": {
+								"volume": 0.4,
+								"reverb": {
+									"mix": 0.2
+								}
+							}
+						},
+						{
+							"path": "resources/occasional/tires5.mp3",
+							"options": {
+								"volume": 0.25,
+								"reverb": {
+									"mix": 0.2
+								}
+							}
+						},
+						{
+							"path": "resources/occasional/tires6.mp3",
+							"options": {
+								"volume": 0.2,
+								"reverb": {
+									"mix": 0
+								}
+							}
+						},
+						{
+							"path": "resources/occasional/tires7.mp3",
+							"options": {
+								"volume": 0.4,
+								"reverb": {
+									"mix": 0.4
+								}
+							}
+						},
+						{
+							"path": "resources/occasional/tires8.mp3",
+							"options": {
+								"volume": 0.5,
+								"reverb": {
+									"mix": 0.1
+								}
+							}
+						},
+						{
+							"path": "resources/occasional/train1.mp3",
 							"options": {
 								"volume": 0.8,
 								"reverb": {
@@ -121,7 +229,7 @@
 							}
 						},
 						{
-							"path": "resources/loopable/train2.mp3",
+							"path": "resources/occasional/train2.mp3",
 							"options": {
 								"volume": 0.8,
 								"reverb": {
@@ -144,7 +252,7 @@
 							}
 						}
 					],
-					"_tracks": [
+					"__tracks": [
 						{
 							"path": "resources/songs/AdesteFideles.mp3",
 							"options": {}
