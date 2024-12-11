@@ -61,36 +61,33 @@ class ConfigHelper:
 
         return selected_layer['tracks']
 
+    @classmethod
+    def get_shuffled_track_sets(cls, scene_name):
+        selected_layer = cls.get_scene_layers(scene_name)['shuffled']
 
+        for track_set in selected_layer:
 
-    # @classmethod
-    # def get_simultaneous_tracks(cls, scene_name):
-    #     simultaneous_layer = cls.get_scene_layers(scene_name)['simultaneous']
-    #     for track in simultaneous_layer['tracks']:
-    #         clone = dict(simultaneous_layer['options'])
-    #         track['options'] = deep_merge(clone, track['options'])
-    #     return simultaneous_layer['tracks']
+            for track in track_set['tracks']:
+                cloned_layer_options = dict(track_set.get('options',{}))
+                cloned_layer_options_eq = cloned_layer_options.pop('equalizers', [])
 
+                if track.get('options') is None:
+                    continue
 
-    # @classmethod
-    # def get_shuffled_tracks(cls, scene_name):
-    #     shuffled_layer = cls.get_scene_layers(scene_name)['shuffled']
-    #     for track in shuffled_layer['tracks']:
+                track_eq = track['options'].pop('equalizers', {})
 
-    #         cloned_options = dict(shuffled_layer['options'])
+                track['options'] = deep_merge(
+                    cloned_layer_options,
+                    track.get('options',{})
+                )
 
-    #         track['options']['reverb'] = deep_merge(
-    #             cloned_options.get('reverb',{}),
-    #             track['options'].get('reverb',{})
-    #         )
+                if track_eq != {} or cloned_layer_options_eq != {}:
+                    track['options']['equalizers'] = ConfigHelper.merge_named_lists(
+                        track_eq,
+                        cloned_layer_options_eq
+                    )
 
-    #         track['options']['equalizers'] = ConfigHelper.merge_named_lists(
-    #             track['options'].get('equalizers', []),
-    #             cloned_options.get('equalizers', [])
-    #         )
-
-    #     random.shuffle(shuffled_layer['tracks'])
-    #     return shuffled_layer['tracks']
+        return selected_layer
 
 
     @classmethod
@@ -111,7 +108,6 @@ class ConfigHelper:
         Returns:
             List of merged dictionaries with no duplicate names
         """
-        # Create a dict for fast lookup using name as key
         name_map = {item['name']: item for item in list_a}
 
         # Only add items from list_b if their name isn't already present
@@ -119,5 +115,4 @@ class ConfigHelper:
             if item['name'] not in name_map:
                 name_map[item['name']] = item
 
-        # Convert back to list
         return list(name_map.values())

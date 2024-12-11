@@ -67,454 +67,483 @@
 						}
 					]
 				},
-				"shuffled": {
-					"_intermissionSeconds": [ 30, 1800 ],
-					"intermissionSeconds": [ 0, 45 ],
-					"options": {
-						"volume": 0.4,
-						"reverb": {
-							"mix": 0.6,
-							"reverberance": 90,
-							"room_scale": 85,
-							"stereo_depth": 100,
-							"pre_delay": 10,
-							"hf_damping": 0,
-							"wet_gain": 1
-						},
-						"equalizers" : [
-							{
-								"name": "low-pass",
-								"frequency": 82.7,
-								"db": -3.5,
-								"slope": 0.5
+				"shuffled": [
+					{
+						"intermissionSeconds": [ 0, 120 ],
+						"options": {
+							"volume": 0.4,
+							"reverb": {
+								"mix": 0.6,
+								"reverberance": 90,
+								"room_scale": 85,
+								"stereo_depth": 100,
+								"pre_delay": 10,
+								"hf_damping": 0,
+								"wet_gain": 1
 							},
-							{
-								"name": "high-shelf",
-								"frequency": 1962.2,
-								"db": -20,
-								"slope": 0.572
-							}
-						]
-					},
-					"tracks": [
-						{
-							"path": "resources/occasional/hoot1.mp3",
-							"options": {
-								"volume": 0.4,
-								"reverb": {
-									"mix": 0.25
-								}
-							}
-						},
-						{
-							"path": "resources/occasional/hoot2.mp3",
-							"options": {
-								"volume": 0.45,
-								"reverb": {
-									"mix": 0.55
-								}
-							}
-						},
-						{
-							"path": "resources/occasional/hoot3.mp3",
-							"options": {
-								"volume": 0.47,
-								"reverb": {
-									"mix": 0.45
-								}
-							}
-						},
-						{
-							"path": "resources/occasional/hoot4.mp3",
-							"options": {
-								"volume": 0.57,
-								"reverb": {
-									"mix": 0.35
-								}
-							}
-						},
-						{
-							"path": "resources/occasional/tires1.mp3",
-							"options": {
-								"volume": 0.55,
-								"reverb": {
-									"mix": 0
-								}
-							}
-						},
-						{
-							"path": "resources/occasional/tires2.mp3",
-							"options": {
-								"volume": 0.55,
-								"reverb": {
-									"mix": 0
-								}
-							}
-						},
-						{
-							"path": "resources/occasional/tires3.mp3",
-							"options": {
-								"volume": 0.4,
-								"reverb": {
-									"mix": 0
-								}
-							}
-						},
-						{
-							"path": "resources/occasional/tires4.mp3",
-							"options": {
-								"volume": 0.4,
-								"reverb": {
-									"mix": 0.2
-								}
-							}
-						},
-						{
-							"path": "resources/occasional/tires5.mp3",
-							"options": {
-								"volume": 0.25,
-								"reverb": {
-									"mix": 0.2
-								}
-							}
-						},
-						{
-							"path": "resources/occasional/tires6.mp3",
-							"options": {
-								"volume": 0.2,
-								"reverb": {
-									"mix": 0
-								}
-							}
-						},
-						{
-							"path": "resources/occasional/tires7.mp3",
-							"options": {
-								"volume": 0.4,
-								"reverb": {
-									"mix": 0.4
-								}
-							}
-						},
-						{
-							"path": "resources/occasional/tires8.mp3",
-							"options": {
-								"volume": 0.5,
-								"reverb": {
-									"mix": 0.1
-								}
-							}
-						},
-						{
-							"path": "resources/occasional/train1.mp3",
-							"options": {
-								"volume": 0.8,
-								"reverb": {
-									"mix": 0
-								},
-								"equalizers": [
-									{
-										"name": "low-pass",
-										"frequency": 82.7,
-										"db": 0,
-										"slope": 0.5
-									},
-									{
-										"name": "high-shelf",
-										"frequency": 1962.2,
-										"db": 0,
-										"slope": 0.572
-									}
-								]
-							}
-						},
-						{
-							"path": "resources/occasional/train2.mp3",
-							"options": {
-								"volume": 0.8,
-								"reverb": {
-									"mix": 0
-								},
-								"equalizers": [
-									{
-										"name": "low-pass",
-										"frequency": 82.7,
-										"db": 0,
-										"slope": 0.5
-									},
-									{
-										"name": "high-shelf",
-										"frequency": 1962.2,
-										"db": 0,
-										"slope": 0.572
-									}
-								]
-							}
-						}
-					],
-					"__tracks": [
-						{
-							"path": "resources/songs/AdesteFideles.mp3",
-							"options": {}
-						},
-						{
-							"path": "resources/songs/AwayInAManger.mp3",
-							"options": {
-								"volume": 0.19,
-								"reverb": {
-									"mix": 0.8,
-									"reverberance": 90
-								},
-								"equalizers" : [
+							"equalizers" : [
 								{
 									"name": "low-pass",
-									"frequency": 63.4,
-									"db": -18.5,
-									"slope": 0.546
+									"frequency": 82.7,
+									"db": -3.5,
+									"slope": 0.5
 								},
 								{
 									"name": "high-shelf",
-									"frequency": 2000,
-									"db": -16.5,
-									"slope": 0.423
+									"frequency": 1962.2,
+									"db": -20,
+									"slope": 0.572
 								}
 							]
-							}
 						},
-						{
-							"path": "resources/songs/CaroloftheBells.mp3",
-							"options": {
-								"volume": 0.3,
-								"reverb": {
-									"mix": 0.9
+						"tracks": [
+							{
+								"path": "resources/occasional/hoot1.mp3",
+								"options": {
+									"volume": 0.4,
+									"reverb": {
+										"mix": 0.25
+									}
+								}
+							},
+							{
+								"path": "resources/occasional/hoot2.mp3",
+								"options": {
+									"volume": 0.45,
+									"reverb": {
+										"mix": 0.55
+									}
+								}
+							},
+							{
+								"path": "resources/occasional/hoot3.mp3",
+								"options": {
+									"volume": 0.47,
+									"reverb": {
+										"mix": 0.45
+									}
+								}
+							},
+							{
+								"path": "resources/occasional/hoot4.mp3",
+								"options": {
+									"volume": 0.57,
+									"reverb": {
+										"mix": 0.35
+									}
+								}
+							},
+							{
+								"path": "resources/occasional/tires1.mp3",
+								"options": {
+									"volume": 0.55,
+									"reverb": {
+										"mix": 0
+									}
+								}
+							},
+							{
+								"path": "resources/occasional/tires2.mp3",
+								"options": {
+									"volume": 0.55,
+									"reverb": {
+										"mix": 0
+									}
+								}
+							},
+							{
+								"path": "resources/occasional/tires3.mp3",
+								"options": {
+									"volume": 0.4,
+									"reverb": {
+										"mix": 0
+									}
+								}
+							},
+							{
+								"path": "resources/occasional/tires4.mp3",
+								"options": {
+									"volume": 0.3,
+									"reverb": {
+										"mix": 0.2
+									}
+								}
+							},
+							{
+								"path": "resources/occasional/tires5.mp3",
+								"options": {
+									"volume": 0.15,
+									"reverb": {
+										"mix": 0.2
+									}
+								}
+							},
+							{
+								"path": "resources/occasional/tires6.mp3",
+								"options": {
+									"volume": 0.2,
+									"reverb": {
+										"mix": 0
+									}
+								}
+							},
+							{
+								"path": "resources/occasional/tires7.mp3",
+								"options": {
+									"volume": 0.4,
+									"reverb": {
+										"mix": 0.4
+									}
+								}
+							},
+							{
+								"path": "resources/occasional/tires8.mp3",
+								"options": {
+									"volume": 0.3,
+									"reverb": {
+										"mix": 0.1
+									}
+								}
+							},
+							{
+								"path": "resources/occasional/train1.mp3",
+								"options": {
+									"volume": 0.8,
+									"reverb": {
+										"mix": 0
+									},
+									"equalizers": [
+										{
+											"name": "low-pass",
+											"frequency": 82.7,
+											"db": 0,
+											"slope": 0.5
+										},
+										{
+											"name": "high-shelf",
+											"frequency": 1962.2,
+											"db": 0,
+											"slope": 0.572
+										}
+									]
+								}
+							},
+							{
+								"path": "resources/occasional/train2.mp3",
+								"options": {
+									"volume": 0.8,
+									"reverb": {
+										"mix": 0
+									},
+									"equalizers": [
+										{
+											"name": "low-pass",
+											"frequency": 82.7,
+											"db": 0,
+											"slope": 0.5
+										},
+										{
+											"name": "high-shelf",
+											"frequency": 1962.2,
+											"db": 0,
+											"slope": 0.572
+										}
+									]
 								}
 							}
-						},
-						{
-							"path": "resources/songs/GodRestYeMerryGentlemen.mp3",
-							"options": {
-								"reverb": {
-									"mix": 0.7
-								}
-							}
-						},
-						{
-							"path": "resources/songs/HarkTheHeraldAngelsSing.mp3",
-							"options": {
-								"reverb": {
-									"mix": 0.75
-								}
-							}
-						},
-						{
-							"path": "resources/songs/HaveaHollyJollyChristmas.mp3",
-							"options": {
-								"reverb": {
-									"mix": 0.7,
-									"reverberance": 70,
-									"room_scale": 50
-								}
-							}
-						},
-						{
-							"path": "resources/songs/HaveYourselfAMerryLittleChristmas.mp3",
-							"options": {
-								"volume": 0.2,
-								"reverb": {
-									"mix": 0.75
-								}
-							}
-						},
-						{
-							"path": "resources/songs/IllBeHomeForChristmas.mp3",
-							"options": {
-								"volume": 0.2,
-								"reverb": {
-									"mix": 0.7,
-									"reverberance": 80
-								}
-							}
-						},
-						{
-							"path": "resources/songs/ItCameUponaMidnightClear.mp3",
-							"options": {
-								"volume": 0.18
-							}
-						},
-						{
-							"path": "resources/songs/ItsBeginningToLookALotLikeChristmas.mp3",
-							"options": {
-								"volume": 0.5,
-								"reverb": {
-									"mix": 0.9,
-									"reverberance": 75,
-									"room_scale": 60
-								}
-							}
-						},
-						{
-							"path": "resources/songs/ItstheMostWonderfulTimeoftheYear.mp3",
-							"options": {
-								"reverb": {
-									"mix": 0.9,
-									"reverberance": 80,
-									"room_scale": 50
-								}
-							}
-						},
-						{
-							"path": "resources/songs/JingleBells.mp3",
-							"options": {}
-						},
-						{
-							"path": "resources/songs/LetItSnow.mp3",
-							"options": {
-								"volume": 0.33,
-								"reverb": {
-									"mix": 0.95,
-									"room_scale": 60
-								}
-							}
-						},
-						{
-							"path": "resources/songs/March.mp3",
-							"options": {
-								"volume": 0.65,
-								"reverb": {
-									"room_scale": 60
-								}
-							}
-						},
-						{
-							"path": "resources/songs/OComeAllYeFaithful.mp3",
-							"options": {
-								"volume": 0.45,
-								"reverb": {
-									"mix": 0.9,
-									"reverberance": 80,
-									"room_scale": 55
-								}
-							}
-						},
-						{
-							"path": "resources/songs/OHolyNight.mp3",
-							"options": {
-								"volume": 0.3,
-								"reverb": {
-									"mix": 0.9,
-									"room_scale": 48
-								}
-							}
-						},
-						{
-							"path": "resources/songs/OLittleTownOfBethlehem.mp3",
-							"options": {
-								"volume": 0.185,
-								"reverb": {
-									"mix": 0.95,
-									"room_scale": 60
-								}
-							}
-						},
-						{
-							"path": "resources/songs/RockingAroundtheChristmasTree.mp3",
-							"options": {}
-						},
-						{
-							"path": "resources/songs/RudolphTheRedNosedReindeer.mp3",
-							"options": {
-								"volume": 0.3,
-								"reverb": {
-									"mix": 0.8,
-									"reverberance": 80,
-									"room_scale": 60
-								}
-							}
-						},
-						{
-							"path": "resources/songs/SilentNight.mp3",
-							"options": {
-								"volume": 0.42
-							}
-						},
-						{
-							"path": "resources/songs/SugarPlumFairy.mp3",
-							"options": {
-								"volume": 0.9,
-								"reverb": {
-									"mix": 0.9,
-									"reverberance": 70,
-									"room_scale": 80
+						]
+					},
+					{
+						"intermissionSeconds": [ 10, 1800 ],
+						"options": {
+							"volume": 0.4,
+							"reverb": {
+								"mix": 0.6,
+								"reverberance": 90,
+								"room_scale": 85,
+								"stereo_depth": 100,
+								"pre_delay": 10,
+								"hf_damping": 0,
+								"wet_gain": 1
+							},
+							"equalizers" : [
+								{
+									"name": "low-pass",
+									"frequency": 82.7,
+									"db": -3.5,
+									"slope": 0.5
 								},
-								"equalizers" : [
+								{
+									"name": "high-shelf",
+									"frequency": 1962.2,
+									"db": -20,
+									"slope": 0.572
+								}
+							]
+						},
+						"tracks": [
+							{
+								"path": "resources/songs/AdesteFideles.mp3",
+								"options": {}
+							},
+							{
+								"path": "resources/songs/AwayInAManger.mp3",
+								"options": {
+									"volume": 0.19,
+									"reverb": {
+										"mix": 0.8,
+										"reverberance": 90
+									},
+									"equalizers" : [
+									{
+										"name": "low-pass",
+										"frequency": 63.4,
+										"db": -18.5,
+										"slope": 0.546
+									},
 									{
 										"name": "high-shelf",
-										"frequency": 1962.2,
-										"db": -10,
-										"slope": 0.572
+										"frequency": 2000,
+										"db": -16.5,
+										"slope": 0.423
 									}
 								]
-							}
-						},
-						{
-							"path": "resources/songs/TheChristmasSong.mp3",
-							"options": {
-								"volume": 0.4
-							}
-						},
-						{
-							"path": "resources/songs/TheFirstNoel.mp3",
-							"options": {
-								"volume": 0.5,
-								"reverb": {
-									"mix": 0.8,
-									"reverberance": 90,
-									"room_scale": 95
 								}
+							},
+							{
+								"path": "resources/songs/CaroloftheBells.mp3",
+								"options": {
+									"volume": 0.3,
+									"reverb": {
+										"mix": 0.9
+									}
+								}
+							},
+							{
+								"path": "resources/songs/GodRestYeMerryGentlemen.mp3",
+								"options": {
+									"reverb": {
+										"mix": 0.7
+									}
+								}
+							},
+							{
+								"path": "resources/songs/HarkTheHeraldAngelsSing.mp3",
+								"options": {
+									"reverb": {
+										"mix": 0.75
+									}
+								}
+							},
+							{
+								"path": "resources/songs/HaveaHollyJollyChristmas.mp3",
+								"options": {
+									"reverb": {
+										"mix": 0.7,
+										"reverberance": 70,
+										"room_scale": 50
+									}
+								}
+							},
+							{
+								"path": "resources/songs/HaveYourselfAMerryLittleChristmas.mp3",
+								"options": {
+									"volume": 0.2,
+									"reverb": {
+										"mix": 0.75
+									}
+								}
+							},
+							{
+								"path": "resources/songs/IllBeHomeForChristmas.mp3",
+								"options": {
+									"volume": 0.2,
+									"reverb": {
+										"mix": 0.7,
+										"reverberance": 80
+									}
+								}
+							},
+							{
+								"path": "resources/songs/ItCameUponaMidnightClear.mp3",
+								"options": {
+									"volume": 0.18
+								}
+							},
+							{
+								"path": "resources/songs/ItsBeginningToLookALotLikeChristmas.mp3",
+								"options": {
+									"volume": 0.5,
+									"reverb": {
+										"mix": 0.9,
+										"reverberance": 75,
+										"room_scale": 60
+									}
+								}
+							},
+							{
+								"path": "resources/songs/ItstheMostWonderfulTimeoftheYear.mp3",
+								"options": {
+									"reverb": {
+										"mix": 0.9,
+										"reverberance": 80,
+										"room_scale": 50
+									}
+								}
+							},
+							{
+								"path": "resources/songs/JingleBells.mp3",
+								"options": {}
+							},
+							{
+								"path": "resources/songs/LetItSnow.mp3",
+								"options": {
+									"volume": 0.33,
+									"reverb": {
+										"mix": 0.95,
+										"room_scale": 60
+									}
+								}
+							},
+							{
+								"path": "resources/songs/March.mp3",
+								"options": {
+									"volume": 0.65,
+									"reverb": {
+										"room_scale": 60
+									}
+								}
+							},
+							{
+								"path": "resources/songs/OComeAllYeFaithful.mp3",
+								"options": {
+									"volume": 0.45,
+									"reverb": {
+										"mix": 0.9,
+										"reverberance": 80,
+										"room_scale": 55
+									}
+								}
+							},
+							{
+								"path": "resources/songs/OHolyNight.mp3",
+								"options": {
+									"volume": 0.3,
+									"reverb": {
+										"mix": 0.9,
+										"room_scale": 48
+									}
+								}
+							},
+							{
+								"path": "resources/songs/OLittleTownOfBethlehem.mp3",
+								"options": {
+									"volume": 0.185,
+									"reverb": {
+										"mix": 0.95,
+										"room_scale": 60
+									}
+								}
+							},
+							{
+								"path": "resources/songs/RockingAroundtheChristmasTree.mp3",
+								"options": {}
+							},
+							{
+								"path": "resources/songs/RudolphTheRedNosedReindeer.mp3",
+								"options": {
+									"volume": 0.3,
+									"reverb": {
+										"mix": 0.8,
+										"reverberance": 80,
+										"room_scale": 60
+									}
+								}
+							},
+							{
+								"path": "resources/songs/SilentNight.mp3",
+								"options": {
+									"volume": 0.42
+								}
+							},
+							{
+								"path": "resources/songs/SugarPlumFairy.mp3",
+								"options": {
+									"volume": 0.9,
+									"reverb": {
+										"mix": 0.9,
+										"reverberance": 70,
+										"room_scale": 80
+									},
+									"equalizers" : [
+										{
+											"name": "high-shelf",
+											"frequency": 1962.2,
+											"db": -10,
+											"slope": 0.572
+										}
+									]
+								}
+							},
+							{
+								"path": "resources/songs/TheChristmasSong.mp3",
+								"options": {
+									"volume": 0.4
+								}
+							},
+							{
+								"path": "resources/songs/TheFirstNoel.mp3",
+								"options": {
+									"volume": 0.5,
+									"reverb": {
+										"mix": 0.8,
+										"reverberance": 90,
+										"room_scale": 95
+									}
 
-							}
-						},
-						{
-							"path": "resources/songs/TheLittleDrummerBoy.mp3",
-							"options": {
-								"volume": 0.28,
-								"reverb": {
-									"mix": 0.85,
-									"room_scale": 95
 								}
-							}
-						},
-						{
-							"path": "resources/songs/WaltzOfTheFlowers.mp3",
-							"options": {
-								"volume": 1,
-								"reverb": {
-									"mix": 0.8,
-									"room_scale": 60
+							},
+							{
+								"path": "resources/songs/TheLittleDrummerBoy.mp3",
+								"options": {
+									"volume": 0.28,
+									"reverb": {
+										"mix": 0.85,
+										"room_scale": 95
+									}
 								}
-							}
-						},
-						{
-							"path": "resources/songs/WhatChildIsThis.mp3",
-							"options": {
-								"volume": 0.42,
-								"reverb": {
-									"mix": 0.8,
-									"reverberance": 95,
-									"room_scale": 60
+							},
+							{
+								"path": "resources/songs/WaltzOfTheFlowers.mp3",
+								"options": {
+									"volume": 1,
+									"reverb": {
+										"mix": 0.8,
+										"room_scale": 60
+									}
 								}
+							},
+							{
+								"path": "resources/songs/WhatChildIsThis.mp3",
+								"options": {
+									"volume": 0.42,
+									"reverb": {
+										"mix": 0.8,
+										"reverberance": 95,
+										"room_scale": 60
+									}
+								}
+							},
+							{
+								"path": "resources/songs/WhiteChristmas.mp3"
+							},
+							{
+								"path": "resources/songs/WinterWonderland.mp3"
 							}
-						},
-						{
-							"path": "resources/songs/WhiteChristmas.mp3"
-						},
-						{
-							"path": "resources/songs/WinterWonderland.mp3"
-						}
 
-					]
-
-				}
+						]
+					}
+				]
 
 			}
 
