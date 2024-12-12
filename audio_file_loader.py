@@ -1,7 +1,7 @@
-from pydub import AudioSegment
 from queue import Queue
+import soundfile as sf
 import threading
-import numpy as np
+import numpy
 
 
 def load_tracks(tracks):
@@ -13,7 +13,7 @@ def load_tracks(tracks):
 
     try:
         for track in tracks:
-            # threads work well for disk io, and non-cpu bound tasks
+            # threads work well for disk io and non cpu-bound tasks
             thread = threading.Thread(target=load_as_numpy, args=(track, file_queue))
             threads.append(thread)
             thread.start()
@@ -28,11 +28,10 @@ def load_tracks(tracks):
 
 
 def load_as_numpy(track, queue):
-    audio_segment = AudioSegment.from_file(track['path'])
-    samples = np.array(audio_segment.get_array_of_samples())
-    if audio_segment.channels == 2:
-        samples = samples.reshape(-1, 2)
-    samples = samples / (2 ** (8 * audio_segment.sample_width - 1))  # Normalize for sounddevice
-    samples = samples.astype(np.float32)
-    sample_rate = audio_segment.frame_rate
+    samples, sample_rate = sf.read(track['path'], dtype='int16')
+
+    # Normalize for sounddevice playback
+    samples = samples / (2 ** 15)
+    samples = samples.astype(numpy.float32)
+
     queue.put((samples, sample_rate, track))
