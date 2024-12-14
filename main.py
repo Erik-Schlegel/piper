@@ -1,20 +1,15 @@
 import sys
-import json
+
 import signal
 import multiprocessing
 
 from conductor import Conductor
-from n_config_helper import NConfigHelper
 
 audio_conductor = None
 
 def main():
-    global audio_conductor
-    audio_conductor = Conductor('WinterCabin')
-    audio_conductor.start()
-    # config = NConfigHelper('winter_cabin')
-    # tracks = config.get_layer_set_tracks('background')
-    # print(json.dumps(tracks, indent=2))
+    audio_conductor = Conductor('winter_cabin')
+    audio_conductor.start_playback()
 
 
 def add_signal_handlers():

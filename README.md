@@ -34,16 +34,29 @@ deactivate
 {
     "layer_sets": [
         {
-            "name": "background", // unique, optional
-            "play_mode": "string", // "simultaneous", "ordered", "shuffled"
-            "loops": true, //boolean
-
-            "intermission": -0.25, // in seconds. negative represents crossfade time, single value is static gap between tracks, [ minValue, maxValue ] is a random gap between plays
+            "name": "background", // unique string
+            "play_mode": "", // "ordered", "shuffled", "simultaneous"
+            "loop": true,
+                /*
+                ordered & true - full playlist is repeated
+                ordered & false - full playlist plays once
+                -
+                shuffled & true - full playlist loops, each loop is uniquely shuffled
+                shuffled & false - full playlist is shuffled then plays once
+                -
+                simultaneous & true - all tracks play simultaneously, individual tracks loop
+                simultaneous & false - all tracks play simultaneously, individual tracks play once
+                */
+            "intermission": 0,
+                // in seconds.
+                // Negative number: crossfade time
+                // Individual number value: static gap time between tracks in this set
+                // List of two numbers [ minValue, maxValue ] imposes a wait-to-start-next-track for n seconds. N is a random number between min and max.
             "audio_options": {
                 "volume": 0.25, // 0 - 1
                 "equalizers": [
                     {
-                        "name": "lowshelf", // equalizer values for all tracks to inherit. If track has an equalizer of the same name, the track's value overrides
+                        "name": "lowshelf", // equalizer values for all tracks to inherit.
                         "frequency": 100,
                         "gain": 13 // decibels
                     }

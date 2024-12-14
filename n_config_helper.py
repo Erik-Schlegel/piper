@@ -29,7 +29,7 @@ class NConfigHelper:
         return None
 
 
-    def get_layer_set_options(self, name):
+    def get_layer_set_audio_options(self, name):
         named_layer = self.get_layer_set(name)
         return named_layer.get('audio_options', {})
 
@@ -38,8 +38,9 @@ class NConfigHelper:
         named_layer_tracks = copy.deepcopy(self.get_layer_set(name).get('tracks', []))
 
         for track in named_layer_tracks:
-            named_layer_options = copy.deepcopy(self.get_layer_set_options(name))
+            named_layer_options = copy.deepcopy(self.get_layer_set_audio_options(name))
 
+            # We deal with equalizers later with custom handling
             named_layer__eq = named_layer_options.pop('equalizers', [])
             track_eq = track.get('audio_options', {}).get('equalizers', [])
 
