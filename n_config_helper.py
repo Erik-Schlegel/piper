@@ -1,0 +1,57 @@
+import json
+import copy
+
+from utils.dictionary_utils import deep_merge
+from utils.list_utils import merge_named_lists
+
+
+class NConfigHelper:
+    _config = None
+
+    def __init__(self, config_name):
+        self._config = self._load_config(config_name)
+
+
+    def _load_config(self, config_name):
+        with open(f'scenes/{config_name}.json') as file:
+            return json.load(file)
+
+
+    def get_layer_sets(self):
+        return self._config.get('layer_sets', {})
+
+
+    def get_layer_set(self, name):
+        layer_sets = self.get_layer_sets()
+        for layer_set in layer_sets:
+            if layer_set.get('name', '') == name:
+                return layer_set
+        return None
+
+
+    def get_layer_set_options(self, name):
+        named_layer = self.get_layer_set(name)
+        return named_layer.get('audio_options', {})
+
+
+    def get_layer_set_tracks(self, name):
+        named_layer_tracks = copy.deepcopy(self.get_layer_set(name).get('tracks', []))
+
+        for track in named_layer_tracks:
+            named_layer_options = copy.deepcopy(self.get_layer_set_options(name))
+
+            named_layer__eq = named_layer_options.pop('equalizers', [])
+            track_eq = track.get('audio_options', {}).get('equalizers', [])
+
+            track['audio_options'] = deep_merge(
+                named_layer_options,
+                track.get('audio_options', {})
+            )
+
+            if track_eq != {} or named_layer__eq != {}:
+                track['audio_options']['equalizers'] = merge_named_lists(
+                    track_eq,
+                    named_layer__eq
+                )
+
+        return named_layer_tracks

@@ -252,7 +252,9 @@
 								}
 							}
 						]
-					},
+					}
+				],
+				"other": [
 					{
 						"intermissionSeconds": [ 10, 1800 ],
 						"options": {

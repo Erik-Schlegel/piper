@@ -1,7 +1,8 @@
 import json
 
 
-from dictionary_utils import deep_merge
+from utils.dictionary_utils import deep_merge
+from utils.list_utils import merge_named_lists
 
 
 class ConfigHelper:
@@ -54,7 +55,7 @@ class ConfigHelper:
             )
 
             if track_eq != {} or cloned_layer_options_eq != {}:
-                track['options']['equalizers'] = ConfigHelper.merge_named_lists(
+                track['options']['equalizers'] = merge_named_lists(
                     track_eq,
                     cloned_layer_options_eq
                 )
@@ -82,7 +83,7 @@ class ConfigHelper:
                 )
 
                 if track_eq != {} or cloned_layer_options_eq != {}:
-                    track['options']['equalizers'] = ConfigHelper.merge_named_lists(
+                    track['options']['equalizers'] = merge_named_lists(
                         track_eq,
                         cloned_layer_options_eq
                     )
@@ -94,25 +95,3 @@ class ConfigHelper:
     def get_intermission_seconds_minmax(cls, scene_name):
         type_layer = cls.get_scene_layers(scene_name)['shuffled']
         return type_layer['intermissionSeconds']
-
-
-    @staticmethod
-    def merge_named_lists(list_a, list_b):
-        """
-        Merges two lists of dictionaries, keeping items from list_a when 'name' conflicts exist.
-
-        Args:
-            list_a: Primary list of dicts with 'name' field
-            list_b: Secondary list of dicts with 'name' field
-
-        Returns:
-            List of merged dictionaries with no duplicate names
-        """
-        name_map = {item['name']: item for item in list_a}
-
-        # Only add items from list_b if their name isn't already present
-        for item in list_b:
-            if item['name'] not in name_map:
-                name_map[item['name']] = item
-
-        return list(name_map.values())
