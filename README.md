@@ -35,11 +35,11 @@ deactivate
     "layer_sets": [
         {
             "name": "background", // unique string
-            "play_mode": "", // "ordered", "shuffled", "simultaneous"
+            "play_mode": "", // "sequential", "shuffled", "simultaneous"
             "loop": true,
                 /*
-                ordered & true - full playlist is repeated
-                ordered & false - full playlist plays once
+                sequential & true - full playlist is repeated
+                sequential & false - full playlist plays once
                 -
                 shuffled & true - full playlist loops, each loop is uniquely shuffled
                 shuffled & false - full playlist is shuffled then plays once

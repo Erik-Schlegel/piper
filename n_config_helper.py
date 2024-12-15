@@ -8,6 +8,7 @@ from utils.list_utils import merge_named_lists
 class NConfigHelper:
     _config = None
 
+
     def __init__(self, config_name):
         self._config = self._load_config(config_name)
 
@@ -17,8 +18,17 @@ class NConfigHelper:
             return json.load(file)
 
 
-    def get_layer_sets(self):
-        return self._config.get('layer_sets', {})
+    def get_layer_sets(self, include_ignored=False):
+        # if a layer_set has "ignore": true, do not include it in the result set, unless include_ignored is True
+        layer_sets = self._config.get('layer_sets', [])
+
+        if include_ignored:
+            return layer_sets
+        else:
+            return [
+                layer_set for layer_set in layer_sets
+                    if not layer_set.get('ignore', False)
+            ]
 
 
     def get_layer_set(self, name):

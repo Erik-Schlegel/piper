@@ -1,13 +1,18 @@
 import sys
-
 import signal
 import multiprocessing
+from setproctitle import setproctitle
 
 from conductor import Conductor
 
 audio_conductor = None
 
 def main():
+    setproctitle('piper.main')
+    multiprocessing.set_start_method('spawn')
+    add_signal_handlers()
+
+    global audio_conductor
     audio_conductor = Conductor('winter_cabin')
     audio_conductor.start_playback()
 
@@ -18,14 +23,13 @@ def add_signal_handlers():
 
 
 def signal_handler(_sig, _frame):
-    audio_conductor.stop()
+    audio_conductor.stop_playback()
     sys.exit(0)
 
 
 if __name__ == "__main__":
     try:
-        multiprocessing.set_start_method('spawn')
-        add_signal_handlers()
         main()
     except KeyboardInterrupt:
+        print('is this necessary?')
         signal_handler(signal.SIGINT, None)

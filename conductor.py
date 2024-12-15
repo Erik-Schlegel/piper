@@ -2,7 +2,6 @@ import multiprocessing
 import random
 from time import sleep
 
-
 from audio_file_loader import load_tracks
 from player import play_audio, loop_audio
 from n_config_helper import NConfigHelper
@@ -15,47 +14,44 @@ class Conductor:
     _subprocesses = None
 
     def __init__(self, scene_name):
-        self._subprocesses = []
         self._config = NConfigHelper(scene_name)
+        self._subprocesses = []
 
 
     def start_playback(self):
         for layer_set in self._config.get_layer_sets():
-            play_mode = PlayMode.get_mode(layer_set.get('play_mode', None))
-            play_fn = ({
-                PlayMode.ORDERED: self.play_ordered,
-                PlayMode.SHUFFLED: self.play_shuffled,
-                PlayMode.SIMULTANEOUS: self.play_simultaneous
-            }.get(play_mode))
+            layer_set_name = layer_set.get('name', None)
+            play_mode = PlayMode.get_mode(layer_set.get('play_mode'))
 
-            name = layer_set.get('name', None)
-            if play_fn is None or name is None:
+            if play_mode is None or layer_set_name is None:
                 continue
 
-            proc = multiprocessing.Process(
-                target=play_fn,
-                args=(
-                    self._config.get_layer_set_tracks(name),
-                    layer_set.get('loop', False),
-                    layer_set.get('intermission', 3))
-            )
-            proc.start()
-            self._subprocesses.append(proc)
+            play_fn = ({
+                PlayMode.SIMULTANEOUS: self.play_simultaneous,
+                PlayMode.SEQUENTIAL: self.play_consecutive,
+                PlayMode.SHUFFLE: self.play_shuffled
+            }.get(play_mode))
 
+            play_fn(
+                self._subprocesses,
+                self._config.get_layer_set_tracks(layer_set_name),
+                layer_set.get('loop', False),
+                layer_set.get('intermission', 3)
+            )
 
         for subprocess in self._subprocesses:
             subprocess.join()
 
 
-    def play_simultaneous(self, tracks, loop, intermission):
+    def play_simultaneous(self, subprocesses, tracks, loop, intermission):
         if not isinstance(tracks, list):
             tracks = [tracks]
         tracks = load_tracks(tracks)
 
         while not tracks.empty():
-            proc = multiprocessing.Process(target=loop_audio, args=(tracks.get(),))
+            proc = multiprocessing.Process(target=loop_audio, args=(tracks.get(),), name="simultaneous")
             proc.start()
-            self._subprocesses.append(proc)
+            subprocesses.append(proc)
 
 
     def play_consecutive(self, tracks, loop, intermission, shuffle=False):
@@ -66,7 +62,7 @@ class Conductor:
         # print(json.dumps(tracks, indent=2))
 
 
-    def play_ordered(self, tracks, loop, intermission):
+    def play_sequential(self, tracks, loop, intermission):
         self.play_consecutive(tracks, loop, intermission, shuffle=False)
 
 

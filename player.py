@@ -1,11 +1,15 @@
+from setproctitle import setproctitle
 import signal
 import sounddevice as sd
 from pysndfx import AudioEffectsChain
 import numpy as np
 
+
 def ignore_signals():
-    # Play calls are handled in a separate process. Ignore signal handlers
-    # internally, oherwise we get errors on exit.
+    """
+    Play calls are handled in a separate process. Ignore signal handlers
+    internally, oherwise we get errors on exit.
+    """
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     signal.signal(signal.SIGTERM, signal.SIG_DFL)
 
@@ -26,6 +30,9 @@ def play_audio(track):
 
 
 def loop_audio(track):
+    filename = str.split(track[2].get('path'), '/')[-1]
+    setproctitle(f'piper.player.loop_audio:{filename}')
+
     try:
         ignore_signals()
 

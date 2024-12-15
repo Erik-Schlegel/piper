@@ -22,6 +22,15 @@
             },
             "tracks": [
                 {
+                    "path": "resources/loopable/wind_short.wav",
+                    "audio_options": {
+                        "volume": 0.05
+                    }
+                },
+                {
+                    "path": "resources/loopable/snow_short.wav"
+                },
+                {
                     "path": "resources/loopable/fireplace_crackles.mp3",
                     "audio_options": {
                         "reverb": {
@@ -62,21 +71,14 @@
                             "wet_gain": 1
                         }
                     }
-                },
-                {
-                    "path": "resources/loopable/wind_short.wav",
-                    "audio_options": {
-                        "volume": 0.05
-                    }
-                },
-                {
-                    "path": "resources/loopable/snow_short.wav"
                 }
+
             ]
         },
         {
+            "ignore": true,
             "name": "incident",
-            "play_mode": "shuffled",
+            "play_mode": "shuffle",
             "loop": true,
             "intermission": [ 0, 120 ],
             "audio_options": {
@@ -252,8 +254,9 @@
             ]
         },
         {
+            "ignore": true,
             "name": "music",
-            "play_mode": "shuffled",
+            "play_mode": "_shuffle",
             "loop": true,
             "intermission": [ 10, 1800 ],
             "audio_options": {
