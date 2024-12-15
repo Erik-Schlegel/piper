@@ -30,16 +30,16 @@ def play_audio(track):
 
 
 def loop_audio(track):
-    filename = str.split(track[2].get('path'), '/')[-1]
+    filename = str.split(track[0].get('path'), '/')[-1]
     setproctitle(f'piper.player.loop_audio:{filename}')
 
     try:
         ignore_signals()
 
         samples = get_fx_processed_samples(track)
-        track_options = track[2].get('options', {})
+        track_options = track[0].get('options', {})
 
-        sample_rate = track[1]
+        sample_rate = track[2]
         fade_samples = int((track_options.get('crossFadeDuration', 0.25)) * sample_rate)
 
         crossfade_samples = get_crossfade_samples(samples, fade_samples)
@@ -80,8 +80,8 @@ def get_crossfade_samples(samples, fade_samples):
 
 
 def get_fx_processed_samples(track):
-    samples, _, track_options = track
-    track_options = track_options.get('options', {})
+    track_options, samples, sample_rate = track
+    track_options = track_options.get('audio_options', {})
 
     fx = AudioEffectsChain()
 

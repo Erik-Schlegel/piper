@@ -6,35 +6,17 @@
             "loop": true,
             "intermission": -0.25,
             "audio_options": {
-                "volume": 0.25,
-                "equalizers": [
-                    {
-                        "name": "lowshelf",
-                        "frequency": 100,
-                        "gain": 0
-                    },
-                    {
-                        "name": "highshelf",
-                        "frequency": 10000,
-                        "gain": 0
-                    }
-                ]
+                "volume": 0.25
             },
+            "_tracks": [
+
+            ],
             "tracks": [
-                {
-                    "path": "resources/loopable/wind_short.wav",
-                    "audio_options": {
-                        "volume": 0.05
-                    }
-                },
-                {
-                    "path": "resources/loopable/snow_short.wav"
-                },
                 {
                     "path": "resources/loopable/fireplace_crackles.mp3",
                     "audio_options": {
                         "reverb": {
-                            "mix": 0.5,
+                            "mix": 0.7,
                             "reverberance": 40,
                             "room_scale": 50,
                             "stereo_depth": 80,
@@ -47,7 +29,7 @@
                     "path": "resources/loopable/fireplace_short.wav",
                     "audio_options": {
                         "reverb": {
-                            "mix": 0.8,
+                            "mix": 0.6,
                             "reverberance": 50,
                             "hf_damping": 0,
                             "room_scale": 50,
@@ -60,7 +42,7 @@
                 {
                     "path": "resources/loopable/clock_short.wav",
                     "audio_options": {
-                        "volume": 0.09,
+                        "volume": 0.1,
                         "reverb": {
                             "mix": 0.85,
                             "reverberance": 85,
@@ -71,8 +53,19 @@
                             "wet_gain": 1
                         }
                     }
+                },
+                {
+                    "path": "resources/loopable/wind_short.wav",
+                    "audio_options": {
+                        "volume": 0.05
+                    }
+                },
+                {
+                    "path": "resources/loopable/snow_short.wav",
+                    "audio_options": {
+                        "volume": 0.025
+                    }
                 }
-
             ]
         },
         {

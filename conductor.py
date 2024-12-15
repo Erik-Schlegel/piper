@@ -4,7 +4,7 @@ from time import sleep
 
 from audio_file_loader import load_tracks
 from player import play_audio, loop_audio
-from n_config_helper import NConfigHelper
+from config_helper import ConfigHelper
 from enums.play_mode import PlayMode
 
 
@@ -14,7 +14,7 @@ class Conductor:
     _subprocesses = None
 
     def __init__(self, scene_name):
-        self._config = NConfigHelper(scene_name)
+        self._config = ConfigHelper(scene_name)
         self._subprocesses = []
 
 
@@ -34,7 +34,7 @@ class Conductor:
 
             play_fn(
                 self._subprocesses,
-                self._config.get_layer_set_tracks(layer_set_name),
+                self._config.get_tracks(layer_set_name),
                 layer_set.get('loop', False),
                 layer_set.get('intermission', 3)
             )
@@ -44,12 +44,9 @@ class Conductor:
 
 
     def play_simultaneous(self, subprocesses, tracks, loop, intermission):
-        if not isinstance(tracks, list):
-            tracks = [tracks]
-        tracks = load_tracks(tracks)
 
-        while not tracks.empty():
-            proc = multiprocessing.Process(target=loop_audio, args=(tracks.get(),), name="simultaneous")
+        for track in load_tracks(tracks):
+            proc = multiprocessing.Process(target=loop_audio, args=(track,))
             proc.start()
             subprocesses.append(proc)
 
