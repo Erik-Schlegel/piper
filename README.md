@@ -4,7 +4,7 @@
 Pi-based audio player geared toward providing uninterrupted audio ambience.
 
 
-## Setup
+## Setup for local development and iteration
 in a terminal, run `./install`
 
 
