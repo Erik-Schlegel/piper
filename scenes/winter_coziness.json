@@ -11,7 +11,7 @@
             },
             "tracks": [
                 {
-                    "path": "resources/loopable/milky_noise_short_mod.wav",
+                    "path": "resources/effects/milky_noise_short_mod.wav",
                     "audio_options": {
                         "reverb": {
                             "mix": 0.7,

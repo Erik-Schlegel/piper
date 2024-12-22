@@ -1,8 +1,19 @@
 import sys
 import signal
 
+from config_helper import ConfigHelper
+from conductor import Conductor
+
 
 def main():
+    conductor = Conductor(ConfigHelper('winter_coziness'))
+    conductor.begin()
+
+
+
+
+def get_scene_names():
+    #TODO: implement method to return a list from  ./scenes/*.json
     pass
 
 
@@ -19,5 +30,4 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print('is this necessary?')
         signal_handler(signal.SIGINT, None)
