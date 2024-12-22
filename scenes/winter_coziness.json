@@ -1,0 +1,29 @@
+{
+    "track_sets": [
+        {
+            "name": "background",
+            "play_mode": "simultaneous",
+            "loop": true,
+            "shuffle": false,
+            "intermission": -0.25,
+            "audio_options": {
+                "volume": 0.25
+            },
+            "tracks": [
+                {
+                    "path": "resources/loopable/milky_noise_short_mod.wav",
+                    "audio_options": {
+                        "reverb": {
+                            "mix": 0.7,
+                            "reverberance": 40,
+                            "room_scale": 50,
+                            "stereo_depth": 80,
+                            "pre_delay": 0,
+                            "wet_gain": 1
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
