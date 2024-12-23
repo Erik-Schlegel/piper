@@ -10,6 +10,10 @@ class Track:
         self._sample_data = sample_data
         self._sample_rate = sample_rate
 
+    @property
+    def track_name(self):
+        return str.split(self._config.get('path'), '/')[-1]
+
 
     @property
     def config(self):
@@ -24,4 +28,9 @@ class Track:
     @property
     def sample_rate(self):
         return self._sample_rate
+
+
+    @property
+    def channel_count(self):
+        return self._sample_data.ndim
 

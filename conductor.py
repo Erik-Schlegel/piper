@@ -1,10 +1,17 @@
+import multiprocessing
+
 from enums.play_mode import PlayMode
+from audio_processor import process_tracks
+from track_player import play
 from utils.load_tracks import load_tracks
+from utils.ignore_signals import ignore_signals
+
 
 class Conductor:
 
     _config = None
     _subprocesses = None
+
 
     def __init__(self, config):
         self._config = config
@@ -30,17 +37,27 @@ class Conductor:
 
     def conduct_simultaneous(self, track_set):
         try:
+            ignore_signals()
 
             tracks = load_tracks(self._config.get_tracks(track_set.get('name', None)))
-            print('hello')
+            tracks = process_tracks(tracks)
+
+            for track in tracks:
+                subprocess =  multiprocessing.Process(target=play, args=(track,))
+                self._subprocesses.append(subprocess)
+                subprocess.start()
+
         except Exception as e:
-            print('whatsaasdg')
+            print(e)
 
 
     def conduct_sequential(self, track_set:list):
         print('seq')
 
 
-
-    def end():
-        pass
+    def end(self):
+        for process in self._subprocesses:
+            if process.is_alive():
+                process.terminate()
+                process.join()
+        print('donezo')

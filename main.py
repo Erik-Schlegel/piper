@@ -1,15 +1,22 @@
 import sys
 import signal
+import multiprocessing
+from setproctitle import setproctitle
 
 from config_helper import ConfigHelper
 from conductor import Conductor
 
+conductor = None
+
 
 def main():
+
+    multiprocessing.set_start_method('spawn')
+    setproctitle('pipyper.main')
+
+    global conductor
     conductor = Conductor(ConfigHelper('winter_coziness'))
     conductor.begin()
-
-
 
 
 def get_scene_names():
@@ -23,7 +30,8 @@ def add_signal_handlers():
 
 
 def signal_handler(_sig, _frame):
-    sys.exit(0)
+    conductor.end()
+    # sys.exit(0)
 
 
 if __name__ == "__main__":
