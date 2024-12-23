@@ -1,7 +1,7 @@
 import multiprocessing
 
 from enums.play_mode import PlayMode
-from audio_processor import process_tracks
+from audio_processor import add_track_fx, add_self_cross_fade
 from track_player import play
 from utils.load_tracks import load_tracks
 from utils.ignore_signals import ignore_signals
@@ -40,10 +40,25 @@ class Conductor:
             ignore_signals()
 
             tracks = load_tracks(self._config.get_tracks(track_set.get('name', None)))
-            tracks = process_tracks(tracks)
+            tracks = add_track_fx(tracks)
+
+            intermission = track_set.get('intermission', 3)
+
+            #TODO: flesh this out.
+            # if intermission < 0:
+            #     tracks = add_self_cross_fade(tracks)
+
 
             for track in tracks:
-                subprocess =  multiprocessing.Process(target=play, args=(track,))
+                # TODO: In principal the play method shouldn't receive loop or intermission. It's Conductor's job to restart and pause restarts.
+                subprocess =  multiprocessing.Process(
+                    target=play,
+                    args=(
+                        track,
+                        track_set.get('loop', False),
+                        track_set.get('intermission', 3)
+                    )
+                )
                 self._subprocesses.append(subprocess)
                 subprocess.start()
 

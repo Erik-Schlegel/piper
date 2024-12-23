@@ -12,7 +12,7 @@ conductor = None
 def main():
 
     multiprocessing.set_start_method('spawn')
-    setproctitle('pipyper.main')
+    setproctitle('piper.main')
 
     global conductor
     conductor = Conductor(ConfigHelper('winter_coziness'))
@@ -31,7 +31,7 @@ def add_signal_handlers():
 
 def signal_handler(_sig, _frame):
     conductor.end()
-    # sys.exit(0)
+    sys.exit(0)
 
 
 if __name__ == "__main__":

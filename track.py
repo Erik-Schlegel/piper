@@ -10,6 +10,12 @@ class Track:
         self._sample_data = sample_data
         self._sample_rate = sample_rate
 
+
+    def get_audio_option(self, name=None):
+        options = self._config.get('audio_options',{})
+        return options.get(name, None)
+
+
     @property
     def track_name(self):
         return str.split(self._config.get('path'), '/')[-1]
@@ -25,6 +31,11 @@ class Track:
         return self._sample_data
 
 
+    @samples.setter
+    def samples(self, value):
+        self._sample_data = value
+
+
     @property
     def sample_rate(self):
         return self._sample_rate
@@ -33,4 +44,5 @@ class Track:
     @property
     def channel_count(self):
         return self._sample_data.ndim
+
 
