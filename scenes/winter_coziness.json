@@ -5,24 +5,71 @@
             "play_mode": "simultaneous",
             "loop": true,
             "shuffle": false,
-            "intermission": -0.25,
+            "intermission": 0,
             "audio_options": {
-                "volume": 0.25
+                "volume": 0.25,
+                "reverb": {
+                    "mix": 0
+                }
             },
             "tracks": [
                 {
-                    "path": "resources/effects/milky_noise_short_mod.wav",
+                    "path": "resources/effects/fireplace_crackles.mp3",
                     "audio_options": {
+                        "volume": 0.25,
                         "reverb": {
-                            "mix": 0.7,
-                            "reverberance": 40,
+                            "mix": 0.5,
+                            "reverberance": 60,
                             "room_scale": 50,
                             "stereo_depth": 80,
                             "pre_delay": 0,
                             "wet_gain": 1
                         }
                     }
+                },
+                {
+                    "path": "resources/effects/fireplace_short.wav",
+                    "audio_options": {
+                        "volume": 0.25,
+                        "reverb": {
+                            "mix": 0.8,
+                            "reverberance": 50,
+                            "hf_damping": 0,
+                            "room_scale": 50,
+                            "stereo_depth": 70,
+                            "pre_delay": 0,
+                            "wet_gain": 1
+                        }
+                    }
+                },
+                {
+                    "path": "resources/effects/clock_short.wav",
+                    "audio_options": {
+                        "volume": 0.09,
+                        "reverb": {
+                            "mix": 0.85,
+                            "reverberance": 85,
+                            "hf_damping": 30,
+                            "room_scale": 20,
+                            "stereo_depth": 75,
+                            "pre_delay": 0,
+                            "wet_gain": 1
+                        }
+                    }
+                },
+                {
+                    "path": "resources/effects/wind_short.wav",
+                    "audio_options": {
+                        "volume": 0.05
+                    }
+                },
+                {
+                    "path": "resources/effects/snow_short.wav",
+                    "audio_options": {
+                        "volume": 0.02
+                    }
                 }
+
             ]
         }
     ]

@@ -3,6 +3,7 @@ class Track:
     _config = None
     _sample_data = None
     _sample_rate = None
+    _crossfade = None
 
 
     def __init__(self, config, sample_data, sample_rate):
@@ -44,5 +45,15 @@ class Track:
     @property
     def channel_count(self):
         return self._sample_data.ndim
+
+
+    @property
+    def crossfade(self):
+        return self._crossfade
+
+
+    @crossfade.setter
+    def crossfade(self, value):
+        self._crossfade = value
 
 

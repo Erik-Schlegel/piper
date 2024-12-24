@@ -1,9 +1,12 @@
+import typing
 import multiprocessing
-import numpy
 from pysndfx import AudioEffectsChain
 
+import numpy
+from track import Track
 
-def add_track_fx(tracks):
+
+def add_track_fx(tracks) -> list[Track]:
     with multiprocessing.Pool() as pool:
         results = pool.map(process_track_fx, tracks)
 
@@ -13,7 +16,7 @@ def add_track_fx(tracks):
     return tracks
 
 
-def process_track_fx(track):
+def process_track_fx(track) -> numpy:
     fx = AudioEffectsChain()
     samples = track.samples
 
@@ -40,21 +43,3 @@ def process_track_fx(track):
 
     samples = samples * track.get_audio_option('volume')
     return samples
-
-
-def add_self_cross_fade(samples, fade_samples):
-    channel_count = 2 if samples.ndim == 2 else 1
-
-    end_chunk = samples[-fade_samples:]
-    start_chunk = samples[:fade_samples]
-    fade_curve = numpy.linspace(0, 1, fade_samples, dtype=samples.dtype)
-
-    crossfade = None
-    if channel_count == 1:
-        crossfade = (end_chunk * (1 - fade_curve)).astype(samples.dtype) + \
-               (start_chunk * fade_curve).astype(samples.dtype)
-    else:
-        crossfade = (end_chunk * (1 - fade_curve)[:, numpy.newaxis]).astype(samples.dtype) + \
-               (start_chunk * fade_curve[:, numpy.newaxis]).astype(samples.dtype)
-
-    return crossfade
