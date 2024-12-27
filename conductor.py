@@ -1,11 +1,15 @@
-import multiprocessing
+from setproctitle import setproctitle
+# import multiprocessing
+import threading
 
 from enums.play_mode import PlayMode
 from audio_processor import add_track_fx
-from track_player import play
+from track_player import loop
 from utils.load_tracks import load_tracks
 from utils.ignore_signals import ignore_signals
 
+import typing
+from track import Track
 
 class Conductor:
 
@@ -24,10 +28,11 @@ class Conductor:
 
             try:
                 play_fn = ({
-                    PlayMode.SIMULTANEOUS: self.conduct_simultaneous,
-                    PlayMode.SEQUENTIAL: self.conduct_sequential
+                    PlayMode.SIMULTANEOUS: self.play_simultaneous,
+                    PlayMode.SEQUENTIAL: self.play_sequential
                 })[PlayMode(track_set.get('play_mode', None))]
 
+                # TODO: start this in a process.
                 play_fn(track_set)
 
 
@@ -35,22 +40,17 @@ class Conductor:
                 raise ValueError(f'No valid play_mode specified in {self._config.get_config_name()}')
 
 
-    def conduct_simultaneous(self, track_set):
+    def play_simultaneous(self, track_set:list):
+        ignore_signals()
+        setproctitle(f'piper.conductor.play_simultaneous')
         try:
-            ignore_signals()
-
             tracks = load_tracks(self._config.get_tracks(track_set.get('name', None)))
             tracks = add_track_fx(tracks)
 
-
             for track in tracks:
-                subprocess =  multiprocessing.Process(
-                    target=play,
-                    args=(
-                        track,
-                        track_set.get('loop', False),
-                        track_set.get('intermission', 3)
-                    )
+                subprocess =  threading.Thread(
+                    target=loop,
+                    args=(track, )
                 )
                 self._subprocesses.append(subprocess)
                 subprocess.start()
@@ -59,8 +59,21 @@ class Conductor:
             print(e)
 
 
-    def conduct_sequential(self, track_set:list):
-        print('seq')
+    def play_sequential(self, track_set:list):
+        # ignore_signals()
+
+        # TODO: Build me
+        # first_run = True
+        # while first_run or track_set.get('loop', False):
+        #     continue
+            #sleep(intermission)
+            #shuffle tracks
+            #foreach track
+                #load individual track
+                #process individual track
+                #play individual track'
+            #first_run = False
+        pass
 
 
     def end(self):
@@ -69,3 +82,5 @@ class Conductor:
                 process.terminate()
                 process.join()
         print('donezo')
+
+

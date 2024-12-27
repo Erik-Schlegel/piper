@@ -1,6 +1,7 @@
 import typing
 import multiprocessing
 from pysndfx import AudioEffectsChain
+from setproctitle import setproctitle
 
 import numpy
 from track import Track
@@ -17,6 +18,7 @@ def add_track_fx(tracks) -> list[Track]:
 
 
 def process_track_fx(track) -> numpy:
+    setproctitle(f'piper.process_track_fx{track.track_name}')
     fx = AudioEffectsChain()
     samples = track.samples
 

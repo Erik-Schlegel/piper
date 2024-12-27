@@ -71,6 +71,187 @@
                 }
 
             ]
+        },
+        {
+            "ignore": false,
+            "name": "incident",
+            "play_mode": "sequential",
+            "shuffle": true,
+            "loop": true,
+            "intermission": 120,
+            "audio_options": {
+                "volume": 0.25,
+                "equalizers": [
+                    {
+                        "name": "lowshelf",
+                        "frequency": 100,
+                        "db": 0,
+                        "slope": 0.5
+                    },
+                    {
+                        "name": "highshelf",
+                        "frequency": 10000,
+                        "db": 0,
+                        "slope": 0.5
+                    }
+                ]
+            },
+            "tracks": [
+                {
+                    "path": "resources/effects/hoot1.mp3",
+                    "audio_options": {
+                        "volume": 0.4,
+                        "reverb": {
+                            "mix": 0.25
+                        }
+                    }
+                },
+                {
+                    "path": "resources/effects/hoot2.mp3",
+                    "audio_options": {
+                        "volume": 0.45,
+                        "reverb": {
+                            "mix": 0.55
+                        }
+                    }
+                },
+                {
+                    "path": "resources/effects/hoot3.mp3",
+                    "audio_options": {
+                        "volume": 0.47,
+                        "reverb": {
+                            "mix": 0.45
+                        }
+                    }
+                },
+                {
+                    "path": "resources/effects/hoot4.mp3",
+                    "audio_options": {
+                        "volume": 0.57,
+                        "reverb": {
+                            "mix": 0.35
+                        }
+                    }
+                },
+                {
+                    "path": "resources/effects/tires1.mp3",
+                    "audio_options": {
+                        "volume": 0.55,
+                        "reverb": {
+                            "mix": 0
+                        }
+                    }
+                },
+                {
+                    "path": "resources/effects/tires2.mp3",
+                    "audio_options": {
+                        "volume": 0.55,
+                        "reverb": {
+                            "mix": 0
+                        }
+                    }
+                },
+                {
+                    "path": "resources/effects/tires3.mp3",
+                    "audio_options": {
+                        "volume": 0.4,
+                        "reverb": {
+                            "mix": 0
+                        }
+                    }
+                },
+                {
+                    "path": "resources/effects/tires4.mp3",
+                    "audio_options": {
+                        "volume": 0.3,
+                        "reverb": {
+                            "mix": 0.2
+                        }
+                    }
+                },
+                {
+                    "path": "resources/effects/tires5.mp3",
+                    "audio_options": {
+                        "volume": 0.15,
+                        "reverb": {
+                            "mix": 0.2
+                        }
+                    }
+                },
+                {
+                    "path": "resources/effects/tires6.mp3",
+                    "audio_options": {
+                        "volume": 0.2,
+                        "reverb": {
+                            "mix": 0
+                        }
+                    }
+                },
+                {
+                    "path": "resources/effects/tires7.mp3",
+                    "audio_options": {
+                        "volume": 0.4,
+                        "reverb": {
+                            "mix": 0.4
+                        }
+                    }
+                },
+                {
+                    "path": "resources/effects/tires8.mp3",
+                    "audio_options": {
+                        "volume": 0.3,
+                        "reverb": {
+                            "mix": 0.1
+                        }
+                    }
+                },
+                {
+                    "path": "resources/effects/train1.mp3",
+                    "audio_options": {
+                        "volume": 0.8,
+                        "reverb": {
+                            "mix": 0
+                        },
+                        "equalizers": [
+                            {
+                                "name": "low-pass",
+                                "frequency": 82.7,
+                                "db": 0,
+                                "slope": 0.5
+                            },
+                            {
+                                "name": "high-shelf",
+                                "frequency": 1962.2,
+                                "db": 0,
+                                "slope": 0.572
+                            }
+                        ]
+                    }
+                },
+                {
+                    "path": "resources/effects/train2.mp3",
+                    "audio_options": {
+                        "volume": 0.8,
+                        "reverb": {
+                            "mix": 0
+                        },
+                        "equalizers": [
+                            {
+                                "name": "low-pass",
+                                "frequency": 82.7,
+                                "db": 0,
+                                "slope": 0.5
+                            },
+                            {
+                                "name": "high-shelf",
+                                "frequency": 1962.2,
+                                "db": 0,
+                                "slope": 0.572
+                            }
+                        ]
+                    }
+                }
+            ]
         }
     ]
 }

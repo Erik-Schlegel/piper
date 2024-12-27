@@ -1,4 +1,5 @@
 from typing import List
+import prctl
 
 import threading
 import soundfile
@@ -23,6 +24,7 @@ def load_tracks(tracks:list) -> List[Track]:
 
 
 def _get_playable_track(track_cfg, results, index):
+    prctl.set_name(f'load_tracks:{track_cfg["path"]}')
     samples, sample_rate = _load_sample_data(track_cfg['path'])
     results[index] = Track(track_cfg, samples, sample_rate)
 
