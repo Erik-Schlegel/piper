@@ -1,6 +1,7 @@
 {
     "track_sets": [
         {
+            "ignore": false,
             "name": "background",
             "play_mode": "simultaneous",
             "loop": true,
@@ -81,18 +82,27 @@
             "intermission": 120,
             "audio_options": {
                 "volume": 0.25,
+                "reverb": {
+                    "mix": 0.6,
+                    "reverberance": 90,
+                    "room_scale": 85,
+                    "stereo_depth": 100,
+                    "pre_delay": 10,
+                    "hf_damping": 0,
+                    "wet_gain": 1
+                },
                 "equalizers": [
                     {
-                        "name": "lowshelf",
-                        "frequency": 100,
-                        "db": 0,
+                        "name": "low-pass",
+                        "frequency": 82.7,
+                        "db": -3.5,
                         "slope": 0.5
                     },
                     {
-                        "name": "highshelf",
-                        "frequency": 10000,
-                        "db": 0,
-                        "slope": 0.5
+                        "name": "high-shelf",
+                        "frequency": 1962.2,
+                        "db": -20,
+                        "slope": 0.572
                     }
                 ]
             },

@@ -9,6 +9,8 @@ from track import Track
 
 
 def load_tracks(tracks:list) -> List[Track]:
+        if not isinstance(tracks, list):
+            tracks = [tracks]
         threads = []
         result_tracks = [None] * len(tracks)
 
