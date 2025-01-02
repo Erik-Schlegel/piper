@@ -47,8 +47,8 @@ class Conductor:
 
                 self._subprocesses.append(proc)
                 proc.start()
-                # when attaching a debugger, uncomment the following line, else the debugger may detatch after ~30 seconds.
-                # IMPORTANT! DO NOT leave uncommented for actual "production" contexts.
+                # IMPORTANT! When debugger detatches after ~20seconds. Uncomment this line:
+                # DO NOT leave that in place for actual "production" contexts.
                 # proc.join(timeout=360000)
 
             except ValueError:
@@ -56,7 +56,7 @@ class Conductor:
 
 
     @staticmethod
-    def play_simultaneous(track_set:dict, tracks:list[Track]):
+    def play_simultaneous(track_set:dict, tracks:list):
         ignore_signals()
         setproctitle(f'piper.conductor.play_simultaneous')
 
@@ -76,7 +76,7 @@ class Conductor:
 
 
     @staticmethod
-    def play_sequential(track_set:dict, tracks:list[Track]):
+    def play_sequential(track_set:dict, tracks:list):
         ignore_signals()
         setproctitle(f'piper.conductor.play_sequential')
 
@@ -87,8 +87,8 @@ class Conductor:
                 random.shuffle(tracks)
 
             for track in tracks:
-                #TODO: sleep for intermission
-                sleep(45)
+                intermission = Conductor.get_processed_intermission(track_set.get('intermission', 45))
+                sleep(intermission)
 
                 track = load_tracks(track)
                 track = add_track_fx(track)
@@ -99,8 +99,21 @@ class Conductor:
                 thread.start()
                 thread.join()
 
-
             played_set_once = True
+
+
+    @staticmethod
+    def get_processed_intermission(intermission) -> int:
+        value = None
+        if(isinstance(intermission, list)):
+            value = int(random.uniform(*intermission))
+        elif isinstance(intermission, int):
+            #TODO: handle negative intermissions elsewhere. This'll mean crossfade.
+            value = abs(intermission)
+        else:
+            #default case
+            value = 45
+        return value
 
 
     def end(self):
@@ -108,6 +121,8 @@ class Conductor:
             if process.is_alive():
                 process.terminate()
                 process.join()
+
+
 
 
 

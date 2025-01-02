@@ -8,7 +8,7 @@
             "shuffle": false,
             "intermission": 0,
             "audio_options": {
-                "volume": 0.25,
+                "volume": 0,
                 "reverb": {
                     "mix": 0
                 }
@@ -19,21 +19,29 @@
                     "audio_options": {
                         "volume": 0.25,
                         "reverb": {
-                            "mix": 0.5,
+                            "mix": 0.6,
                             "reverberance": 60,
                             "room_scale": 50,
                             "stereo_depth": 80,
                             "pre_delay": 0,
                             "wet_gain": 1
-                        }
+                        },
+                        "equalizers": [
+                            {
+                                "name": "high-shelf",
+                                "frequency": 1962.2,
+                                "db": -3,
+                                "slope": 0.3
+                            }
+                        ]
                     }
                 },
                 {
-                    "path": "resources/effects/fireplace_short.wav",
+                    "path": "resources/effects/fireplace_rumbles.wav",
                     "audio_options": {
-                        "volume": 0.25,
+                        "volume": 0,
                         "reverb": {
-                            "mix": 0.8,
+                            "mix": 0,
                             "reverberance": 50,
                             "hf_damping": 0,
                             "room_scale": 50,
@@ -44,11 +52,11 @@
                     }
                 },
                 {
-                    "path": "resources/effects/clock_short.wav",
+                    "path": "resources/effects/clock.wav",
                     "audio_options": {
-                        "volume": 0.09,
+                        "volume": 0.1,
                         "reverb": {
-                            "mix": 0.85,
+                            "mix": 0.8,
                             "reverberance": 85,
                             "hf_damping": 30,
                             "room_scale": 20,
@@ -59,18 +67,26 @@
                     }
                 },
                 {
-                    "path": "resources/effects/wind_short.wav",
+                    "path": "resources/effects/wind.wav",
                     "audio_options": {
-                        "volume": 0.05
+                        "volume": 0.02,
+                        "reverb": {
+                            "mix": 0.8,
+                            "reverberance": 85,
+                            "hf_damping": 30,
+                            "room_scale": 50,
+                            "stereo_depth": 100,
+                            "pre_delay": 0,
+                            "wet_gain": 1
+                        }
                     }
                 },
                 {
-                    "path": "resources/effects/snow_short.wav",
+                    "path": "resources/effects/fuzz.wav",
                     "audio_options": {
-                        "volume": 0.02
+                        "volume": 0.04
                     }
                 }
-
             ]
         },
         {
@@ -79,7 +95,7 @@
             "play_mode": "sequential",
             "shuffle": true,
             "loop": true,
-            "intermission": 120,
+            "intermission": [15,300],
             "audio_options": {
                 "volume": 0.25,
                 "reverb": {
@@ -101,7 +117,7 @@
                     {
                         "name": "high-shelf",
                         "frequency": 1962.2,
-                        "db": -20,
+                        "db": -25,
                         "slope": 0.572
                     }
                 ]
@@ -241,7 +257,7 @@
                 {
                     "path": "resources/effects/train2.mp3",
                     "audio_options": {
-                        "volume": 0.8,
+                        "volume": 0.6,
                         "reverb": {
                             "mix": 0
                         },
@@ -263,5 +279,6 @@
                 }
             ]
         }
+
     ]
 }

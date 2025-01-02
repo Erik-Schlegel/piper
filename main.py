@@ -20,7 +20,7 @@ def main():
 
 
 def get_scene_names():
-    #TODO: implement method to return a list from  ./scenes/*.json
+    #TODO: implement me. return a list from  ./scenes/*.json
     pass
 
 
