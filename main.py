@@ -15,7 +15,8 @@ def main():
     setproctitle('piper.main')
 
     global conductor
-    conductor = Conductor(ConfigHelper('winter_coziness'))
+    # conductor = Conductor(ConfigHelper('winter_coziness'))
+    conductor = Conductor(ConfigHelper('coding_flow'))
     conductor.begin()
 
 

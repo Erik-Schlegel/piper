@@ -44,31 +44,37 @@ def add_track_fx(tracks: list[Track]) -> list[Track]:
     return tracks
 
 
-def process_track_fx(track) -> numpy:
+def process_track_fx(track:Track) -> numpy:
     prctl.set_name(f'fx:{track.track_name}')
     fx = AudioEffectsChain()
     samples = track.samples
 
-    for eq in track.get_audio_option('equalizers'):
-        fx = fx.equalizer(
-            frequency=eq['frequency'],
-            q=eq['slope'],
-            db=eq['db']
-        )
-    samples = fx(samples.T).T
+    equalizers = track.get_audio_option('equalizers')
+    if(equalizers):
+        for eq in equalizers:
+            fx = fx.equalizer(
+                frequency=eq['frequency'],
+                q=eq['slope'],
+                db=eq['db']
+            )
+        samples = fx(samples.T).T
 
     reverb_conf = track.get_audio_option('reverb')
-    mix = reverb_conf.pop('mix', 1)
+    if(reverb_conf):
+        mix = reverb_conf.pop('mix', 1)
 
-    if reverb_conf.get('reverberance', 0) > 0 and mix > 0:
-        fx = fx.reverb(**reverb_conf)
-        wet_samples = fx(samples.T).T
-        if wet_samples.shape != samples.shape:
-            wet_samples = wet_samples.reshape(samples.shape)
+        if reverb_conf.get('reverberance', 0) > 0 and mix > 0:
+            fx = fx.reverb(**reverb_conf)
+            wet_samples = fx(samples.T).T
+            if wet_samples.shape != samples.shape:
+                wet_samples = wet_samples.reshape(samples.shape)
 
-        dry_amount = 1 - mix
-        wet_amount = mix
-        samples = (samples * dry_amount) + (wet_samples * wet_amount)
+            dry_amount = 1 - mix
+            wet_amount = mix
+            samples = (samples * dry_amount) + (wet_samples * wet_amount)
 
-    samples = samples * track.get_audio_option('volume')
+    volume = track.get_audio_option('volume')
+    if volume:
+        samples = samples * volume
+
     return samples

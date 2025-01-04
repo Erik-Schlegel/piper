@@ -10,7 +10,9 @@
             "audio_options": {
                 "volume": 0,
                 "reverb": {
-                    "mix": 0
+                    "mix": 0,
+                    "wet_gain": 1,
+                    "pre_delay": 0
                 }
             },
             "tracks": [
@@ -22,9 +24,7 @@
                             "mix": 0.6,
                             "reverberance": 60,
                             "room_scale": 50,
-                            "stereo_depth": 80,
-                            "pre_delay": 0,
-                            "wet_gain": 1
+                            "stereo_depth": 80
                         },
                         "equalizers": [
                             {
@@ -41,13 +41,10 @@
                     "audio_options": {
                         "volume": 0,
                         "reverb": {
-                            "mix": 0,
                             "reverberance": 50,
                             "hf_damping": 0,
                             "room_scale": 50,
-                            "stereo_depth": 70,
-                            "pre_delay": 0,
-                            "wet_gain": 1
+                            "stereo_depth": 70
                         }
                     }
                 },
@@ -60,9 +57,7 @@
                             "reverberance": 85,
                             "hf_damping": 30,
                             "room_scale": 20,
-                            "stereo_depth": 75,
-                            "pre_delay": 0,
-                            "wet_gain": 1
+                            "stereo_depth": 75
                         }
                     }
                 },
@@ -75,9 +70,7 @@
                             "reverberance": 85,
                             "hf_damping": 30,
                             "room_scale": 50,
-                            "stereo_depth": 100,
-                            "pre_delay": 0,
-                            "wet_gain": 1
+                            "stereo_depth": 100
                         }
                     }
                 },
@@ -257,7 +250,7 @@
                 {
                     "path": "resources/effects/train2.mp3",
                     "audio_options": {
-                        "volume": 0.6,
+                        "volume": 0.4,
                         "reverb": {
                             "mix": 0
                         },
@@ -278,7 +271,301 @@
                     }
                 }
             ]
-        }
+        },
+        {
+            "ignore": true,
+            "name": "christmas_music",
+            "play_mode": "sequential",
+            "loop": true,
+            "shuffle": true,
+            "intermission": 2,
+            "audio_options": {
+                "volume": 0.3,
+                "reverb": {
+                    "mix": 0.6,
+                    "reverberance": 90,
+                    "room_scale": 85,
+                    "stereo_depth": 100,
+                    "pre_delay": 10,
+                    "hf_damping": 0,
+                    "wet_gain": 1
+                },
+                "equalizers" : [
+                    {
+                        "name": "low-pass",
+                        "frequency": 82.7,
+                        "db": -3.5,
+                        "slope": 0.5
+                    },
+                    {
+                        "name": "high-shelf",
+                        "frequency": 1962.2,
+                        "db": -20,
+                        "slope": 0.572
+                    }
+                ]
+            },
+            "tracks": [
+                {
+                    "path": "resources/songs/christmas/AdesteFideles.mp3",
+                    "audio_options": {}
+                },
+                {
+                    "path": "resources/songs/christmas/AwayInAManger.mp3",
+                    "audio_options": {
+                        "volume": 0.19,
+                        "reverb": {
+                            "mix": 0.8,
+                            "reverberance": 90
+                        },
+                        "equalizers" : [
+                        {
+                            "name": "low-pass",
+                            "frequency": 63.4,
+                            "db": -18.5,
+                            "slope": 0.546
+                        },
+                        {
+                            "name": "high-shelf",
+                            "frequency": 2000,
+                            "db": -16.5,
+                            "slope": 0.423
+                        }
+                    ]
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/CaroloftheBells.mp3",
+                    "audio_options": {
+                        "volume": 0.3,
+                        "reverb": {
+                            "mix": 0.9
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/GodRestYeMerryGentlemen.mp3",
+                    "audio_options": {
+                        "reverb": {
+                            "mix": 0.7
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/HarkTheHeraldAngelsSing.mp3",
+                    "audio_options": {
+                        "reverb": {
+                            "mix": 0.75
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/HaveaHollyJollyChristmas.mp3",
+                    "audio_options": {
+                        "reverb": {
+                            "mix": 0.7,
+                            "reverberance": 70,
+                            "room_scale": 50
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/HaveYourselfAMerryLittleChristmas.mp3",
+                    "audio_options": {
+                        "volume": 0.2,
+                        "reverb": {
+                            "mix": 0.75
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/IllBeHomeForChristmas.mp3",
+                    "audio_options": {
+                        "volume": 0.2,
+                        "reverb": {
+                            "mix": 0.7,
+                            "reverberance": 80
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/ItCameUponaMidnightClear.mp3",
+                    "audio_options": {
+                        "volume": 0.18
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/ItsBeginningToLookALotLikeChristmas.mp3",
+                    "audio_options": {
+                        "volume": 0.5,
+                        "reverb": {
+                            "mix": 0.9,
+                            "reverberance": 75,
+                            "room_scale": 60
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/ItstheMostWonderfulTimeoftheYear.mp3",
+                    "audio_options": {
+                        "reverb": {
+                            "mix": 0.9,
+                            "reverberance": 80,
+                            "room_scale": 50
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/JingleBells.mp3",
+                    "audio_options": {}
+                },
+                {
+                    "path": "resources/songs/christmas/LetItSnow.mp3",
+                    "audio_options": {
+                        "volume": 0.33,
+                        "reverb": {
+                            "mix": 0.95,
+                            "room_scale": 60
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/March.mp3",
+                    "audio_options": {
+                        "volume": 0.65,
+                        "reverb": {
+                            "room_scale": 60
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/OComeAllYeFaithful.mp3",
+                    "audio_options": {
+                        "volume": 0.45,
+                        "reverb": {
+                            "mix": 0.9,
+                            "reverberance": 80,
+                            "room_scale": 55
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/OHolyNight.mp3",
+                    "audio_options": {
+                        "volume": 0.3,
+                        "reverb": {
+                            "mix": 0.9,
+                            "room_scale": 48
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/OLittleTownOfBethlehem.mp3",
+                    "audio_options": {
+                        "volume": 0.185,
+                        "reverb": {
+                            "mix": 0.95,
+                            "room_scale": 60
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/RockingAroundtheChristmasTree.mp3",
+                    "audio_options": {}
+                },
+                {
+                    "path": "resources/songs/christmas/RudolphTheRedNosedReindeer.mp3",
+                    "audio_options": {
+                        "volume": 0.3,
+                        "reverb": {
+                            "mix": 0.8,
+                            "reverberance": 80,
+                            "room_scale": 60
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/SilentNight.mp3",
+                    "audio_options": {
+                        "volume": 0.42
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/SugarPlumFairy.mp3",
+                    "audio_options": {
+                        "volume": 0.9,
+                        "reverb": {
+                            "mix": 0.9,
+                            "reverberance": 70,
+                            "room_scale": 80
+                        },
+                        "equalizers" : [
+                            {
+                                "name": "high-shelf",
+                                "frequency": 1962.2,
+                                "db": -10,
+                                "slope": 0.572
+                            }
+                        ]
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/TheChristmasSong.mp3",
+                    "audio_options": {
+                        "volume": 0.4
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/TheFirstNoel.mp3",
+                    "audio_options": {
+                        "volume": 0.5,
+                        "reverb": {
+                            "mix": 0.8,
+                            "reverberance": 90,
+                            "room_scale": 95
+                        }
 
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/TheLittleDrummerBoy.mp3",
+                    "audio_options": {
+                        "volume": 0.28,
+                        "reverb": {
+                            "mix": 0.85,
+                            "room_scale": 95
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/WaltzOfTheFlowers.mp3",
+                    "audio_options": {
+                        "volume": 1,
+                        "reverb": {
+                            "mix": 0.8,
+                            "room_scale": 60
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/WhatChildIsThis.mp3",
+                    "audio_options": {
+                        "volume": 0.42,
+                        "reverb": {
+                            "mix": 0.8,
+                            "reverberance": 95,
+                            "room_scale": 60
+                        }
+                    }
+                },
+                {
+                    "path": "resources/songs/christmas/WhiteChristmas.mp3"
+                },
+                {
+                    "path": "resources/songs/christmas/WinterWonderland.mp3"
+                }
+
+            ]
+        }
     ]
 }

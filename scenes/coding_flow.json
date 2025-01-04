@@ -1,0 +1,20 @@
+{
+    "track_sets": [
+        {
+            "ignore": false,
+            "name": "coding_flow_music",
+            "play_mode": "sequential",
+            "loop": true,
+            "shuffle": true,
+            "intermission": 3,
+            "audio_options": {
+                "volume": 0.5
+            },
+            "tracks": [
+                "resources/songs/chillstep/coding_all_night",
+                "resources/songs/chillstep/3am_coding",
+                "resources/songs/chillstep/neon_city"
+            ]
+        }
+    ]
+}

@@ -1,5 +1,6 @@
 import json
 import copy
+import os
 
 from utils.dictionary_utils import deep_merge
 from utils.list_utils import merge_named_lists
@@ -51,13 +52,24 @@ class ConfigHelper:
 
 
     def get_tracks(self, name):
-        named_layer_tracks = copy.deepcopy(self.get_track_set(name).get('tracks', []))
 
+        track_set = self.get_track_set(name).get('tracks', [])
+
+        # handle folder paths: e.g. "tracks": [ "my/folder/path", ... ]
+        if isinstance(track_set, str):
+            track_set = self.prep_tracks_from_path(track_set)
+        elif isinstance(track_set, list) and all(isinstance(item, str) for item in track_set):
+            paths = track_set
+            track_set = []
+            for path in paths:
+                track_set += self.prep_tracks_from_path(path)
+
+        named_layer_tracks = copy.deepcopy(track_set)
         for track in named_layer_tracks:
             named_layer_options = copy.deepcopy(self.get_track_set_audio_options(name))
 
             # Equalizers should not be deep merged. We'll use some custom rules.
-            named_layer__eq = named_layer_options.pop('equalizers', [])
+            named_layer_eq = named_layer_options.pop('equalizers', [])
             track_eq = track.get('audio_options', {}).get('equalizers', [])
 
             track['audio_options'] = deep_merge(
@@ -65,16 +77,26 @@ class ConfigHelper:
                 track.get('audio_options', {})
             )
 
-            if track_eq != {} or named_layer__eq != {}:
+            if track_eq or named_layer_eq:
                 track['audio_options']['equalizers'] = merge_named_lists(
                     track_eq,
-                    named_layer__eq
+                    named_layer_eq
                 )
 
         if not isinstance(named_layer_tracks, list):
             named_layer_tracks = [named_layer_tracks]
         return named_layer_tracks
 
+
+    def prep_tracks_from_path(self, path):
+        types = ('.mp3','.wav')
+        files = os.listdir(path)
+        return [
+            {
+                'path': f'{path}/{f}',
+                'audio_options': {}
+            } for f in files if f.endswith(types)
+        ]
 
 
     @staticmethod

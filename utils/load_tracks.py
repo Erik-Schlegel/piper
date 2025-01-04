@@ -9,20 +9,20 @@ from track import Track
 
 
 def load_tracks(tracks:list) -> List[Track]:
-        if not isinstance(tracks, list):
-            tracks = [tracks]
-        threads = []
-        result_tracks = [None] * len(tracks)
+    if not isinstance(tracks, list):
+        tracks = [tracks]
+    threads = []
+    result_tracks = [None] * len(tracks)
 
-        for index, track_cfg in enumerate(tracks):
-            thread = threading.Thread(target=_get_playable_track, args=(track_cfg, result_tracks, index))
-            threads.append(thread)
-            thread.start()
+    for index, track_cfg in enumerate(tracks):
+        thread = threading.Thread(target=_get_playable_track, args=(track_cfg, result_tracks, index))
+        threads.append(thread)
+        thread.start()
 
-        for thread in threads:
-            thread.join()
+    for thread in threads:
+        thread.join()
 
-        return result_tracks
+    return result_tracks
 
 
 def _get_playable_track(track_cfg, results, index):
