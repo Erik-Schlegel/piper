@@ -1,14 +1,30 @@
 {
     "track_sets": [
         {
-            "ignore": false,
             "name": "coding_flow_music",
             "play_mode": "sequential",
             "loop": true,
             "shuffle": true,
             "intermission": 3,
             "audio_options": {
-                "volume": 0.5
+                "volume": 0.5,
+                "reverb": {
+                    "mix": 0.4,
+                    "reverberance": 90,
+                    "room_scale": 85,
+                    "stereo_depth": 90,
+                    "pre_delay": 0,
+                    "hf_damping": 0,
+                    "wet_gain": 1
+                },
+                "equalizers": [
+                    {
+                        "name": "high-shelf",
+                        "frequency": 1962.2,
+                        "db": -10,
+                        "slope": 0.572
+                    }
+                ]
             },
             "tracks": [
                 "resources/songs/chillstep/coding_all_night",

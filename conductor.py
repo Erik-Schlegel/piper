@@ -9,10 +9,12 @@ from audio_processor import add_track_fx
 from track_player import loop, play
 from utils.load_tracks import load_tracks
 from utils.ignore_signals import ignore_signals
+from utils.print_utils import overwrite_at, proc_file_path
 
 import typing
 from config_helper import ConfigHelper
 from track import Track
+
 
 class Conductor:
 
@@ -87,11 +89,15 @@ class Conductor:
                 random.shuffle(tracks)
 
             for track in tracks:
+                proc_path = proc_file_path(track['path'])
                 intermission = Conductor.get_processed_intermission(track_set.get('intermission', 45))
                 sleep(intermission)
 
+                overwrite_at(3, 'Loading: ' + proc_path)
                 track = load_tracks(track)
+                overwrite_at(3, 'Processing: ' + proc_path)
                 track = add_track_fx(track)
+                overwrite_at(3, 'Playing: ' + proc_path)
                 thread = threading.Thread(
                     target=play,
                     args=(track[0], )
