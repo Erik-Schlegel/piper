@@ -102,3 +102,13 @@ class ConfigHelper:
     @staticmethod
     def get_filename_from_track(track):
         return str.split(track.get('path'), '/')[-1]
+
+
+    @staticmethod
+    def get_scene_names():
+        return [name.removesuffix('.json') for name in os.listdir('scenes')]
+
+
+    @staticmethod
+    def is_viable_scene_name(scene_name):
+        return scene_name in ConfigHelper.get_scene_names()

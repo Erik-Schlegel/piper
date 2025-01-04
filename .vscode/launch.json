@@ -6,6 +6,10 @@
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--scene",
+                "winter_coziness"
+            ],
             "console": "integratedTerminal",
             "subProcess": true
         }

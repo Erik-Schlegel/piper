@@ -1,3 +1,12 @@
 #!/bin/bash
 source ./venv/bin/activate
-python main.py
+
+
+while getopts s: flag
+do
+    case "${flag}" in
+        s) myvalue=${OPTARG};;
+    esac
+done
+
+python3 main.py --scene "$myvalue"
