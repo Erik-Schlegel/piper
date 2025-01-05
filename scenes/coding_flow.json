@@ -7,13 +7,13 @@
             "shuffle": true,
             "intermission": 3,
             "audio_options": {
-                "volume": 0.5,
+                "volume": 0.6,
                 "reverb": {
-                    "mix": 0.4,
+                    "mix": 0.8,
                     "reverberance": 90,
-                    "room_scale": 85,
-                    "stereo_depth": 90,
-                    "pre_delay": 0,
+                    "room_scale": 100,
+                    "stereo_depth": 100,
+                    "pre_delay": 10,
                     "hf_damping": 0,
                     "wet_gain": 1
                 },
@@ -21,8 +21,14 @@
                     {
                         "name": "high-shelf",
                         "frequency": 1962.2,
-                        "db": -10,
+                        "db": -2,
                         "slope": 0.572
+                    },
+                    {
+                        "name": "low-pass",
+                        "frequency": 82.7,
+                        "db": -5.5,
+                        "slope": 0.5
                     }
                 ]
             },
