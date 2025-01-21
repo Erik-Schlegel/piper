@@ -33,14 +33,14 @@
                 ]
             },
             "tracks": [
-                "resources/songs/chillstep/1am_coding_session",
+                "resources/songs/chillstep/other",
                 "resources/songs/chillstep/3am_coding",
-                "resources/songs/chillstep/chill_unwind",
-                "resources/songs/chillstep/coding_all_night",
+		        "resources/songs/chillstep/flow_state",
                 "resources/songs/chillstep/coding_alone",
                 "resources/songs/chillstep/coding_session",
-		        "resources/songs/chillstep/flow_state",
-                "resources/songs/chillstep/other"
+                "resources/songs/chillstep/coding_all_night",
+                "resources/songs/chillstep/late_night_coding",
+                "resources/songs/chillstep/1am_coding_session"
             ]
         }
     ]
