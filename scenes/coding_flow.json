@@ -1,13 +1,36 @@
 {
     "track_sets": [
         {
+            "name": "effects",
+            "play_mode": "simultaneous",
+            "loop": true,
+            "shuffle": false,
+            "intermission": -0.25,
+            "tracks": [
+                {
+                    "path": "resources/effects/rain_thunder.mp3",
+                    "audio_options":{
+                        "volume": 0.17,
+                        "equalizers": [
+                            {
+                                "name": "high-shelf",
+                                "frequency": 1962.2,
+                                "db": -6,
+                                "slope": 0.572
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
             "name": "coding_flow_music",
             "play_mode": "sequential",
             "loop": true,
             "shuffle": true,
-            "intermission": 3,
+            "intermission": [3, 10],
             "audio_options": {
-                "volume": 0.6,
+                "volume": 0.4,
                 "reverb": {
                     "mix": 0.8,
                     "reverberance": 90,
@@ -35,7 +58,7 @@
             "tracks": [
                 "resources/songs/chillstep/other",
                 "resources/songs/chillstep/3am_coding",
-		        "resources/songs/chillstep/flow_state",
+                "resources/songs/chillstep/flow_state",
                 "resources/songs/chillstep/coding_alone",
                 "resources/songs/chillstep/coding_session",
                 "resources/songs/chillstep/coding_all_night",
