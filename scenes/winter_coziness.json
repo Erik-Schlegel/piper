@@ -88,7 +88,7 @@
             "play_mode": "sequential",
             "shuffle": true,
             "loop": true,
-            "intermission": [5,300],
+            "intermission": [5, 300],
             "audio_options": {
                 "volume": 0.25,
                 "reverb": {

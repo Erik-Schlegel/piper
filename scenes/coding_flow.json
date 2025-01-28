@@ -1,6 +1,7 @@
 {
     "track_sets": [
         {
+            "ignore": false,
             "name": "effects",
             "play_mode": "simultaneous",
             "loop": true,
@@ -22,6 +23,7 @@
             ]
         },
         {
+            "ignore": false,
             "name": "coding_flow_music",
             "play_mode": "sequential",
             "loop": true,
@@ -53,16 +55,14 @@
                     }
                 ]
             },
-            "other_tracks": [
+            "tracks": [
                 "resources/songs/chillstep/3am_coding",
                 "resources/songs/chillstep/flow_state",
                 "resources/songs/chillstep/coding_alone",
                 "resources/songs/chillstep/coding_session",
                 "resources/songs/chillstep/coding_all_night",
                 "resources/songs/chillstep/late_night_coding",
-                "resources/songs/chillstep/1am_coding_session"
-            ],
-            "tracks": [
+                "resources/songs/chillstep/1am_coding_session",
                 "resources/songs/chillstep/stop_procrastinating"
             ]
         }

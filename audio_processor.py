@@ -3,7 +3,6 @@ import numpy
 import typing
 import threading
 import soundfile
-import multiprocessing
 from setproctitle import setproctitle
 from pysndfx import AudioEffectsChain
 

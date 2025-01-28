@@ -46,14 +46,12 @@ def _get_playable_track(track_cfg, results, index):
         filepath = track_cfg['path']
         samples, sample_rate = _load_sample_data(filepath)
         track_cfg['hashpath'] = hashed_path
-        # soundfile.write(hashed_path, samples, sample_rate, format='MP3')
 
     results[index] = Track(track_cfg, samples, sample_rate)
 
 
 def _load_preprocessed_sample_data(filepath):
     samples, sample_rate = soundfile.read(filepath, dtype='float32')
-    print('from pre')
     return (samples, sample_rate)
 
 

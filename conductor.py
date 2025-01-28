@@ -31,6 +31,9 @@ class Conductor:
 
     def begin(self):
         track_sets = self._config.get_track_sets()
+        if(not isinstance(track_sets, list)):
+            track_sets = [track_sets]
+
         for track_set in track_sets:
 
             try:
@@ -51,7 +54,8 @@ class Conductor:
                 proc.start()
                 # IMPORTANT! When debugger detatches after ~20seconds. Uncomment this line:
                 # DO NOT leave that in place for actual "production" contexts.
-                proc.join(timeout=360000)
+                # proc.join(timeout=360000)
+                ## IF YOU DO NOT COMMENT THIS OUT: only the first track_set will play.
 
             except ValueError:
                 raise ValueError(f'No valid play_mode specified in {self._config.get_config_name()}')
