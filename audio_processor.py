@@ -1,11 +1,12 @@
-import typing
-import multiprocessing
-import threading
-from pysndfx import AudioEffectsChain
-from setproctitle import setproctitle
 import prctl
-
 import numpy
+import typing
+import threading
+import soundfile
+import multiprocessing
+from setproctitle import setproctitle
+from pysndfx import AudioEffectsChain
+
 from track import Track
 
 
@@ -27,13 +28,20 @@ def add_track_fx(tracks: list[Track]) -> list[Track]:
     threads = []
     results = [None] * len(tracks)
 
+
     def process_track_wrapper(track, index):
-        results[index] = process_track_fx(track)
+        samples = process_track_fx(track)
+        soundfile.write(track.config.get('hashpath'), samples, track.sample_rate, format='MP3')
+        results[index] = samples
+
 
     for index, track in enumerate(tracks):
-        thread = threading.Thread(target=process_track_wrapper, args=(track, index))
-        threads.append(thread)
-        thread.start()
+        if not track.config.get('from_preprocess', False):
+            thread = threading.Thread(target=process_track_wrapper, args=(track, index))
+            threads.append(thread)
+            thread.start()
+        else:
+            results[index] = track.samples
 
     for thread in threads:
         thread.join()

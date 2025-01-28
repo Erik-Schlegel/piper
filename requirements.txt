@@ -1,5 +1,6 @@
 cffi==1.17.1
 numpy==2.2.1
+orderly-set==5.2.3
 pycparser==2.22
 pysndfx==0.3.6
 python-prctl==1.8.1

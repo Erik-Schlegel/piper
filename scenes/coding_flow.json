@@ -6,21 +6,19 @@
             "loop": true,
             "shuffle": false,
             "intermission": -0.25,
-            "tracks": [
-                {
-                    "path": "resources/effects/rain_thunder.mp3",
-                    "audio_options":{
-                        "volume": 0.27,
-                        "equalizers": [
-                            {
-                                "name": "high-shelf",
-                                "frequency": 1962.2,
-                                "db": -10,
-                                "slope": 0.572
-                            }
-                        ]
+            "audio_options":{
+                "volume": 0.27,
+                "equalizers": [
+                    {
+                        "name": "high-shelf",
+                        "frequency": 1962.2,
+                        "db": -10,
+                        "slope": 0.572
                     }
-                }
+                ]
+            },
+            "tracks": [
+                { "path": "resources/effects/rain_thunder.mp3" }
             ]
         },
         {
@@ -55,7 +53,7 @@
                     }
                 ]
             },
-            "tracks": [
+            "other_tracks": [
                 "resources/songs/chillstep/3am_coding",
                 "resources/songs/chillstep/flow_state",
                 "resources/songs/chillstep/coding_alone",
@@ -63,6 +61,9 @@
                 "resources/songs/chillstep/coding_all_night",
                 "resources/songs/chillstep/late_night_coding",
                 "resources/songs/chillstep/1am_coding_session"
+            ],
+            "tracks": [
+                "resources/songs/chillstep/stop_procrastinating"
             ]
         }
     ]

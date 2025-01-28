@@ -39,7 +39,7 @@
                 {
                     "path": "resources/effects/fireplace_rumbles.wav",
                     "audio_options": {
-                        "volume": 0,
+                        "volume": 0.1,
                         "reverb": {
                             "reverberance": 50,
                             "hf_damping": 0,
