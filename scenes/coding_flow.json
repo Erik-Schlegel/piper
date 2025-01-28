@@ -10,12 +10,12 @@
                 {
                     "path": "resources/effects/rain_thunder.mp3",
                     "audio_options":{
-                        "volume": 0.17,
+                        "volume": 0.27,
                         "equalizers": [
                             {
                                 "name": "high-shelf",
                                 "frequency": 1962.2,
-                                "db": -6,
+                                "db": -10,
                                 "slope": 0.572
                             }
                         ]
@@ -28,9 +28,9 @@
             "play_mode": "sequential",
             "loop": true,
             "shuffle": true,
-            "intermission": [3, 10],
+            "intermission": [7, 15],
             "audio_options": {
-                "volume": 0.4,
+                "volume": 0.3,
                 "reverb": {
                     "mix": 0.8,
                     "reverberance": 90,
@@ -56,7 +56,6 @@
                 ]
             },
             "tracks": [
-                "resources/songs/chillstep/other",
                 "resources/songs/chillstep/3am_coding",
                 "resources/songs/chillstep/flow_state",
                 "resources/songs/chillstep/coding_alone",
