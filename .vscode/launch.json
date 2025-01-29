@@ -8,7 +8,7 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--scene",
-                "coding_flow"
+                "winter_coziness"
             ],
             "console": "integratedTerminal",
             "subProcess": true

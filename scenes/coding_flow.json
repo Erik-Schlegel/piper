@@ -8,12 +8,12 @@
             "shuffle": false,
             "intermission": -0.25,
             "audio_options":{
-                "volume": 0.27,
+                "volume": 0.20,
                 "equalizers": [
                     {
                         "name": "high-shelf",
                         "frequency": 1962.2,
-                        "db": -10,
+                        "db": -12,
                         "slope": 0.572
                     }
                 ]
@@ -28,9 +28,9 @@
             "play_mode": "sequential",
             "loop": true,
             "shuffle": true,
-            "intermission": [7, 15],
+            "intermission": [3, 15],
             "audio_options": {
-                "volume": 0.3,
+                "volume": 0.35,
                 "reverb": {
                     "mix": 0.8,
                     "reverberance": 90,

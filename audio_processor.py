@@ -30,12 +30,12 @@ def add_track_fx(tracks: list[Track]) -> list[Track]:
 
     def process_track_wrapper(track, index):
         samples = process_track_fx(track)
-        soundfile.write(track.config.get('hashpath'), samples, track.sample_rate, format='MP3')
+        soundfile.write(track.hashpath, samples, track.sample_rate, format='MP3')
         results[index] = samples
 
 
     for index, track in enumerate(tracks):
-        if not track.config.get('from_preprocess', False):
+        if not track.is_hashfile_existing:
             thread = threading.Thread(target=process_track_wrapper, args=(track, index))
             threads.append(thread)
             thread.start()
