@@ -1,6 +1,6 @@
+import os
 import json
 import copy
-import os
 
 from utils.dictionary_utils import deep_merge
 from utils.list_utils import merge_named_lists

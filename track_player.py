@@ -1,7 +1,8 @@
-import sounddevice
 import prctl
-from setproctitle import setproctitle
+import sounddevice
 from time import sleep
+from setproctitle import setproctitle
+
 from track import Track
 from utils.ignore_signals import ignore_signals
 

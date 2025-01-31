@@ -1,9 +1,8 @@
 import sys
 import signal
 import multiprocessing
-from setproctitle import setproctitle
 from argparse import ArgumentParser
-from pprint import pprint
+from setproctitle import setproctitle
 
 from config_helper import ConfigHelper
 from conductor import Conductor

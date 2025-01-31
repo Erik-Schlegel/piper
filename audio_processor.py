@@ -1,6 +1,7 @@
+import typing
+
 import prctl
 import numpy
-import typing
 import threading
 import soundfile
 from setproctitle import setproctitle

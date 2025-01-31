@@ -1,8 +1,10 @@
-from setproctitle import setproctitle
-import multiprocessing
-import threading
-from time import sleep
+import typing
+
 import random
+import threading
+import multiprocessing
+from time import sleep
+from setproctitle import setproctitle
 
 from enums.play_mode import PlayMode
 from audio_processor import add_track_fx
@@ -11,7 +13,6 @@ from utils.load_tracks import load_tracks
 from utils.ignore_signals import ignore_signals
 from utils.print_utils import overwrite_at, proc_file_path
 
-import typing
 from config_helper import ConfigHelper
 from track import Track
 

@@ -1,8 +1,8 @@
 import os
 import copy
 
-
 from utils.preprocessed_file_helper import get_hashed_path
+
 
 class Track:
     _config = None
