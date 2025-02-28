@@ -56,15 +56,17 @@
                 ]
             },
             "tracks": [
+		"resources/songs/chillstep/1am_coding_session",
                 "resources/songs/chillstep/3am_coding",
-                "resources/songs/chillstep/flow_state",
-                "resources/songs/chillstep/coding_alone",
-                "resources/songs/chillstep/coding_session",
+		"resources/songs/chillstep/4am_coding",
                 "resources/songs/chillstep/coding_all_night",
+                "resources/songs/chillstep/coding_alone",
+		"resources/songs/chillstep/coding_in_amsterdam",
+                "resources/songs/chillstep/coding_session",
+                "resources/songs/chillstep/flow_state",
                 "resources/songs/chillstep/late_night_coding",
-		"resources/songs/chillstep/waterfront_coding",
-                "resources/songs/chillstep/1am_coding_session",
-                "resources/songs/chillstep/stop_procrastinating"
+                "resources/songs/chillstep/stop_procrastinating",
+		"resources/songs/chillstep/waterfront_coding"
             ]
         }
     ]
