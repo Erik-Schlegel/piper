@@ -2,11 +2,43 @@
 source ./venv/bin/activate
 
 
-while getopts s: flag
-do
-    case "${flag}" in
-        s) myvalue=${OPTARG};;
-    esac
+# Check if "fzf" is installed. We use it for arrow key navigation
+if ! command -v fzf &> /dev/null; then
+    echo "fzf is required for arrow key navigation but not installed. Install it? (y/n)"
+    read answer
+    if [ "$answer" == "y" ]; then
+        sudo apt update && sudo apt install fzf -y
+    else
+        echo "Cannot continue without whiptail. Exiting."
+        exit 1
+    fi
+fi
+
+
+# Get list of scene files
+SCENE_FILES=()
+SCENE_NAMES=()
+
+
+# Build arrays of scene files and their display names
+for file in "scenes"/*.json; do
+    if [ -f "$file" ]; then
+        filename=$(basename "$file")
+        name="${filename%.*}"  # Remove .json extension
+        SCENE_FILES+=("$file")
+        SCENE_NAMES+=("$name")
+    fi
 done
 
-python3 main.py --scene "$myvalue"
+
+echo "Available scenes (use arrow keys to navigate):"
+selected=$(printf "%s\n" "${SCENE_NAMES[@]}" "Quit" | fzf --height=15 --border=rounded --prompt="Select scene > ")
+
+if [ "$selected" == "Quit" ]; then
+    echo "Exiting."
+    exit 0
+elif [ -n "$selected" ]; then
+    clear
+    echo "Playing scene: $selected"
+    python3 main.py --scene "$selected"
+fi
