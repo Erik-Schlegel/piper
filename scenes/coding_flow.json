@@ -57,7 +57,8 @@
             },
             "tracks": [
                 "resources/songs/chillstep/flow_state",
-		        "resources/songs/chillstep/4am_coding",
+                "resources/songs/chillstep/4am_coding",
+                "resources/songs/chillstep/sharp_mind",
                 "resources/songs/chillstep/3am_coding",
                 "resources/songs/chillstep/coding_alone",
                 "resources/songs/chillstep/coding_session",
