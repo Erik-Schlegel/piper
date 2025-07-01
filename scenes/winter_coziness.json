@@ -57,7 +57,7 @@
                 {
                     "path": "resources/effects/clock.wav",
                     "audio_options": {
-                        "volume": 0.11,
+                        "volume": 0.00011,
                         "reverb": {
                             "mix": 0.9,
                             "reverberance": 95,

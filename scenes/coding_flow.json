@@ -8,18 +8,18 @@
             "shuffle": false,
             "intermission": -0.25,
             "audio_options":{
-                "volume": 0.20,
+                "volume": 1,
                 "equalizers": [
                     {
                         "name": "high-shelf",
                         "frequency": 1962.2,
-                        "db": -12,
+                        "db": -2,
                         "slope": 0.572
                     }
                 ]
             },
             "tracks": [
-                { "path": "resources/effects/rain_thunder.mp3" }
+                { "path": "resources/effects/inside_rain.mp3" }
             ]
         },
         {
@@ -30,7 +30,7 @@
             "shuffle": true,
             "intermission": [3, 15],
             "audio_options": {
-                "volume": 0.35,
+                "volume": 0.1,
                 "reverb": {
                     "mix": 0.8,
                     "reverberance": 90,
@@ -63,6 +63,7 @@
                 "resources/songs/chillstep/coding_alone",
                 "resources/songs/chillstep/coding_session",
                 "resources/songs/chillstep/coding_all_night",
+                "resources/songs/chillstep/monday_motivation",
                 "resources/songs/chillstep/late_night_coding",
                 "resources/songs/chillstep/1am_coding_session",
                 "resources/songs/chillstep/stop_procrastinating",
