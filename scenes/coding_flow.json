@@ -7,19 +7,30 @@
             "loop": true,
             "shuffle": false,
             "intermission": -0.25,
-            "audio_options":{
-                "volume": 1,
-                "equalizers": [
-                    {
-                        "name": "high-shelf",
-                        "frequency": 1962.2,
-                        "db": -2,
-                        "slope": 0.572
-                    }
-                ]
+            "audio_options": {
+                "volume": 0.5
             },
             "tracks": [
-                { "path": "resources/effects/inside_rain.mp3" }
+				{
+					"path": "resources/effects/inside_rain_muted.mp3",
+					"audio_options": {
+						"volume": 0.3
+					}
+				},
+				{
+					"path": "resources/effects/inside_rain.mp3",
+					"audio_options": {
+						"volume": 0.065,
+						"equalizers": [
+		                    {
+		                        "name": "high-shelf",
+		                        "frequency": 1962.2,
+		                        "db": -3,
+		                        "slope": 0.572
+		                    }
+		                ]
+					}
+				}
             ]
         },
         {
@@ -30,7 +41,7 @@
             "shuffle": true,
             "intermission": [3, 15],
             "audio_options": {
-                "volume": 0.1,
+                "volume": 0.04,
                 "reverb": {
                     "mix": 0.8,
                     "reverberance": 90,
@@ -68,7 +79,8 @@
                 "resources/songs/chillstep/1am_coding_session",
                 "resources/songs/chillstep/stop_procrastinating",
                 "resources/songs/chillstep/alone_at_the_office",
-                "resources/songs/chillstep/midnight_coding_session"
+                "resources/songs/chillstep/midnight_coding_session",
+				"resources/songs/chillstep/getting_it_done"
             ]
         }
     ]

@@ -1,7 +1,7 @@
 {
-    "track_sets": [
-        {
-            "ignore": false,
+	"track_sets": [
+		{
+			"ignore": false,
             "name": "background",
             "play_mode": "simultaneous",
             "loop": true,
@@ -10,24 +10,37 @@
             "audio_options": {
                 "volume": 0.0,
                 "reverb": {
-                    "mix": 0,
+					"mix": 0,
                     "wet_gain": 1,
                     "pre_delay": 0
                 }
             },
             "tracks": [
                 {
-                    "path": "resources/effects/fuzz.wav",
+					"path": "resources/effects/fuzz.wav",
                     "audio_options": {
-                        "volume": 0.025
+						"volume": 0.02
                     }
                 },
+				{
+					"path": "resources/effects/wind.wav",
+					"audio_options": {
+						"volume": 0.03,
+						"reverb": {
+							"mix": 0.8,
+							"reverberance": 85,
+							"hf_damping": 30,
+							"room_scale": 50,
+							"stereo_depth": 100
+						}
+					}
+				},
                 {
-                    "path": "resources/effects/fireplace_crackles.mp3",
+					"path": "resources/effects/fireplace_crackles.mp3",
                     "audio_options": {
-                        "volume": 0.28,
+						"volume": 0.1,
                         "reverb": {
-                            "mix": 0.6,
+							"mix": 0.6,
                             "reverberance": 60,
                             "room_scale": 50,
                             "stereo_depth": 80
@@ -45,7 +58,7 @@
                 {
                     "path": "resources/effects/fireplace_rumbles.wav",
                     "audio_options": {
-                        "volume": 0.3,
+                        "volume": 0.1,
                         "reverb": {
                             "reverberance": 50,
                             "hf_damping": 0,
@@ -59,7 +72,7 @@
                     "audio_options": {
                         "volume": 0.00011,
                         "reverb": {
-                            "mix": 0.9,
+                            "mix": 0.000009,
                             "reverberance": 95,
                             "hf_damping": 0,
                             "room_scale": 30,
@@ -73,19 +86,6 @@
                                 "slope": 0.572
                             }
                         ]
-                    }
-                },
-                {
-                    "path": "resources/effects/wind.wav",
-                    "audio_options": {
-                        "volume": 0.03,
-                        "reverb": {
-                            "mix": 0.8,
-                            "reverberance": 85,
-                            "hf_damping": 30,
-                            "room_scale": 50,
-                            "stereo_depth": 100
-                        }
                     }
                 }
             ]
