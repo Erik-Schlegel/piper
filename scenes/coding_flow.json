@@ -1,87 +1,85 @@
 {
-    "track_sets": [
-        {
-            "ignore": false,
-            "name": "effects",
-            "play_mode": "simultaneous",
-            "loop": true,
-            "shuffle": false,
-            "intermission": -0.25,
-            "audio_options": {
-                "volume": 0.5
-            },
-            "tracks": [
+	"track_sets": [
+		{
+			"ignore": false,
+			"name": "effects",
+			"play_mode": "simultaneous",
+			"loop": true,
+			"shuffle": false,
+			"intermission": -0.25,
+			"audio_options": {
+				"volume": 0.5
+			},
+			"tracks": [
 				{
-					"path": "resources/effects/inside_rain_muted.mp3",
+					"path": "resources/effects/black_rain.mp3",
 					"audio_options": {
-						"volume": 0.3
+						"volume": 0.035
 					}
 				},
 				{
-					"path": "resources/effects/inside_rain.mp3",
+					"path": "resources/effects/orange_white_noise.mp3",
 					"audio_options": {
-						"volume": 0.065,
-						"equalizers": [
-		                    {
-		                        "name": "high-shelf",
-		                        "frequency": 1962.2,
-		                        "db": -3,
-		                        "slope": 0.572
-		                    }
-		                ]
+						"volume": 0.05
+					}
+				},
+				{
+					"path": "resources/effects/winter_fuzz.mp3",
+					"audio_options": {
+						"volume": 0.75
 					}
 				}
-            ]
-        },
-        {
-            "ignore": false,
-            "name": "coding_flow_music",
-            "play_mode": "sequential",
-            "loop": true,
-            "shuffle": true,
-            "intermission": [3, 15],
-            "audio_options": {
-                "volume": 0.04,
-                "reverb": {
-                    "mix": 0.8,
-                    "reverberance": 90,
-                    "room_scale": 100,
-                    "stereo_depth": 100,
-                    "pre_delay": 10,
-                    "hf_damping": 0,
-                    "wet_gain": 1
-                },
-                "equalizers": [
-                    {
-                        "name": "high-shelf",
-                        "frequency": 1962.2,
-                        "db": -2,
-                        "slope": 0.572
-                    },
-                    {
-                        "name": "low-pass",
-                        "frequency": 82.7,
-                        "db": -5.5,
-                        "slope": 0.5
-                    }
-                ]
-            },
-            "tracks": [
-                "resources/songs/chillstep/flow_state",
-                "resources/songs/chillstep/4am_coding",
-                "resources/songs/chillstep/sharp_mind",
-                "resources/songs/chillstep/3am_coding",
-                "resources/songs/chillstep/coding_alone",
-                "resources/songs/chillstep/coding_session",
-                "resources/songs/chillstep/coding_all_night",
-                "resources/songs/chillstep/monday_motivation",
-                "resources/songs/chillstep/late_night_coding",
-                "resources/songs/chillstep/1am_coding_session",
-                "resources/songs/chillstep/stop_procrastinating",
-                "resources/songs/chillstep/alone_at_the_office",
-                "resources/songs/chillstep/midnight_coding_session",
+			]
+		},
+		{
+			"ignore": false,
+			"name": "coding_flow_music",
+			"play_mode": "sequential",
+			"loop": true,
+			"shuffle": true,
+			"intermission": [3, 15],
+			"audio_options": {
+				"volume": 0.03,
+				"reverb": {
+					"mix": 0.8,
+					"reverberance": 90,
+					"room_scale": 100,
+					"stereo_depth": 100,
+					"pre_delay": 10,
+					"hf_damping": 0,
+					"wet_gain": 1
+				},
+				"equalizers": [
+					{
+						"name": "high-shelf",
+						"frequency": 1962.2,
+						"db": -2,
+						"slope": 0.572
+					},
+					{
+						"name": "low-pass",
+						"frequency": 82.7,
+						"db": -5.5,
+						"slope": 0.5
+					}
+				]
+			},
+			"tracks": [
+				"resources/songs/chillstep/flow_state",
+				"resources/songs/chillstep/4am_coding",
+				"resources/songs/chillstep/sharp_mind",
+				"resources/songs/chillstep/3am_coding",
+				"resources/songs/chillstep/coding_alone",
+				"resources/songs/chillstep/coding_session",
+				"resources/songs/chillstep/coding_all_night",
+				"resources/songs/chillstep/monday_motivation",
+				"resources/songs/chillstep/late_night_coding",
+				"resources/songs/chillstep/1am_coding_session",
+				"resources/songs/chillstep/stop_procrastinating",
+				"resources/songs/chillstep/alone_at_the_office",
+				"resources/songs/chillstep/midnight_coding_session",
 				"resources/songs/chillstep/getting_it_done"
-            ]
-        }
-    ]
+			]
+		}
+	]
 }
