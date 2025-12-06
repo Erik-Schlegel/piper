@@ -25,7 +25,7 @@
 				{
 					"path": "resources/effects/wind.wav",
 					"audio_options": {
-						"volume": 0.03,
+						"volume": 0.015,
 						"reverb": {
 							"mix": 0.8,
 							"reverberance": 85,
@@ -38,7 +38,7 @@
                 {
 					"path": "resources/effects/fireplace_crackles.mp3",
                     "audio_options": {
-						"volume": 0.1,
+						"volume": 0.08,
                         "reverb": {
 							"mix": 0.6,
                             "reverberance": 60,
@@ -58,7 +58,7 @@
                 {
                     "path": "resources/effects/fireplace_rumbles.wav",
                     "audio_options": {
-                        "volume": 0.1,
+                        "volume": 0.125,
                         "reverb": {
                             "reverberance": 50,
                             "hf_damping": 0,
@@ -70,7 +70,7 @@
                 {
                     "path": "resources/effects/clock.wav",
                     "audio_options": {
-                        "volume": 0.00011,
+                        "volume": 0.025,
                         "reverb": {
                             "mix": 0.000009,
                             "reverberance": 95,
@@ -127,7 +127,7 @@
                 {
                     "path": "resources/effects/hoot1.mp3",
                     "audio_options": {
-                        "volume": 0.4,
+                        "volume": 0.15,
                         "reverb": {
                             "mix": 0.25
                         }
@@ -136,7 +136,7 @@
                 {
                     "path": "resources/effects/hoot2.mp3",
                     "audio_options": {
-                        "volume": 0.55,
+                        "volume": 0.2,
                         "reverb": {
                             "mix": 0.55
                         }
@@ -145,7 +145,7 @@
                 {
                     "path": "resources/effects/tires1.mp3",
                     "audio_options": {
-                        "volume": 0.65,
+                        "volume": 0.12,
                         "reverb": {
                             "mix": 0
                         }
@@ -154,7 +154,7 @@
                 {
                     "path": "resources/effects/tires2.mp3",
                     "audio_options": {
-                        "volume": 0.45,
+                        "volume": 0.2,
                         "reverb": {
                             "mix": 0
                         }
@@ -163,7 +163,7 @@
                 {
                     "path": "resources/effects/tires3.mp3",
                     "audio_options": {
-                        "volume": 0.35,
+                        "volume": 0.125,
                         "reverb": {
                             "mix": 0
                         }
@@ -172,7 +172,7 @@
                 {
                     "path": "resources/effects/tires4.mp3",
                     "audio_options": {
-                        "volume": 0.4,
+                        "volume": 0.125,
                         "reverb": {
                             "mix": 0.2
                         }
@@ -181,7 +181,7 @@
                 {
                     "path": "resources/effects/tires5.mp3",
                     "audio_options": {
-                        "volume": 0.25,
+                        "volume": 0.1,
                         "reverb": {
                             "mix": 0.2
                         }
@@ -190,7 +190,7 @@
                 {
                     "path": "resources/effects/tires6.mp3",
                     "audio_options": {
-                        "volume": 0.2,
+                        "volume": 0.1,
                         "reverb": {
                             "mix": 0
                         }
@@ -199,7 +199,7 @@
                 {
                     "path": "resources/effects/tires7.mp3",
                     "audio_options": {
-                        "volume": 0.9,
+                        "volume": 0.4,
                         "reverb": {
                             "mix": 0.4
                         }
@@ -208,7 +208,7 @@
                 {
                     "path": "resources/effects/tires8.mp3",
                     "audio_options": {
-                        "volume": 0.3,
+                        "volume": 0.1,
                         "reverb": {
                             "mix": 0.1
                         }
@@ -217,7 +217,7 @@
                 {
                     "path": "resources/effects/train1.mp3",
                     "audio_options": {
-                        "volume": 0.8,
+                        "volume": 0.2,
                         "reverb": {
                             "mix": 0
                         },
@@ -240,7 +240,7 @@
                 {
                     "path": "resources/effects/train2.mp3",
                     "audio_options": {
-                        "volume": 0.4,
+                        "volume": 0.2,
                         "reverb": {
                             "mix": 0
                         },
@@ -268,9 +268,9 @@
             "play_mode": "sequential",
             "loop": true,
             "shuffle": true,
-            "intermission": 2,
+            "intermission": [5,1800],
             "audio_options": {
-                "volume": 0.3,
+                "volume": 0.125,
                 "reverb": {
                     "mix": 0.6,
                     "reverberance": 90,
@@ -327,7 +327,6 @@
                 {
                     "path": "resources/songs/christmas/CaroloftheBells.mp3",
                     "audio_options": {
-                        "volume": 0.3,
                         "reverb": {
                             "mix": 0.9
                         }
@@ -336,6 +335,7 @@
                 {
                     "path": "resources/songs/christmas/GodRestYeMerryGentlemen.mp3",
                     "audio_options": {
+						"volume": 0.1,
                         "reverb": {
                             "mix": 0.7
                         }
@@ -381,7 +381,7 @@
                 {
                     "path": "resources/songs/christmas/ItCameUponaMidnightClear.mp3",
                     "audio_options": {
-                        "volume": 0.18
+                        "volume": 0.07
                     }
                 },
                 {
@@ -406,13 +406,11 @@
                     }
                 },
                 {
-                    "path": "resources/songs/christmas/JingleBells.mp3",
-                    "audio_options": {}
+                    "path": "resources/songs/christmas/JingleBells.mp3"
                 },
                 {
                     "path": "resources/songs/christmas/LetItSnow.mp3",
                     "audio_options": {
-                        "volume": 0.33,
                         "reverb": {
                             "mix": 0.95,
                             "room_scale": 60
@@ -422,7 +420,6 @@
                 {
                     "path": "resources/songs/christmas/March.mp3",
                     "audio_options": {
-                        "volume": 0.65,
                         "reverb": {
                             "room_scale": 60
                         }
@@ -431,7 +428,6 @@
                 {
                     "path": "resources/songs/christmas/OComeAllYeFaithful.mp3",
                     "audio_options": {
-                        "volume": 0.45,
                         "reverb": {
                             "mix": 0.9,
                             "reverberance": 80,
@@ -442,7 +438,6 @@
                 {
                     "path": "resources/songs/christmas/OHolyNight.mp3",
                     "audio_options": {
-                        "volume": 0.3,
                         "reverb": {
                             "mix": 0.9,
                             "room_scale": 48
@@ -452,7 +447,7 @@
                 {
                     "path": "resources/songs/christmas/OLittleTownOfBethlehem.mp3",
                     "audio_options": {
-                        "volume": 0.185,
+						"volume": 0.0625,
                         "reverb": {
                             "mix": 0.95,
                             "room_scale": 60
@@ -466,7 +461,6 @@
                 {
                     "path": "resources/songs/christmas/RudolphTheRedNosedReindeer.mp3",
                     "audio_options": {
-                        "volume": 0.3,
                         "reverb": {
                             "mix": 0.8,
                             "reverberance": 80,
@@ -477,13 +471,12 @@
                 {
                     "path": "resources/songs/christmas/SilentNight.mp3",
                     "audio_options": {
-                        "volume": 0.42
                     }
                 },
                 {
                     "path": "resources/songs/christmas/SugarPlumFairy.mp3",
                     "audio_options": {
-                        "volume": 0.9,
+                        "volume": 0.4,
                         "reverb": {
                             "mix": 0.9,
                             "reverberance": 70,
@@ -502,13 +495,13 @@
                 {
                     "path": "resources/songs/christmas/TheChristmasSong.mp3",
                     "audio_options": {
-                        "volume": 0.4
+                        "volume": 0.2
                     }
                 },
                 {
                     "path": "resources/songs/christmas/TheFirstNoel.mp3",
                     "audio_options": {
-                        "volume": 0.5,
+                        "volume": 0.25,
                         "reverb": {
                             "mix": 0.8,
                             "reverberance": 90,
@@ -520,7 +513,6 @@
                 {
                     "path": "resources/songs/christmas/TheLittleDrummerBoy.mp3",
                     "audio_options": {
-                        "volume": 0.28,
                         "reverb": {
                             "mix": 0.85,
                             "room_scale": 95
@@ -530,7 +522,7 @@
                 {
                     "path": "resources/songs/christmas/WaltzOfTheFlowers.mp3",
                     "audio_options": {
-                        "volume": 1,
+                        "volume": 0.3,
                         "reverb": {
                             "mix": 0.8,
                             "room_scale": 60
@@ -540,7 +532,7 @@
                 {
                     "path": "resources/songs/christmas/WhatChildIsThis.mp3",
                     "audio_options": {
-                        "volume": 0.42,
+                        "volume": 0.21,
                         "reverb": {
                             "mix": 0.8,
                             "reverberance": 95,

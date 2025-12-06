@@ -12,19 +12,7 @@
 			},
 			"tracks": [
 				{
-					"path": "resources/effects/black_rain.mp3",
-					"audio_options": {
-						"volume": 0.035
-					}
-				},
-				{
-					"path": "resources/effects/orange_white_noise.mp3",
-					"audio_options": {
-						"volume": 0.05
-					}
-				},
-				{
-					"path": "resources/effects/winter_fuzz.mp3",
+					"path": "resources/effects/inside_rain_muted.mp3",
 					"audio_options": {
 						"volume": 0.75
 					}
